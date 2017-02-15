@@ -1,0 +1,54 @@
+<html>
+<head>
+    <title>EasEval</title>
+    <meta charset="utf-8"/>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,100,700,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="send.js"></script>
+</head>
+
+<body>
+    
+    <header>
+      <h1 class="page-title"> <b>EasEval Evaluation System </b></h1>
+      <p class="page-description"> Please fill in the form below </p>
+    </header>
+    
+     <img class = "imgg" src="Artboard%201header.png" alt="picture" style="width:330px;height:440px;">
+    
+    <div class="forms">
+        
+        <div class = "radios">
+         <form> <div class = "question"> <p><b> Hvor godt likte du øvingen? </b> </p> </div>
+        <input type="radio" name="opinion" value="bra"> Bra <br>
+  <input type="radio" name="opinion" value="middels"> Middels <br>
+  <input type="radio" name="opinion" value="dårlig"> Dårlig
+        </form>
+            
+            </div>
+        
+         <div class = "message">
+        <form action="message-page" method="post">
+        <textarea id="msg" name="user_message"> Skriv en valgfri melding</textarea>
+        
+</form>      
+             </div>
+        
+  <button class="button" onclick="send()" type="button" "id=myButton" value="send"> Send Skjema</button>
+    
+    
+    </div>
+
+    <div class = "footer">
+      <nav>
+      <ul>
+        <li><a href="#"><b>Evaluation</b></a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+      <div class="contact-btn"><a> <b>Contact </b> </a>
+      </div>
+    </nav>
+    </div>
+  </body>
+</html>
