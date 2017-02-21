@@ -3,109 +3,128 @@
     border:0;
     font-family: 'Lato', sans-serif;
     color:#CFD1CD;
+/*     border: 2px solid rgba(256, 0, 0, 0.3);*/
+    box-sizing: border-box; /* change default box behavior */
 }
 
 body{
     height: 100vh;
+    width: 100vw; /** why not *//
     background-color: #CFD1CD;
 }
 
 #top{
-    height:20vh;
+    height:15vh; /** 15 % relative to view height **/
     background-color: #372F49;
 }
 
 #top img{
-    height: 95%;
+    height: 95%; /** 15 % relative to its box **/
     display:block;
     margin-left:auto;
     margin-right: auto;
-    padding:0.25%
+    padding:0.25%;
 }
 
 .sporsmal{
-    height:50vh;
-    width: 80%;
-    margin:auto;
+    height: 30vh;
+    width: 60%;
+    margin: auto;
+    margin-bottom: 5%;
 }
+
 .sporsmal p{
     color: #627898;
     font-size: 6vh;
     text-align: center;
-    padding-top: 20vh;
+    padding-top: 5%;
 }
 
-.tilbake{
-    height:70vh;
+#tilbake{
+    height:77vh;
     width:10%;
     background-color: #000000;
-    float:left;
+    position: fixed;
+    left: 0;
+    cursor: pointer;
+/*    Alltid ligge øverst, gi stor z-index*/
+    z-index: 1000;
 }
 
 #fram{
-    height:70vh;
+    height:77vh;
     width:10%;
     background-color: #000000;
-    float: left;
+    position: fixed;
+    right: 0;
     cursor: pointer;
+    z-index: 1000;
+}
+
+#fram:hover, #tilbake:hover {
+    background-color: dimgrey;
 }
 
 #eq{
-    height:70vh;
-    width: 80%;
+    height:80vh;
+    width: 100vw;
     margin: auto;
-    float: left;
+    position: absolute;
 }
 
-#knapp1{
+#slider{
+    background-color: #CFD1CD;
+    width: 30%;
+    margin:auto;
+/*    border: 2px solid rgba(0, 256, 0, 1)*/
+}
+
+/*#knapp1{
     height:100px;
     width:200px;
     background-color: chartreuse;
     cursor: pointer;
-}
+}*/
 
 #eq2{
-    height:70vh;
-    width: 80%;
+    height:80vh;
+    width: 100vw;
     display: none;
-    float: left;
+    position: absolute;
 }
 
 #eq2 > span {
     height:50%;
     float:left;
-    margin:0.5em;
+    position: relative;
+/* Relativ til its default posisjon.. 
+    Vanskelig, finner ingen annen løsning 
+    dårlig med zoom */
+    left: 40vw;
+    bottom: 15vh;
+    margin:1em;
     background-color: #CFD1CD;
+/*    border: 2px solid rgba(0, 0, 256, 1)*/
 }
 
-#slider{
-    background-color: #CFD1CD;
-    width: 50%;
-    margin:auto;
-}
-
-#slider{
-    background-color: #CFD1CD;
-    width: 50%;
-    margin:auto;
-}
 
 #bottom{
-    height:10vh;
+    height:8vh;
     width: 100%;
     background-color: #664B6A;
-    float: left;
+/*    Always stay in the bottom of page*/
+    position: fixed; 
+    bottom: 0;
 }
 
-#bottom_info{
-    height:10vh;
+#bottom_bars{
     width:80%;
     margin:auto;
 }
 
 .bottom_button{
     display:inline-block;
-    height: 8vh;
+    height: 6vh;
     width: 20%;
     margin:0.5%;
     border: 1px solid #CFD1CD;
@@ -117,9 +136,14 @@ body{
     line-height: 200%;
     text-align: center;
     color: #CFD1CD;
+    font-size: 1vw;
 }
 
 .bottom_button:hover{
     opacity: 1;
     background-color: rgba(255, 255, 255, 0.5);
+}
+
+#contact{
+    border: 2px solid rgba(0, 0, 256, 1)
 }

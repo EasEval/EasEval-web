@@ -33,7 +33,15 @@
     <img src="easeval.png">
 </div>
 
-<div class="tilbake"></div>
+<p id="tilbake"></p>
+<script>
+    document.getElementById("tilbake").onclick = function() {tilbake()};
+
+    function tilbake() {
+        document.getElementById("eq").style.display = "block";
+        document.getElementById("eq2").style.display = "none";
+    }
+</script>
 
 <div id="eq">
     <div class="sporsmal">
@@ -45,9 +53,10 @@
 
 <p id="fram"></p>
 <script>
-    document.getElementById("fram").onclick = function() {myFunction()};
+    document.getElementById("fram").onclick =
+    function() {fram()};
 
-    function myFunction() {
+    function fram() {
         document.getElementById("eq").style.display = "none";
         document.getElementById("eq2").style.display = "block";
     }
@@ -56,7 +65,7 @@
 
 <div id="eq2">
     <div class="sporsmal">
-        <p>Hvordan vil du veie ressursbruken av de ulike ressursene opp mot hverandre?</p>
+        <p>Hvordan vil du veie tidsforbruken av de ulike ressursene opp mot hverandre?</p>
     </div>
     <span>50</span>
     <span>50</span>
@@ -67,9 +76,9 @@
 
 
 <div id="bottom">
-    <div id="bottom_info">
+    <div id="bottom_bars">
         <div class="bottom_button">
-            <h3>Evaluation</h3>
+            <h3> Evaluation</h3>
         </div>
         <div class="bottom_button">
             <h3>About</h3>
