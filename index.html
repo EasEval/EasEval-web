@@ -8,40 +8,19 @@
     <link rel="stylesheet" href="stilark.css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+     <script type="text/javascript" src="script.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
-        $( function() {
-            // setup graphic EQ
-            $( "#eq2 > span" ).each(function() {
-                // read initial values from markup and remove that
-                var value = parseInt( $( this ).text(), 10 );
-                $( this ).empty().slider({
-                    value: value,
-                    range: "min",
-                    animate: true,
-                    orientation: "vertical"
-                });
-            });
-        } );
-        $( function() {
-            $( "#slider" ).slider();
-        } );
+        setup_graphic()
     </script>
 </head>
 <body>
+    
 <div id="top">
     <img src="easeval.png">
 </div>
 
 <p id="tilbake"></p>
-<script>
-    document.getElementById("tilbake").onclick = function() {tilbake()};
-
-    function tilbake() {
-        document.getElementById("eq").style.display = "block";
-        document.getElementById("eq2").style.display = "none";
-    }
-</script>
 
 <div id="eq">
     <div class="sporsmal">
@@ -52,16 +31,7 @@
 </div>
 
 <p id="fram"></p>
-<script>
-    document.getElementById("fram").onclick =
-    function() {fram()};
-
-    function fram() {
-        document.getElementById("eq").style.display = "none";
-        document.getElementById("eq2").style.display = "block";
-    }
-</script>
-
+    
 
 <div id="eq2">
     <div class="sporsmal">
