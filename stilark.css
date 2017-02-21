@@ -1,6 +1,5 @@
 *{
     margin:0;
-    border:0;
     font-family: 'Lato', sans-serif;
     color:#CFD1CD;
 /*     border: 2px solid rgba(256, 0, 0, 0.3);*/
@@ -104,7 +103,10 @@ body{
     bottom: 15vh;
     margin:1em;
     background-color: #CFD1CD;
-/*    border: 2px solid rgba(0, 0, 256, 1)*/
+}
+
+#s1 {
+    /* border: 1px solid rgba(0, 0, 256, 1) */
 }
 
 
@@ -125,18 +127,22 @@ body{
 .bottom_button{
     display:inline-block;
     height: 6vh;
-    width: 20%;
-    margin:0.5%;
+    width: 15%;
+    margin: 0.5%;
     border: 1px solid #CFD1CD;
     cursor: pointer;
     opacity: 0.8;
-}
-
-.bottom_button h3{
     line-height: 200%;
     text-align: center;
     color: #CFD1CD;
     font-size: 1vw;
+}
+
+
+#contact {
+    background-color: #372F49;
+    position: fixed;
+    right: 10%;
 }
 
 .bottom_button:hover{
