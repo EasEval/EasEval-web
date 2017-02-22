@@ -1,31 +1,26 @@
-
 function setup_graphics() {
-     $( function() {
-            // setup graphic for EQ
-            $( "#question3 > span" ).each(function() {
-                var value = 50;
-                $(this).empty().slider({
-                    value: value,
-                    range: "min",
-                    animate: true,
-                    orientation: "vertical"
-                });
-            });
-        } );
-        $( function() {
-            $("#slider_rangering" ).slider({value:50});
-            $('#slider_tidsbruk').slider({value:50});
-        } );
-    
     $( function() {
-      $("#question2").hide();
+        // setup graphic for EQ
+        $("#question3 > span").each(function() {
+            var value = 50;
+            $(this).empty().slider({
+                value: value,
+                range: "min",
+                animate: true,
+                orientation: "vertical"
+            });
+        });
+        $("#slider_rangering" ).slider({value:50});
+        $('#slider_tidsbruk').slider({value:50});
+        $("#question2").hide();
         $("#question3").hide();
-      } );
+        });
 };
 
 var sidetall = 1; // hvilket spørsmål brukeren er på i evalueringen
 
-$(document).ready(function() {;
+$(document).ready(function() {
+    
     $('#fram').click(function(event) {
       //event.preventDefault(); // no need for this here
         spmFrem();
@@ -47,14 +42,18 @@ $(document).ready(function() {;
           };
     });
                                                      
-    $('#contact').click(function(event) { // midlertidig
+    $('#send').click(function(event) { 
         document.write(getUserValues());
     });
 });
 
 
 function spmFrem(){
-    if (sidetall < 3) {
+    if (sidetall === 3) {
+        $("#send").effect('slide', '');
+        return;
+    }
+    else if (sidetall < 3) {
             sidetall++;
             $('#sideteller').empty().append('<p> Spørsmål ' + sidetall + ' av 3 </p>');
         }
@@ -72,7 +71,12 @@ function spmFrem(){
 }
 
 function spmTilbake(){
-    if (sidetall > 1) {
+    if (sidetall === 1) {
+        $("#sideteller").effect('bounce', {times:2}, 200);
+        return;
+    }
+    
+    else if (sidetall > 1) {
             sidetall--;
              $('#sideteller').empty().append('<p> Spørsmål ' + sidetall + ' av 3 </p>');
         }
@@ -90,6 +94,7 @@ function spmTilbake(){
 }
 
 function getUserValues(){
+    // these should be renamed
     var q1 = $('#slider_rangering').slider("option", "value");
     var q2 = $('#slider_tidsbruk').slider("option", "value");
     var s1 = $('#s1').slider("option", "value");
@@ -97,5 +102,5 @@ function getUserValues(){
     var s3 = $('#s3').slider("option", "value");
     var s4 = $('#s4').slider("option", "value");
     var s5 = $('#s5').slider("option", "value");
-    return [q1, [s1,s2,s3,s4,s5]]; 
+    return [q1, q2, [s1,s2,s3,s4,s5]]; 
 }

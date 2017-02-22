@@ -96,7 +96,7 @@ body{
     font-size: 3vh;
 }
 
-#question1{
+#question1, #question2, #question3{
     height: 90%;
 /*    border: 2px solid rgb(0, 0, 256);*/
 }
@@ -108,10 +108,6 @@ body{
 /*    border: 2px solid rgba(0, 256, 0, 1)*/
 }
 
-#question2{
-    height: 90%;
-/*    border: 2px solid rgb(0, 0, 256);*/
-}
 
 #question3 > span {
     height:50%;
@@ -126,10 +122,6 @@ body{
     background-color: #CFD1CD;
 }
 
-#question3 {
-    height: 90%;
-/*    border: 2px solid rgb(0, 0, 256);*/
-}
 
 #s1 {
     /* border: 1px solid rgba(0, 0, 256, 1) */
@@ -164,14 +156,20 @@ body{
 }
 
 
-#contact {
+#send {
     background-color: #372F49;
     position: fixed;
     right: 10%;
 }
 
+#send p{
+    color: chartreuse;
+    font-size: 3vh;
+}
+
 .bottom_button:hover{
     opacity: 1;
     background-color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
 }
 
