@@ -34,19 +34,31 @@ body{
     cursor: pointer;
 /*    Alltid ligge øverst, gi stor z-index*/
     z-index: 9;
+    border: 2px solid rgba(256, 0, 0, 1);*/
 }
 
 #tilbake{
     left: 0;
+    color: azure;
+    font-size: 15vh;
+    padding-top: 10%;
+    padding-left: 2.5%;
 }
+
 
 #fram{
     right: 0;
+    color: azure;
+    font-size: 15vh;
+    padding-top: 10%;
+    padding-left: 2.5%;
 }
 
 #fram:hover, #tilbake:hover {
 /*    Kode Kan legges i jQuery for dette*/
     background-color: dimgrey;
+    color: cornflowerblue;
+    font-weight: bolder;
 }
 
 #content{
