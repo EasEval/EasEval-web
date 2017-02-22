@@ -22,20 +22,28 @@ function setup_graphic() {
       } );
 };
 
+var sidetall = 1; // hvilket spørsmål bruker er på i evalueringen
 
 $(document).ready(function() {;
     $('#fram').click(function(event) {
-      //event.preventDefault(); // no need for this
-        
+      //event.preventDefault(); // no need for this here
+        if (sidetall < 3) {
+            sidetall++;
+        }
       $('#question1').hide("fast");
         $('#question2').show("fast");
         // null som parameter for å fjerne animasjon
+        $('#sideteller').empty().append('<p> Spørsmål ' + sidetall + ' av 3 </p>');
         
     });
                               
     $('#tilbake').click(function(event) {
+        if (sidetall > 1){
+            sidetall--;   
+        }
       $('#question2').hide("fast");
         $('#question1').show("fast");
+        $('#sideteller').empty().append('<p> Spørsmål ' + sidetall + ' av 3 </p>');
     });
                               
     $('#contact').click(function(event) {
