@@ -20,15 +20,33 @@ window.testFunksjon = function() {
     document.getElementById("minCounter").innerHTML="Du har klikket ".concat(i, " ganger");
     i++;
 };
-window.testQuery = function () {
-    var Fag = Parse.Object.extend("Subjects");
-    var query = new Parse.Query(Fag);
-    //query.equalTo("ID", "0");
+window.submitRecord = function (username, subjectID, name, record) {
+    var exercise = Parse.Object.extend("Exercises");
+
+    //Registrerer ny record med username, subjectID, name (exercise#), record
+
+    var evaluation = new exercise();
+    evaluation.set("username", username);
+    evaluation.set("subjectID", subjectID);
+    evaluation.set("NAME", name);
+    evaluation.set("rating", record[0]);
+    evaluation.set("time", record[1]);
+    evaluation.set("lectureAmount", record[2][0]);
+    evaluation.set("curriculumAmount", record[2][1]);
+    evaluation.set("googleAmount", record[2][2]);
+    evaluation.set("solutionsAmount", record[2][3]);
+    evaluation.save();
+
+    // Spør etter alle keys kalt item og sletter disse
+
+/*    var query = new Parse.Query(Fag);
+    query.equalTo("ID", "Testfag");
     query.find({
         success: function(users) {
             for (var i = 0; i < users.length; ++i) {
-                console.log(users[i].get('ID'));
+                console.log(users[i].get('ID') + ", indeks: " + i + ". Sletter denne!");
+                users[i].destroy();
             }
         }
-    });
+    });*/
 };
