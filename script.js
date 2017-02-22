@@ -1,11 +1,10 @@
 
-function setup_graphic() {
+function setup_graphics() {
      $( function() {
             // setup graphic for EQ
             $( "#question2 > span" ).each(function() {
-                // read initial values from markup and remove that
-                var value = parseInt( $( this ).text(), 10 );
-                $( this ).empty().slider({
+                var value = 50;
+                $(this).empty().slider({
                     value: value,
                     range: "min",
                     animate: true,
@@ -14,7 +13,7 @@ function setup_graphic() {
             });
         } );
         $( function() {
-            $( "#slider" ).slider();
+            $( "#slider" ).slider({value:50});
         } );
     
     $( function() {
@@ -22,52 +21,62 @@ function setup_graphic() {
       } );
 };
 
-var sidetall = 1; // hvilket spørsmål bruker er på i evalueringen
+var sidetall = 1; // hvilket spørsmål brukeren er på i evalueringen
 
 $(document).ready(function() {;
     $('#fram').click(function(event) {
       //event.preventDefault(); // no need for this here
-        if (sidetall < 3) {
+        spmFrem();
+    });
+                              
+    $('#tilbake').click(function(event) {
+        spmTilbake();
+    });
+       
+    // lytter på tastatur med sexy syntax                        
+    $(document).on("keydown", function(event) {
+        switch(event.keyCode) {
+            case $.ui.keyCode.LEFT:
+                spmTilbake();
+                break;
+            case $.ui.keyCode.RIGHT:
+                spmFrem();
+                break;
+          };
+    });
+                                                     
+    $('#contact').click(function(event) { // midlertidig
+        document.write(getUserValues());
+    });
+});
+
+
+function spmFrem(){
+    if (sidetall < 3) {
             sidetall++;
         }
       $('#question1').hide("fast");
         $('#question2').show("fast");
         // null som parameter for å fjerne animasjon
         $('#sideteller').empty().append('<p> Spørsmål ' + sidetall + ' av 3 </p>');
-        
-    });
-                              
-    $('#tilbake').click(function(event) {
-        if (sidetall > 1){
-            sidetall--;   
+}
+
+function spmTilbake(){
+    if (sidetall > 1) {
+            sidetall--;
         }
       $('#question2').hide("fast");
         $('#question1').show("fast");
+        // null som parameter for å fjerne animasjon
         $('#sideteller').empty().append('<p> Spørsmål ' + sidetall + ' av 3 </p>');
-    });
-                              
-    $('#contact').click(function(event) {
-        var q1 = $('#slider').slider("option", "value");
-        var s1 = $('#s1').slider("option", "value");
-        var s2 = $('#s2').slider("option", "value");
-        var s3 = $('#s3').slider("option", "value");
-        var s4 = $('#s4').slider("option", "value");
-        var s5 = $('#s5').slider("option", "value");
-            
-        document.write(q1 +" " + s1 + " " + s2
-                    + " " +s3 + " "+ s4 + " " + s5);
-    });
-});
+}
 
-
-/* Lese verdier, tanke:
-    if ($('eq2')is(":visible")) {
-        var q1 = $('#slider').slider("option", "value");
-        var s1 = $('#s1').slider("option", "value");
-        var s2 = $('#s2').slider("option", "value");
-        var s3 = $('#s3').slider("option", "value");
-        var s4 = $('#s4').slider("option", "value");
-        var s5 = $('#s5').slider("option", "value");
-            
-        document.write(q1, s1, s2, s3, s4, s5);*/
-
+function getUserValues(){
+    var q1 = $('#slider').slider("option", "value");
+    var s1 = $('#s1').slider("option", "value");
+    var s2 = $('#s2').slider("option", "value");
+    var s3 = $('#s3').slider("option", "value");
+    var s4 = $('#s4').slider("option", "value");
+    var s5 = $('#s5').slider("option", "value");
+    return [q1, [s1,s2,s3,s4,s5]]; 
+}
