@@ -25,7 +25,7 @@ function setup_graphic() {
 
 $(document).ready(function() {;
     $('#fram').click(function(event) {
-      event.preventDefault();
+      //event.preventDefault(); // no need for this
         
       $('#eq').hide("fast");
         $('#eq2').show("fast");
@@ -34,7 +34,6 @@ $(document).ready(function() {;
     });
                               
     $('#tilbake').click(function(event) {
-      event.preventDefault();
       $('#eq2').hide("fast");
         $('#eq').show("fast");
     });
@@ -48,7 +47,7 @@ $(document).ready(function() {;
         var s5 = $('#s5').slider("option", "value");
             
         document.write(q1 +" " + s1 + " " + s2
-                       + " " +s3 + " "+ s4 + " " + s5);
+                    + " " +s3 + " "+ s4 + " " + s5);
     });
 });
 
