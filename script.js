@@ -1,8 +1,8 @@
 
 function setup_graphic() {
      $( function() {
-            // setup graphic EQ
-            $( "#eq2 > span" ).each(function() {
+            // setup graphic for EQ
+            $( "#question2 > span" ).each(function() {
                 // read initial values from markup and remove that
                 var value = parseInt( $( this ).text(), 10 );
                 $( this ).empty().slider({
@@ -18,7 +18,7 @@ function setup_graphic() {
         } );
     
     $( function() {
-      $("#eq2").hide();
+      $("#question2").hide();
       } );
 };
 
@@ -27,15 +27,15 @@ $(document).ready(function() {;
     $('#fram').click(function(event) {
       //event.preventDefault(); // no need for this
         
-      $('#eq').hide("fast");
-        $('#eq2').show("fast");
+      $('#question1').hide("fast");
+        $('#question2').show("fast");
         // null som parameter for å fjerne animasjon
         
     });
                               
     $('#tilbake').click(function(event) {
-      $('#eq2').hide("fast");
-        $('#eq').show("fast");
+      $('#question2').hide("fast");
+        $('#question1').show("fast");
     });
                               
     $('#contact').click(function(event) {
