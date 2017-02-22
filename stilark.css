@@ -65,8 +65,7 @@ body{
     height:77vh;
     width: 80%;
     margin-left: 10%;
-    border: 2px solid rgb(0, 256, 0);
-    z-index: 10;
+/*    border: 2px solid rgb(0, 256, 0);*/
 }
 
 .sporsmal{
@@ -84,19 +83,22 @@ body{
 }
 
 #sideteller {
-    width: 15%;
+    width: 20%;
     margin: auto;
-    border: 2px solid rgb(0, 0, 0);
+    margin-top: 2%;
+    padding-bottom: 1%;
+    border-bottom: 2px solid rgb(0, 0, 0);
 }
 
 #sideteller p{
     color: crimson;
     text-align: center;
+    font-size: 3vh;
 }
 
 #question1{
     height: 90%;
-    border: 2px solid rgb(0, 0, 256);
+/*    border: 2px solid rgb(0, 0, 256);*/
 }
 
 #slider_rangering, #slider_tidsbruk{
@@ -108,10 +110,10 @@ body{
 
 #question2{
     height: 90%;
-    border: 2px solid rgb(0, 0, 256);
+/*    border: 2px solid rgb(0, 0, 256);*/
 }
 
-#question2 > span {
+#question3 > span {
     height:50%;
     float:left;
     position: relative;
@@ -125,7 +127,8 @@ body{
 }
 
 #question3 {
-    
+    height: 90%;
+/*    border: 2px solid rgb(0, 0, 256);*/
 }
 
 #s1 {

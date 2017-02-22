@@ -2,7 +2,7 @@
 function setup_graphics() {
      $( function() {
             // setup graphic for EQ
-            $( "#question2 > span" ).each(function() {
+            $( "#question3 > span" ).each(function() {
                 var value = 50;
                 $(this).empty().slider({
                     value: value,
@@ -91,6 +91,7 @@ function spmTilbake(){
 
 function getUserValues(){
     var q1 = $('#slider_rangering').slider("option", "value");
+    var q2 = $('#slider_tidsbruk').slider("option", "value");
     var s1 = $('#s1').slider("option", "value");
     var s2 = $('#s2').slider("option", "value");
     var s3 = $('#s3').slider("option", "value");
