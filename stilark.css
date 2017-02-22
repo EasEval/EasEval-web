@@ -34,7 +34,6 @@ body{
     cursor: pointer;
 /*    Alltid ligge øverst, gi stor z-index*/
     z-index: 9;
-    border: 2px solid rgba(256, 0, 0, 1);*/
 }
 
 #tilbake{
@@ -55,9 +54,9 @@ body{
 }
 
 #fram:hover, #tilbake:hover {
-/*    Kode Kan legges i jQuery for dette*/
+/*    Kode kan eventuelt legges i jQuery for dette*/
     background-color: dimgrey;
-    color: cornflowerblue;
+    color: darkslateblue;
     font-weight: bolder;
 }
 
@@ -100,7 +99,7 @@ body{
     border: 2px solid rgb(0, 0, 256);
 }
 
-#slider{
+#slider_rangering, #slider_tidsbruk{
     background-color: #CFD1CD;
     width: 30%;
     margin:auto;
@@ -123,6 +122,10 @@ body{
     bottom: 18vh;
     margin:2em;
     background-color: #CFD1CD;
+}
+
+#question3 {
+    
 }
 
 #s1 {
