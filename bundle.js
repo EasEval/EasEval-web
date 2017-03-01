@@ -7,6 +7,13 @@ window.submitRecord = function (record) {
     var exercise = Parse.Object.extend("Exercises");
     var fag = Parse.Object.extend("Subjects");
 
+    //Prosessering av url når vi kjører fra folk.ntnu
+    /*
+    var len = record[0].length;
+    var fagNavn = record[0].substring(0, len - 2);
+    var ovingNavn = "Øving " + record[0].substring(len - 2, len);
+    console.log(fagNavn + " har navnet: " + ovingNavn);*/
+
     var query = new Parse.Query(fag);
     query.equalTo("ID", "TMA4100");
     query.find({
@@ -18,8 +25,8 @@ window.submitRecord = function (record) {
             }
             var evaluation = new exercise();
             evaluation.set("SUBJECTID", "TMA4100");
-            evaluation.set("SUBJECT", subjectPointer); //Sender videre Subjects-objektet som pointer
-            evaluation.set("NAME", "testNavn01");
+            evaluation.set("SUBJECT", subjectPointer);  //Sender videre Subjects-objektet som pointer
+            evaluation.set("NAME", "testNavn01");       //setter øvingsnavnet til testNavn01
             evaluation.set("rating", record[0]);
             evaluation.set("time", record[1]);
             evaluation.set("lectureAmount", record[2][0]);
