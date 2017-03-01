@@ -1,34 +1,34 @@
-/**
- * Created by earebnord on 15.02.17.
- */
 var Parse = require('parse/node').Parse;
 Parse.initialize("asddfkjhg4ey123478wss234q2388dhakjhdgrudb"); Parse.serverURL = 'https://easeval.herokuApp.com/parse';
-var strings;
-var i;
-window.init = function(){
-    strings = ["I am a text element"];
-    i = 1;
-};
-window.testFunksjon = function() {
-    if (i == 1){
-        var nameValue2 = document.getElementById("uniqueID").value;
-        strings.push(nameValue2);
-    }
 
-    console.log(strings[i % 2], i);
-    document.getElementById("textelement").innerHTML = strings[i % 2];
-    document.getElementById("minCounter").innerHTML="Du har klikket ".concat(i, " ganger");
-    i++;
-};
-window.testQuery = function () {
-    var Fag = Parse.Object.extend("Subjects");
-    var query = new Parse.Query(Fag);
-    //query.equalTo("ID", "0");
+window.submitRecord = function (record) {
+    //Oppretter instanser av tabeller der data skal legges inn ellers spørres etter
+    var exercise = Parse.Object.extend("Exercises");
+    var fag = Parse.Object.extend("Subjects");
+
+    var query = new Parse.Query(fag);
+    query.equalTo("ID", "TMA4100");
     query.find({
         success: function(users) {
             for (var i = 0; i < users.length; ++i) {
-                console.log(users[i].get('ID'));
+
+                //Lagrer Subjects-pointeren
+                var subjectPointer = users[i];
             }
+            var evaluation = new exercise();
+            evaluation.set("SUBJECTID", "TMA4100");
+            evaluation.set("SUBJECT", subjectPointer); //Sender videre Subjects-objektet som pointer
+            evaluation.set("NAME", "testNavn01");
+            evaluation.set("rating", record[0]);
+            evaluation.set("time", record[1]);
+            evaluation.set("lectureAmount", record[2][0]);
+            evaluation.set("curriculumAmount", record[2][1]);
+            evaluation.set("googleAmount", record[2][2]);
+            evaluation.set("solutionsAmount", record[2][3]);
+            evaluation.save();
         }
     });
+
+    //Prøver Parse.Promise for å ordne asynkrone kall
+
 };
