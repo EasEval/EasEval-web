@@ -31,6 +31,13 @@ $(document).ready(function() {
     $('#tilbake').click(function(event) {
         spmTilbake();
     });
+
+    $('#british').click(function (event) {
+        british();
+    });
+    $('#norway').click(function (event) {
+        norway();
+    });
        
     // lytter på tastatur med sexy syntax                        
     $(document).on("keydown", function(event) {

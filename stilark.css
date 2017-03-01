@@ -184,7 +184,7 @@ body, html{
     float: right;
     border: dotted;
     border-width: 0.5vh;
-    border-color: #627898;
+    cursor: pointer;
 }
 
 .bottom_flag img{
@@ -194,11 +194,15 @@ body, html{
     margin-left: 0.5vh;
 }
 
-#british{
+#british img{
     opacity: 0.3;
+    border-color: #CFD1CD;
 }
 
 #norway{
+    border-color: #627898;
+}
+#norway img{
     opacity: 1;
 }
 
