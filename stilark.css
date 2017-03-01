@@ -12,6 +12,14 @@ body{
     background-color: #CFD1CD;
 }
 
+body, html{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
 #top{
     height:15vh; /** 15 % relative to view height **/
     background-color: #372F49;
@@ -84,11 +92,11 @@ body{
     margin: auto;
     margin-top: 2%;
     padding-bottom: 1%;
-    border-bottom: 2px solid rgb(0, 0, 0);
+    border-bottom: 0.2vh solid #664B6A;
 }
 
 #sideteller p{
-    color: crimson;
+    color: #664B6A;
     text-align: center;
     font-size: 3vh;
 }
@@ -144,16 +152,48 @@ body{
     display:inline-block;
     height: 6vh;
     width: 15%;
-    margin: 0.5%;
-    border: 1px solid #CFD1CD;
+    margin-top: 1vh;
+    margin-left: 1vw;
+    border: solid #CFD1CD;
+    border-left-width: 0.1vw;
+    border-right-width: 0.1vw;
+    border-top-width: 0.25vh;
+    border-bottom-width: 0.25vh;
     cursor: pointer;
     opacity: 0.8;
-    line-height: 200%;
+    line-height: 180%;
     text-align: center;
     color: #CFD1CD;
-    font-size: 1vw;
+    font-size: 3vh;
+    font-family: 'Lato', sans-serif;
 }
 
+.bottom_button:hover{
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+}
+
+.bottom_flag{
+    height: 6vh;
+    width: 6vh;
+    border-radius: 3vh;
+    margin-right: 1vw;
+    margin-top: 1vh;
+    background-color: #CFD1CD;
+    float: right;
+}
+
+.bottom_flag img{
+    height: 3vh;
+    width: 4vh;
+    margin-top: 1.5vh;
+    margin-left: 1vh;
+}
+
+#british{
+    opacity: 0.5;
+}
 
 #send {
     display:inline-block;
@@ -200,20 +240,6 @@ textarea:active,
 textarea:focus {
     outline:0 !important;
     -webkit-appearance:none;
-}
-
-.bottom_button:hover{
-    opacity: 1;
-    background-color: rgba(255, 255, 255, 0.5);
-    font-style: italic;
-}
-
-body, html{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    height: 100%;
-    overflow: hidden;
 }
 
 .iframe{

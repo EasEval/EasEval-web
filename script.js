@@ -105,7 +105,7 @@ function spmTilbake(){
 
 function getUserValues(){
     // these should be renamed
-    var fagkode = parent.window.location.href.substring(23);
+    var fagkode = parent.window.location.href.substring(37,46);
     var q1 = $('#slider_rangering').slider("option", "value");
     var q2 = $('#slider_tidsbruk').slider("option", "value");
     var s1 = $('#s1').slider("option", "value");
