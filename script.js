@@ -14,6 +14,7 @@ function setup_graphics() {
         $('#slider_tidsbruk').slider({value:50});
         $("#question2").hide();
         $("#question3").hide();
+        $('#send').hide();
         });
 };
 
@@ -66,6 +67,7 @@ function spmFrem(){
         case 3: 
             $('#question2').hide("fast");
             $('#question3').show("fast");
+            $('#send').fadeIn(2000);
             break;
     }
 }

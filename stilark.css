@@ -158,8 +158,9 @@ body{
 
 #send {
     background-color: #372F49;
-    position: fixed;
-    right: 10%;
+    float: right;
+    /* position: fixed;
+    right: 10%; */ 
 }
 
 #send p{
