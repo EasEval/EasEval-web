@@ -12,6 +12,14 @@ body{
     background-color: #CFD1CD;
 }
 
+body, html{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
 #top{
     height:15vh; /** 15 % relative to view height **/
     background-color: #372F49;
@@ -29,7 +37,6 @@ body{
 #tilbake, #fram {
     height:77vh;
     width:10%;
-    background-color: #000000;
     position: fixed; /* Alltid samme posisjon på siden */
     cursor: pointer;
 /*    Alltid ligge øverst, gi stor z-index*/
@@ -38,25 +45,25 @@ body{
 
 #tilbake{
     left: 0;
-    color: azure;
+    color: #CFD1CD;
     font-size: 15vh;
-    padding-top: 10%;
+    padding-top: 13%;
     padding-left: 2.5%;
 }
 
 
 #fram{
     right: 0;
-    color: azure;
+    color: #CFD1CD;
     font-size: 15vh;
-    padding-top: 10%;
+    padding-top: 13%;
     padding-left: 2.5%;
 }
 
 #fram:hover, #tilbake:hover {
 /*    Kode kan eventuelt legges i jQuery for dette*/
-    background-color: dimgrey;
-    color: darkslateblue;
+    background-color: rgba(207,209,205,0.2);
+    color: #CFD1CD;
     font-weight: bolder;
 }
 
@@ -69,17 +76,15 @@ body{
 }
 
 .sporsmal{
-    height: 30vh;
     width: 65%;
     margin: auto;
-    margin-bottom: 5%;
+    padding-top: 3%;
 }
 
 .sporsmal p{
     color: #627898;
     font-size: 6vh;
     text-align: center;
-    padding-top: 5%;
 }
 
 #sideteller {
@@ -87,16 +92,16 @@ body{
     margin: auto;
     margin-top: 2%;
     padding-bottom: 1%;
-    border-bottom: 2px solid rgb(0, 0, 0);
+    border-bottom: 0.2vh solid #664B6A;
 }
 
 #sideteller p{
-    color: crimson;
+    color: #664B6A;
     text-align: center;
     font-size: 3vh;
 }
 
-#question1, #question2, #question3{
+#question1, #question2, #question3, #question4{
     height: 90%;
 /*    border: 2px solid rgb(0, 0, 256);*/
 }
@@ -105,6 +110,7 @@ body{
     background-color: #CFD1CD;
     width: 30%;
     margin:auto;
+    margin-top: 10%;
 /*    border: 2px solid rgba(0, 256, 0, 1)*/
 }
 
@@ -119,6 +125,7 @@ body{
     left: 26vw;
     bottom: 18vh;
     margin:2em;
+    margin-top:15%;
     background-color: #CFD1CD;
 }
 
@@ -145,27 +152,20 @@ body{
     display:inline-block;
     height: 6vh;
     width: 15%;
-    margin: 0.5%;
-    border: 1px solid #CFD1CD;
+    margin-top: 1vh;
+    margin-left: 1vw;
+    border: solid #CFD1CD;
+    border-left-width: 0.1vw;
+    border-right-width: 0.1vw;
+    border-top-width: 0.25vh;
+    border-bottom-width: 0.25vh;
     cursor: pointer;
     opacity: 0.8;
-    line-height: 200%;
+    line-height: 180%;
     text-align: center;
     color: #CFD1CD;
-    font-size: 1vw;
-}
-
-
-#send {
-    background-color: #372F49;
-    float: right;
-    /* position: fixed;
-    right: 10%; */ 
-}
-
-#send p{
-    color: chartreuse;
     font-size: 3vh;
+    font-family: 'Lato', sans-serif;
 }
 
 .bottom_button:hover{
@@ -174,3 +174,94 @@ body{
     font-style: italic;
 }
 
+.bottom_flag{
+    height: 6vh;
+    width: 6vh;
+    border-radius: 3vh;
+    margin-right: 1vw;
+    margin-top: 1vh;
+    background-color: #CFD1CD;
+    float: right;
+    border: dotted;
+    border-width: 0.5vh;
+    cursor: pointer;
+}
+
+.bottom_flag img{
+    height: 3vh;
+    width: 4vh;
+    margin-top: 1vh;
+    margin-left: 0.5vh;
+}
+
+#british img{
+    opacity: 0.3;
+    border-color: #CFD1CD;
+}
+
+#norway{
+    border-color: #627898;
+}
+#norway img{
+    opacity: 1;
+}
+
+#send {
+    display:inline-block;
+    height: 7vh;
+    width: 20%;
+    border-radius: 1vh;
+    margin-top: 3%;
+    cursor: pointer;
+    opacity: 0.8;
+    line-height: 200%;
+    text-align: center;
+    color: #CFD1CD;
+    background-color: #664B6A;
+    position: fixed;
+    left: 40%;
+}
+
+#send:hover{
+    opacity: 1;
+}
+
+#send p{
+    color: #CFD1CD;
+    margin-top: 1vh;
+    font-size: 5vh;
+    font-family: 'Lato', sans-serif;
+}
+
+textarea{
+    width: 80%;
+    height: 30%;
+    margin-left: 10%;
+    margin-top: 15%;
+    color: #372F49;
+    font-size: 1.8vw;
+    font-family: 'Lato', sans-serif;
+    border-color: #372F49;
+    border-radius: 1vh;
+    border-width: 0.3vh;
+    resize: none;
+}
+textarea:hover,
+textarea:active,
+textarea:focus {
+    outline:0 !important;
+    -webkit-appearance:none;
+}
+
+.iframe{
+    width: 100%;
+    height: 100%;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+}

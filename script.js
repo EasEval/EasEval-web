@@ -14,14 +14,14 @@ function setup_graphics() {
         $('#slider_tidsbruk').slider({value:50});
         $("#question2").hide();
         $("#question3").hide();
-        $('#send').hide();
+        $("#question4").hide();
         });
 };
 
 var sidetall = 1; // hvilket spørsmål brukeren er på i evalueringen
+var sideantall = 4;
 
 $(document).ready(function() {
-    
     setCookie(send, 'true');
     
     $('#fram').click(function(event) {
@@ -32,9 +32,16 @@ $(document).ready(function() {
     $('#tilbake').click(function(event) {
         spmTilbake();
     });
+
+    $('#british').click(function (event) {
+        british();
+    });
+    $('#norway').click(function (event) {
+        norway();
+    });
        
     // lytter på tastatur med sexy syntax                        
-    $(document).on("keypress", function(event) {
+    $(document).on("keydown", function(event) {
         switch(event.keyCode) {
             case $.ui.keyCode.LEFT:
                 spmTilbake();
@@ -45,7 +52,7 @@ $(document).ready(function() {
           };
     });
                                                      
-    $('#send').click(function(event) { 
+   $('#send').click(function(event) { 
         var cookie = readCookie(send);
         console.log('Allowed to send: ' + cookie);
         if (cookie != "false"){
@@ -58,13 +65,13 @@ $(document).ready(function() {
 
 
 function spmFrem(){
-    if (sidetall === 3) {
-        $("#send").effect('slide', '');
+    if (sidetall === sideantall) {
+        $("#send").effect('bounce', {times:2}, 200);
         return;
     }
-    else if (sidetall < 3) {
+    else if (sidetall < sideantall) {
             sidetall++;
-            $('#sideteller').empty().append('<p> Spørsmål ' + sidetall + ' av 3 </p>');
+            $('#sideteller').empty().append('<p> Spørsmål ' + sidetall + ' av ' + sideantall + ' </p>');
         }
     switch(sidetall){
         case 2:
@@ -75,7 +82,10 @@ function spmFrem(){
         case 3: 
             $('#question2').hide("fast");
             $('#question3').show("fast");
-            $('#send').fadeIn(2000);
+            break;
+        case 4:
+            $('#question3').hide("fast");
+            $('#question4').show("fast");
             break;
     }
 }
@@ -88,9 +98,13 @@ function spmTilbake(){
     
     else if (sidetall > 1) {
             sidetall--;
-             $('#sideteller').empty().append('<p> Spørsmål ' + sidetall + ' av 3 </p>');
+             $('#sideteller').empty().append('<p> Spørsmål ' + sidetall + ' av ' + sideantall + ' </p>');
         }
     switch(sidetall){
+        case 3:
+            $('#question4').hide("fast");
+            $('#question3').show("fast");
+            break;
         case 2:
             $('#question3').hide("fast");
             $('#question2').show("fast");
@@ -105,6 +119,7 @@ function spmTilbake(){
 
 function getUserValues(){
     // these should be renamed
+    var fagkode = parent.window.location.href.substring(37,46);
     var q1 = $('#slider_rangering').slider("option", "value");
     var q2 = $('#slider_tidsbruk').slider("option", "value");
     var s1 = $('#s1').slider("option", "value");
@@ -112,7 +127,6 @@ function getUserValues(){
     var s3 = $('#s3').slider("option", "value");
     var s4 = $('#s4').slider("option", "value");
     var s5 = $('#s5').slider("option", "value");
-    return [q1, q2, [s1,s2,s3,s4,s5]]; 
+    var tekst = document.getElementById('tilbakemelding').value;
+    return [fagkode, q1, q2, [s1,s2,s3,s4,s5],tekst];
 }
-
-
