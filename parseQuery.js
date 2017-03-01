@@ -26,12 +26,13 @@ window.submitRecord = function (record) {
             evaluation.set("SUBJECTID", "TMA4100");
             evaluation.set("SUBJECT", subjectPointer);  //Sender videre Subjects-objektet som pointer
             evaluation.set("NAME", "testNavn01");       //setter øvingsnavnet til testNavn01
-            evaluation.set("rating", record[0]);
-            evaluation.set("time", record[1]);
-            evaluation.set("lectureAmount", record[2][0]);
-            evaluation.set("curriculumAmount", record[2][1]);
-            evaluation.set("googleAmount", record[2][2]);
-            evaluation.set("solutionsAmount", record[2][3]);
+            evaluation.set("rating", record[1]);
+            evaluation.set("time", record[2]);
+            evaluation.set("lectureAmount", record[3][0]);
+            evaluation.set("curriculumAmount", record[3][1]);
+            evaluation.set("googleAmount", record[3][2]);
+            evaluation.set("solutionsAmount", record[3][3]);
+            evaluation.set("comment", record[4]);
             evaluation.save();
         }
     });

@@ -59,7 +59,7 @@ $(document).ready(function() {
             delCookie(send);
             setCookie(send, false, 10);
         }
-        //window.submitRecord(getUserValues());
+        window.submitRecord(getUserValues());
     });
 });
 
