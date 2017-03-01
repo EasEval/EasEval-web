@@ -34,7 +34,7 @@ $(document).ready(function() {
     });
        
     // lytter på tastatur med sexy syntax                        
-    $(document).on("keydown", function(event) {
+    $(document).on("keypress", function(event) {
         switch(event.keyCode) {
             case $.ui.keyCode.LEFT:
                 spmTilbake();
