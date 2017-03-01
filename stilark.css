@@ -182,17 +182,24 @@ body, html{
     margin-top: 1vh;
     background-color: #CFD1CD;
     float: right;
+    border: dotted;
+    border-width: 0.5vh;
+    border-color: #627898;
 }
 
 .bottom_flag img{
     height: 3vh;
     width: 4vh;
-    margin-top: 1.5vh;
-    margin-left: 1vh;
+    margin-top: 1vh;
+    margin-left: 0.5vh;
 }
 
 #british{
-    opacity: 0.5;
+    opacity: 0.3;
+}
+
+#norway{
+    opacity: 1;
 }
 
 #send {
