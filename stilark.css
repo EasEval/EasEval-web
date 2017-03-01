@@ -25,9 +25,52 @@ body{
     padding:0.25%;
 }
 
+
+#tilbake, #fram {
+    height:77vh;
+    width:10%;
+    background-color: #000000;
+    position: fixed; /* Alltid samme posisjon på siden */
+    cursor: pointer;
+/*    Alltid ligge øverst, gi stor z-index*/
+    z-index: 9;
+}
+
+#tilbake{
+    left: 0;
+    color: azure;
+    font-size: 15vh;
+    padding-top: 10%;
+    padding-left: 2.5%;
+}
+
+
+#fram{
+    right: 0;
+    color: azure;
+    font-size: 15vh;
+    padding-top: 10%;
+    padding-left: 2.5%;
+}
+
+#fram:hover, #tilbake:hover {
+/*    Kode kan eventuelt legges i jQuery for dette*/
+    background-color: dimgrey;
+    color: darkslateblue;
+    font-weight: bolder;
+}
+
+#content{
+    position: fixed;
+    height:77vh;
+    width: 80%;
+    margin-left: 10%;
+/*    border: 2px solid rgb(0, 256, 0);*/
+}
+
 .sporsmal{
     height: 30vh;
-    width: 60%;
+    width: 65%;
     margin: auto;
     margin-bottom: 5%;
 }
@@ -39,76 +82,50 @@ body{
     padding-top: 5%;
 }
 
-#tilbake{
-    height:77vh;
-    width:10%;
-    background-color: #000000;
-    position: fixed;
-    left: 0;
-    cursor: pointer;
-/*    Alltid ligge øverst, gi stor z-index*/
-    z-index: 1000;
-}
-
-#fram{
-    height:77vh;
-    width:10%;
-    background-color: #000000;
-    position: fixed;
-    right: 0;
-    cursor: pointer;
-    z-index: 1000;
-}
-
-#fram:hover, #tilbake:hover {
-    background-color: dimgrey;
-}
-
-#eq{
-    height:80vh;
-    width: 100vw;
+#sideteller {
+    width: 20%;
     margin: auto;
-    position: absolute;
+    margin-top: 2%;
+    padding-bottom: 1%;
+    border-bottom: 2px solid rgb(0, 0, 0);
 }
 
-#slider{
+#sideteller p{
+    color: crimson;
+    text-align: center;
+    font-size: 3vh;
+}
+
+#question1, #question2, #question3{
+    height: 90%;
+/*    border: 2px solid rgb(0, 0, 256);*/
+}
+
+#slider_rangering, #slider_tidsbruk{
     background-color: #CFD1CD;
     width: 30%;
     margin:auto;
 /*    border: 2px solid rgba(0, 256, 0, 1)*/
 }
 
-/*#knapp1{
-    height:100px;
-    width:200px;
-    background-color: chartreuse;
-    cursor: pointer;
-}*/
 
-#eq2{
-    height:80vh;
-    width: 100vw;
-    display: block;
-    position: absolute;
-}
-
-#eq2 > span {
+#question3 > span {
     height:50%;
     float:left;
     position: relative;
 /* Relativ til its default posisjon.. 
     Vanskelig, finner ingen annen løsning 
     dårlig med zoom */
-    left: 40vw;
-    bottom: 15vh;
-    margin:1em;
+    left: 26vw;
+    bottom: 18vh;
+    margin:2em;
     background-color: #CFD1CD;
 }
+
 
 #s1 {
     /* border: 1px solid rgba(0, 0, 256, 1) */
 }
-
 
 #bottom{
     height:8vh;
@@ -139,14 +156,20 @@ body{
 }
 
 
-#contact {
+#send {
     background-color: #372F49;
     position: fixed;
     right: 10%;
 }
 
+#send p{
+    color: chartreuse;
+    font-size: 3vh;
+}
+
 .bottom_button:hover{
     opacity: 1;
     background-color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
 }
 

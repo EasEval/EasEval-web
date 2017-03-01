@@ -128,8 +128,13 @@ $RECYCLE.BIN/
 .idea/**/sqlDataSources.xml
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
+.idea/EasEval-web.iml
+.idea\jsLibraryMappings.xml
+.idea\modules.xml
+.idea\vcs.xml
 
 
+<<<<<<< HEAD
 
 .idea/EasEval-web.iml
 
@@ -138,3 +143,6 @@ $RECYCLE.BIN/
 .idea/modules.xml
 
 .idea/vcs.xml
+=======
+*.xml
+>>>>>>> origin/Eksperimentering
