@@ -22,6 +22,8 @@ var sidetall = 1; // hvilket spørsmål brukeren er på i evalueringen
 
 $(document).ready(function() {
     
+    setCookie(send, 'true');
+    
     $('#fram').click(function(event) {
       //event.preventDefault(); // no need for this here
         spmFrem();
@@ -44,7 +46,13 @@ $(document).ready(function() {
     });
                                                      
     $('#send').click(function(event) { 
-        window.submitRecord(getUserValues());
+        var cookie = readCookie(send);
+        console.log('Allowed to send: ' + cookie);
+        if (cookie != "false"){
+            delCookie(send);
+            setCookie(send, false, 10);
+        }
+        //window.submitRecord(getUserValues());
     });
 });
 
@@ -106,3 +114,5 @@ function getUserValues(){
     var s5 = $('#s5').slider("option", "value");
     return [q1, q2, [s1,s2,s3,s4,s5]]; 
 }
+
+
