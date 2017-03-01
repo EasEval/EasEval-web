@@ -1,35 +1,15 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-/**
- * Created by earebnord on 15.02.17.
- */
 var Parse = require('parse/node').Parse;
 Parse.initialize("asddfkjhg4ey123478wss234q2388dhakjhdgrudb"); Parse.serverURL = 'https://easeval.herokuApp.com/parse';
-var strings;
-var i;
-window.init = function(){
-    strings = ["I am a text element"];
-    i = 1;
-};
-window.testFunksjon = function() {
-    if (i == 1){
-        var nameValue2 = document.getElementById("uniqueID").value;
-        strings.push(nameValue2);
-    }
 
-    console.log(strings[i % 2], i);
-    document.getElementById("textelement").innerHTML = strings[i % 2];
-    document.getElementById("minCounter").innerHTML="Du har klikket ".concat(i, " ganger");
-    i++;
-};
-window.submitRecord = function (username, subjectID, name, record) {
+window.submitRecord = function (record) {
     var exercise = Parse.Object.extend("Exercises");
 
-    //Registrerer ny record med username, subjectID, name (exercise#), record
+    //Registrerer ny record med subjectID, name (exercise#), record
 
     var evaluation = new exercise();
-    evaluation.set("username", username);
-    evaluation.set("subjectID", subjectID);
-    evaluation.set("NAME", name);
+    evaluation.set("SUBJECTID", "TMA4100");
+    evaluation.set("NAME", "testNavn01");
     evaluation.set("rating", record[0]);
     evaluation.set("time", record[1]);
     evaluation.set("lectureAmount", record[2][0]);

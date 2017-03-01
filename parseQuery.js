@@ -7,7 +7,7 @@ window.submitRecord = function (record) {
     //Registrerer ny record med subjectID, name (exercise#), record
 
     var evaluation = new exercise();
-    evaluation.set("subjectID", "TMA4100");
+    evaluation.set("SUBJECTID", "TMA4100");
     evaluation.set("NAME", "testNavn01");
     evaluation.set("rating", record[0]);
     evaluation.set("time", record[1]);

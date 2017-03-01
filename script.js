@@ -44,7 +44,7 @@ $(document).ready(function() {
     });
                                                      
     $('#send').click(function(event) { 
-        document.write(getUserValues());
+        window.submitRecord(getUserValues());
     });
 });
 
