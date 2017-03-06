@@ -1,21 +1,22 @@
-var cookie = {
+var cookieHandler = {
     // this literal notation creates a single cookie object
     
     setCookie : function(name, value, sec) {
-      if (sec) {;
+      if (sec) {
         var date = new Date();
         date.setTime(date.getTime() + sec*1000); 
         var expires = "; expires=" + date.toGMTString(); 
-      };
+      }
       else
         var expires = "";
       document.cookie = name+"=" + value+expires + ";path=/";
     },
 
     readCookie : function(name) {
-        if (name !== send){
-            return null; //not a supported cookie
-        };
+        if (name !== 'send'){
+            return null; 
+            //not a supported cookie, consider raising an exception
+        }
         else {
             var index = document.cookie.indexOf('=');
             value = document.cookie.substr(index+1);
@@ -35,6 +36,6 @@ var cookie = {
 
     delCookie : function(name) {
         this.setCookie(name,"",-1);
-    };
+    }
     
 };
