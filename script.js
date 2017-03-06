@@ -22,8 +22,6 @@ var sidetall = 1; // hvilket spørsmål brukeren er på i evalueringen
 var sideantall = 4;
 
 $(document).ready(function() {
-    cookie.setCookie(send, 'true');
-    
     $('#fram').click(function(event) {
       //event.preventDefault(); // no need for this here
         spmFrem();
@@ -53,11 +51,12 @@ $(document).ready(function() {
     });
                                                      
    $('#send').click(function(event) { 
-        var cookieState = cookie.readCookie(send);
+        var cookieState = cookieHandler.readCookie('send');
         console.log('cookie: ' + cookieState);
         if (cookieState != "false"){
-            cookie.delCookie(send);
-            cookie.setCookie(send, false, 10);
+            // delete old cookie and make a new one
+            cookieHandler.delCookie('send');
+            cookieHandler.setCookie('send', 'false', 10);
         }
         //window.submitRecord(getUserValues());
     });
