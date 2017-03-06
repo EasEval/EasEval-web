@@ -22,7 +22,7 @@ var sidetall = 1; // hvilket spørsmål brukeren er på i evalueringen
 var sideantall = 4;
 
 $(document).ready(function() {
-    setCookie(send, 'true');
+    cookie.setCookie(send, 'true');
     
     $('#fram').click(function(event) {
       //event.preventDefault(); // no need for this here
@@ -53,11 +53,11 @@ $(document).ready(function() {
     });
                                                      
    $('#send').click(function(event) { 
-        var cookie = readCookie(send);
-        console.log('Allowed to send: ' + cookie);
-        if (cookie != "false"){
-            delCookie(send);
-            setCookie(send, false, 10);
+        var cookieState = cookie.readCookie(send);
+        console.log('cookie: ' + cookieState);
+        if (cookieState != "false"){
+            cookie.delCookie(send);
+            cookie.setCookie(send, false, 10);
         }
         //window.submitRecord(getUserValues());
     });
