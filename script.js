@@ -22,6 +22,8 @@ function setup_graphics() {
 
 var sidetall = 1; // hvilket spørsmål brukeren er på i evalueringen
 var sideantall = 4;
+var norsk = true; 
+// foreløpig kun 2 språk, må endre funksjonalitet dersom mer 
 
 $(document).ready(function() {
     $('#fram').click(function(event) {
@@ -34,9 +36,11 @@ $(document).ready(function() {
     });
 
     $('#british').click(function (event) {
+        norsk = false;
         british();
     });
     $('#norway').click(function (event) {
+        norsk = true;
         norway();
     });
     $('#informationButton').click(function (event) {
@@ -77,9 +81,13 @@ function spmFrem(){
         return;
     }
     else if (sidetall < sideantall) {
-            sidetall++;
+        sidetall++;
+        if (norsk){ // kan dette gjøres mer elegant?
             $('#sideteller').empty().append('<p> Spørsmål ' + sidetall + ' av ' + sideantall + ' </p>');
+        } else {
+             $('#sideteller').empty().append('<p> Question ' + sidetall + ' of ' + sideantall + ' </p>');
         }
+    }
     switch(sidetall){
         case 2:
             $('#question1').hide("fast");
@@ -104,9 +112,13 @@ function spmTilbake(){
     }
     
     else if (sidetall > 1) {
-            sidetall--;
-             $('#sideteller').empty().append('<p> Spørsmål ' + sidetall + ' av ' + sideantall + ' </p>');
+        sidetall--;
+        if (norsk){
+            $('#sideteller').empty().append('<p> Spørsmål ' + sidetall + ' av ' + sideantall + ' </p>');
+        } else {
+             $('#sideteller').empty().append('<p> Question ' + sidetall + ' of ' + sideantall + ' </p>');
         }
+    }
     switch(sidetall){
         case 3:
             $('#question4').hide("fast");

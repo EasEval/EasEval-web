@@ -86,7 +86,7 @@ QUnit.test("Keyboard listeners", function(assert){
     for (var side = sideantall; side>1; side--){
         spmTilbake();
     };
-    $(document).trigger($.Event( "keydown", {keyCode: $.ui.keyCode.RIGHT})); 
+    $(document).trigger($.Event("keydown", {keyCode: $.ui.keyCode.RIGHT})); 
     assert.equal(sidetall,2, "Right key triggers next page");
     $(document).trigger($.Event( "keydown", {keyCode: $.ui.keyCode.LEFT}));  
     assert.equal(sidetall,1, "Left key triggers prev page");
@@ -102,4 +102,15 @@ QUnit.test("Sliders accept correct values", function (assert){
         } 
     }
     assert.equal(testResult, true, "Values 0-100 should all be fine.");
+});
+
+QUnit.test("Show site in different languages", function (assert){
+    assert.equal("Spørsmål 1 av 4", $.trim($('#sideteller').text()),"Spørsmålstekst init");
+    
+    $('#british').trigger('click');
+    
+    assert.equal("Question 1 of 4", $.trim($('#sideteller').text()), "In english");
+    
+    $('#fram').trigger('click');
+           
 });
