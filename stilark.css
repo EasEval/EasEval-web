@@ -105,9 +105,9 @@ body, html{
 
 #slider_rangering, #slider_tidsbruk{
     background-color: #CFD1CD;
-    width: 30%;
+    width: 30vw;
     margin:auto;
-    margin-top: 10%;
+    margin-top: 20vh;
 /*    border: 2px solid rgba(0, 256, 0, 1)*/
 }
 
