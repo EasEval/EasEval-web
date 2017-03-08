@@ -94,10 +94,12 @@ QUnit.test("Keyboard listeners", function(assert){
 
 QUnit.test("Sliders accept correct values", function (assert){
     var testResult = true;
+    for (var val = 0; val<101; val++){
         $("#slider_rangering" ).slider({value:val});
         if ($('#slider_rangering').slider("option", "value") != val){
             testResult = false;
             break;
         } 
     }
+    assert.equal(testResult, true, "Values 0-100 should all be fine.");
 });

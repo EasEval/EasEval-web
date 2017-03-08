@@ -23,7 +23,6 @@ var sideantall = 4;
 
 $(document).ready(function() {
     $('#fram').click(function(event) {
-      //event.preventDefault(); // no need for this here
         spmFrem();
     });
                               
@@ -38,7 +37,7 @@ $(document).ready(function() {
         norway();
     });
        
-    // lytter på tastatur med sexy syntax                        
+    // lytter på tastatur                       
     $(document).on("keydown", function(event) {
         switch(event.keyCode) {
             case $.ui.keyCode.LEFT:
