@@ -117,6 +117,42 @@ function spmTilbake(){
     }
 }
 
+function british(){
+    $('#norway img').css({opacity: 0.3});
+    $('#norway').css('border-color', '#CFD1CD');
+    $('#british img').css({opacity: 1});
+    $('#british').css('border-color', '#627898');
+
+    $('#sideteller').empty().append('<p> Question ' + sidetall + ' of ' + sideantall + ' </p>');
+    $('#question1 p').empty().append('<p>How much did you learn from this exercise?</p>');
+    $('#question2 p').empty().append('<p>Relatively, how much time did you use on this exercise?</p>');
+    $('#question3 p').empty().append('<p>How will you rate the time-usage compared to each other?</p>');
+    $('#question4 p').empty();
+    $('#question4 .sporsmal #topP').empty().append('<p>Thank you!</p><p>Your answers will help alot.</p>');
+    $('#question4 #send').empty().append('<p>Send!</p>');
+    $('#evaluation p').empty().append('<p>Evaluation</p>');
+    $('#about p').empty().append('<p>About</p>');
+    $('#question4 textarea').attr("placeholder", "If you have some thoughts about the exercise, please write them here!");
+}
+
+function norway() {
+    $('#british img').css({opacity: 0.3});
+    $('#british').css('border-color', '#CFD1CD');
+    $('#norway img').css({opacity: 1});
+    $('#norway').css('border-color', '#627898');
+
+    $('#sideteller').empty().append('<p> Spørsmål ' + sidetall + ' av ' + sideantall + ' </p>');
+    $('#question1 p').empty().append('<p>Hvor mye følte du at du lærte ved denne øvingen?</p>');
+    $('#question2 p').empty().append('<p>Hvor lang tid brukte du sånn omtrentelig?</p>');
+    $('#question3 p').empty().append('<p>Hvordan vil du veie tidsforbruken av de ulike ressursene opp mot hverandre?</p>');
+    $('#question4 p').empty();
+    $('#question4 .sporsmal #topP').empty().append('<p>Tusen takk!</p><p>Dine svar vil bli til stor hjelp.</p>');
+    $('#question4 #send').empty().append('<p>Lever!</p>');
+    $('#evaluation p').empty().append('<p>Evaluering</p>');
+    $('#about p').empty().append('<p>Om oss</p>');
+    $('#question4 textarea').attr("placeholder", "Skriv gjerne en tilbakemelding her, om du har noen tanker rundt øvingen!");
+}
+
 function getUserValues(){
     // these should be renamed
     var fagkode = parent.window.location.href.substring(37,46);
