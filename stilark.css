@@ -36,28 +36,25 @@ body, html{
 
 #tilbake, #fram {
     height:77vh;
-    width:10%;
+    width:10vw;
     position: fixed; /* Alltid samme posisjon på siden */
     cursor: pointer;
+    color: #CFD1CD;
+    line-height:50vh;
+    font-size: 15vh;
+    padding-top: 13vh;
+    padding-left: 2.5vw;
 /*    Alltid ligge øverst, gi stor z-index*/
     z-index: 9;
 }
 
 #tilbake{
     left: 0;
-    color: #CFD1CD;
-    font-size: 15vh;
-    padding-top: 13%;
-    padding-left: 2.5%;
 }
 
 
 #fram{
     right: 0;
-    color: #CFD1CD;
-    font-size: 15vh;
-    padding-top: 13%;
-    padding-left: 2.5%;
 }
 
 #fram:hover, #tilbake:hover {
@@ -70,15 +67,15 @@ body, html{
 #content{
     position: fixed;
     height:77vh;
-    width: 80%;
-    margin-left: 10%;
+    width: 80vw;
+    margin-left: 10vw;
 /*    border: 2px solid rgb(0, 256, 0);*/
 }
 
 .sporsmal{
-    width: 65%;
+    width: 65vw;
     margin: auto;
-    padding-top: 3%;
+    padding-top: 3vh;
 }
 
 .sporsmal p{
@@ -88,10 +85,10 @@ body, html{
 }
 
 #sideteller {
-    width: 20%;
+    width: 20vw;
     margin: auto;
-    margin-top: 2%;
-    padding-bottom: 1%;
+    margin-top: 4vh;
+    padding-bottom: 2.8vh;
     border-bottom: 0.2vh solid #664B6A;
 }
 
@@ -102,7 +99,7 @@ body, html{
 }
 
 #question1, #question2, #question3, #question4{
-    height: 90%;
+    height: 67vh;
 /*    border: 2px solid rgb(0, 0, 256);*/
 }
 
@@ -116,7 +113,7 @@ body, html{
 
 
 #question3 > span {
-    height:50%;
+    height:25vh;
     float:left;
     position: relative;
 /* Relativ til its default posisjon.. 
@@ -124,8 +121,8 @@ body, html{
     dårlig med zoom */
     left: 26vw;
     bottom: 18vh;
-    margin:2em;
-    margin-top:15%;
+    margin: 2em;
+    margin-top: 25vh;
     background-color: #CFD1CD;
 }
 
@@ -136,24 +133,26 @@ body, html{
 
 #bottom{
     height:8vh;
-    width: 100%;
+    width: 100vw;
     background-color: #664B6A;
 /*    Always stay in the bottom of page*/
-    position: fixed; 
+    position: absolute;
+    left: 0;
     bottom: 0;
 }
 
 #bottom_bars{
-    width:80%;
-    margin:auto;
+    position: relative;
+    width:80vw;
+    left: 10vw;
 }
 
 .bottom_button{
+    position: absolute;
     display:inline-block;
     height: 6vh;
-    width: 15%;
-    margin-top: 1vh;
-    margin-left: 1vw;
+    width: 15vw;
+    top: 1vh;
     border: solid #CFD1CD;
     border-left-width: 0.1vw;
     border-right-width: 0.1vw;
@@ -161,7 +160,7 @@ body, html{
     border-bottom-width: 0.25vh;
     cursor: pointer;
     opacity: 0.8;
-    line-height: 180%;
+    line-height: 5vh;
     text-align: center;
     color: #CFD1CD;
     font-size: 3vh;
@@ -174,7 +173,16 @@ body, html{
     font-style: italic;
 }
 
+#evaluation{
+    left: 1vw;
+}
+
+#about{
+    left: 17vw;
+}
+
 .bottom_flag{
+    position: relative;
     height: 6vh;
     width: 6vh;
     border-radius: 3vh;
@@ -188,10 +196,11 @@ body, html{
 }
 
 .bottom_flag img{
+    position: absolute;
     height: 3vh;
     width: 4vh;
-    margin-top: 1vh;
-    margin-left: 0.5vh;
+    top: 1vh;
+    right: 0.5vh;
 }
 
 #british img{
@@ -209,17 +218,17 @@ body, html{
 #send {
     display:inline-block;
     height: 7vh;
-    width: 20%;
+    width: 20vw;
     border-radius: 1vh;
-    margin-top: 3%;
+    margin-top: 3vh;
     cursor: pointer;
     opacity: 0.8;
-    line-height: 200%;
+    line-height: 5vh;
     text-align: center;
     color: #CFD1CD;
     background-color: #664B6A;
     position: fixed;
-    left: 40%;
+    left: 40vw;
 }
 
 #send:hover{
@@ -234,10 +243,10 @@ body, html{
 }
 
 textarea{
-    width: 80%;
-    height: 30%;
-    margin-left: 10%;
-    margin-top: 15%;
+    width: 60vw;
+    height: 30vh;
+    margin-left: 10vw;
+    margin-top: 15vh;
     color: #372F49;
     font-size: 1.8vw;
     font-family: 'Lato', sans-serif;
