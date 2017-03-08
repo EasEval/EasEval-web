@@ -137,6 +137,8 @@ function spmTilbake(){
 }
 
 function information(){
+    $('#evaluation').css('z-index',-1);
+
     $('#evaluation').hide("drop", {direction: "up"}, "fast");
     $('#about').hide("drop", {direction: "up"}, "fast");
     $('#information').show("drop", {direction: "down"}, "slow");

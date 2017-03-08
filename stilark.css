@@ -65,12 +65,39 @@ body, html{
 }
 
 #content{
-    position: fixed;
+    position: relative;
     height:77vh;
-    width: 80vw;
-    margin-left: 10vw;
+    width: 100vw;
 /*    border: 2px solid rgb(0, 256, 0);*/
 }
+
+#evaluation{
+    position: absolute;
+    z-index:1;
+    height: 77vh;
+    width: 80vw;
+    left: 10vw;
+    top: 0;
+}
+
+#information{
+    position: absolute;
+    z-index: -1;
+    height: 77vh;
+    width: 80vw;
+    left: 10vw;
+    top: 0;
+}
+
+#about{
+    position: absolute;
+    z-index: -1;
+    height: 77vh;
+    width: 80vw;
+    left: 10vw;
+    top: 0;
+}
+
 
 .sporsmal{
     width: 65vw;
