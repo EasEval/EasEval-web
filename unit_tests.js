@@ -105,12 +105,31 @@ QUnit.test("Sliders accept correct values", function (assert){
 });
 
 QUnit.test("Show site in different languages", function (assert){
-    assert.equal("Spørsmål 1 av 4", $.trim($('#sideteller').text()),"Spørsmålstekst init");
+    assert.equal($.trim($('#sideteller').text()), "Spørsmål 1 av 4", "Init value");
     
     $('#british').trigger('click');
     
-    assert.equal("Question 1 of 4", $.trim($('#sideteller').text()), "In english");
+    assert.equal($.trim($('#sideteller').text()), "Question 1 of 4", "Question number in english");
     
     $('#fram').trigger('click');
-           
+    
+    assert.equal($.trim($("#question2").text()), "Relatively, how much time did you use on this exercise?", "Question 2 in english");
+    
+    $('#british').trigger('click');
+    
+    assert.equal($.trim($("#question2").text()), "Relatively, how much time did you use on this exercise?", "Question 2 still in english");
+    
+    $('#norway').trigger('click');
+    
+    assert.equal($.trim($("#question2").text()), "Hvor lang tid brukte du sånn omtrentelig?", "Question 2 in norwegian");
+    
+    $('#british').trigger('click');
+    $('#fram').trigger('click');
+    $('#fram').trigger('click');
+    
+    assert.equal($.trim($('#send').text()),"Send!", "Send label in english");
+    
+    $('#norway').trigger('click');
+    
+    assert.equal($.trim($('#send').text()), "Lever!", "Send label in norwegian");
 });
