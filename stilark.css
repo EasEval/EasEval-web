@@ -153,13 +153,8 @@ body, html{
     height: 6vh;
     width: 15vw;
     top: 1vh;
-    border: solid #CFD1CD;
-    border-left-width: 0.1vw;
-    border-right-width: 0.1vw;
-    border-top-width: 0.25vh;
-    border-bottom-width: 0.25vh;
     cursor: pointer;
-    opacity: 0.8;
+    opacity: 0.5;
     line-height: 5vh;
     text-align: center;
     color: #CFD1CD;
@@ -169,16 +164,25 @@ body, html{
 
 .bottom_button:hover{
     opacity: 1;
+    text-shadow: 0 0 0.5vh #FFFFFF;
     background-color: rgba(255, 255, 255, 0.5);
-    font-style: italic;
+    background: radial-gradient(rgba(255,255,255,0.3), #664B6A, #664B6A);
 }
 
-#evaluation{
+#evaluationButton{
     left: 1vw;
+    opacity: 1;
+    text-shadow: 0 0 0.5vh #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.5);
+    background: radial-gradient(rgba(255,255,255,0.3), #664B6A, #664B6A);
 }
 
-#about{
+#informationButton{
     left: 17vw;
+}
+
+#aboutButton{
+    left: 33vw;
 }
 
 .bottom_flag{
@@ -273,4 +277,8 @@ textarea:focus {
     right: 0;
     bottom: 0;
     top: 0;
+}
+
+#information{
+    font-size: 70vh;
 }

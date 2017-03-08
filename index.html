@@ -22,66 +22,84 @@
     <img src="easeval.png">
 </div>
 
-<p id="tilbake"> < </p>
-    
-<p id="fram"> > </p>
     
     
-<div id="content"> 
+<div id="content">
+
+    <div id="evaluation">
+
+        <p id="tilbake"> < </p>
+
+        <p id="fram"> > </p>
     
-<div id="sideteller">
-    <p> Spørsmål 1 av 4 </p>
+        <div id="sideteller">
+            <p> Spørsmål 1 av 4 </p>
+        </div>
+    
+        <div id="question1">
+            <div class="sporsmal">
+                <p>Hvor mye følte du at du lærte ved denne øvingen?</p>
+            </div>
+            <div id="slider_rangering"></div>
+
+        </div>
+    
+        <div id="question2">
+            <div class="sporsmal">
+                <p>Hvor lang tid brukte du sånn omtrentelig?</p>
+            </div>
+            <div id="slider_tidsbruk"></div>
+
+        </div>
+
+        <div id="question3">
+    
+            <div class="sporsmal">
+                <p>Hvordan vil du veie tidsforbruken av de ulike ressursene opp mot hverandre?</p>
+            </div>
+            <span id="s1">1</span>
+            <span id="s2">2</span>
+            <span id="s3">3</span>
+            <span id="s4">4</span>
+        </div>
+
+        <div id="question4">
+            <div class="sporsmal">
+                <p id="topP">Tusen takk! </p>
+                <p>Dine svar vil bli til stor hjelp.</p>
+            </div>
+            <div id="send">
+                <p>Lever!</p>
+            </div>
+
+            <textarea placeholder="Skriv gjerne en tilbakemelding her, om du har noen tanker rundt øvingen!" id="tilbakemelding"></textarea>
+
+        </div>
+
+    </div>
+
+    <div id="information">
+        <p>Her kommer informasjon</p>
+    </div>
+
+    <div id="about">
+        <p>Her sier vi noe om oss</p>
+    </div>
+
 </div>
-    
-    <div id="question1">
-        <div class="sporsmal">
-            <p>Hvor mye følte du at du lærte ved denne øvingen?</p>
-        </div>
-        <div id="slider_rangering"></div>
 
-    </div>
-    
-    <div id="question2">
-        <div class="sporsmal">
-            <p>Hvor lang tid brukte du sånn omtrentelig?</p>
-        </div>
-        <div id="slider_tidsbruk"></div>
 
-    </div>
-
-    <div id="question3">
-    
-        <div class="sporsmal">
-            <p>Hvordan vil du veie tidsforbruken av de ulike ressursene opp mot hverandre?</p>
-        </div>
-        <span id="s1">1</span>
-        <span id="s2">2</span>
-        <span id="s3">3</span>
-        <span id="s4">4</span>
-    </div>
-
-    <div id="question4">
-        <div class="sporsmal">
-            <p id="topP">Tusen takk! </p>
-            <p>Dine svar vil bli til stor hjelp.</p>
-        </div>
-        <div id="send">
-            <p>Lever!</p>
-        </div>
-
-        <textarea placeholder="Skriv gjerne en tilbakemelding her, om du har noen tanker rundt øvingen!" id="tilbakemelding"></textarea>
-
-    </div>
-
-</div>
 
 
 <div id="bottom">
     <div id="bottom_bars">
-        <div class="bottom_button" id="evaluation">
+        <div class="bottom_button" id="evaluationButton">
             <p> Evaluering </p>
         </div>
-        <div class="bottom_button" id="about">
+        <div class="bottom_button" id="informationButton">
+            <p> Informasjon</p>
+        </div>
+        <div class="bottom_button" id="aboutButton">
             <p>Om oss</p>
         </div>
         <div class="bottom_flag" id="norway"><img src="norge.png"></div>

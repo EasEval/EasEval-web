@@ -15,6 +15,8 @@ function setup_graphics() {
         $("#question2").hide();
         $("#question3").hide();
         $("#question4").hide();
+        $("#information").hide();
+        $("#about").hide();
         });
 };
 
@@ -38,6 +40,15 @@ $(document).ready(function() {
     });
     $('#norway').click(function (event) {
         norway();
+    });
+    $('#informationButton').click(function (event) {
+        information();
+    });
+    $('#aboutButton').click(function (event) {
+        about();
+    });
+    $('#evaluationButton').click(function (event) {
+        evaluation();
     });
        
     // lytter på tastatur med sexy syntax                        
@@ -117,6 +128,24 @@ function spmTilbake(){
     }
 }
 
+function information(){
+    $('#evaluation').hide("drop", {direction: "up"}, "fast");
+    $('#about').hide("drop", {direction: "up"}, "fast");
+    $('#information').show("drop", {direction: "down"}, "slow");
+}
+
+function about(){
+    $('#evaluation').hide("drop", {direction: "down"}, "fast");
+    $('#information').hide("drop", {direction: "up"}, "fast");
+    $('#about').show("fast");
+}
+
+function evaluation(){
+    $('#about').hide("drop", {direction: "down"}, "fast");
+    $('#information').hide("drop", {direction: "down"}, "fast");
+    $('#evaluation').show("drop", {direction: "down"}, "slow");
+}
+
 function british(){
     $('#norway img').css({opacity: 0.3});
     $('#norway').css('border-color', '#CFD1CD');
@@ -130,8 +159,9 @@ function british(){
     $('#question4 p').empty();
     $('#question4 .sporsmal #topP').empty().append('<p>Thank you!</p><p>Your answers will help alot.</p>');
     $('#question4 #send').empty().append('<p>Send!</p>');
-    $('#evaluation p').empty().append('<p>Evaluation</p>');
-    $('#about p').empty().append('<p>About</p>');
+    $('#evaluationButton p').empty().append('<p>Evaluation</p>');
+    $('#informationButton p').empty().append('<p>Information</p>');
+    $('#aboutButton p').empty().append('<p>About</p>');
     $('#question4 textarea').attr("placeholder", "If you have some thoughts about the exercise, please write them here!");
 }
 
@@ -148,8 +178,9 @@ function norway() {
     $('#question4 p').empty();
     $('#question4 .sporsmal #topP').empty().append('<p>Tusen takk!</p><p>Dine svar vil bli til stor hjelp.</p>');
     $('#question4 #send').empty().append('<p>Lever!</p>');
-    $('#evaluation p').empty().append('<p>Evaluering</p>');
-    $('#about p').empty().append('<p>Om oss</p>');
+    $('#evaluationButton p').empty().append('<p>Evaluering</p>');
+    $('#informationButton p').empty().append('<p>Informasjon</p>');
+    $('#aboutButton p').empty().append('<p>Om oss</p>');
     $('#question4 textarea').attr("placeholder", "Skriv gjerne en tilbakemelding her, om du har noen tanker rundt øvingen!");
 }
 
