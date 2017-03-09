@@ -22,7 +22,9 @@ function setup_graphics() {
 
 var sidetall = 1; // hvilket spørsmål brukeren er på i evalueringen
 var sideantall = 4;
-var norsk = true; 
+var norsk = true;
+var currentView = '#evaluation';
+var views = ['#evaluation', '#information', '#about'];
 // foreløpig kun 2 språk, må endre funksjonalitet dersom mer 
 
 $(document).ready(function() {
@@ -44,13 +46,13 @@ $(document).ready(function() {
         norway();
     });
     $('#informationButton').click(function (event) {
-        information();
+        setViewTo('#information');
     });
     $('#aboutButton').click(function (event) {
-        about();
+        setViewTo('#about');
     });
     $('#evaluationButton').click(function (event) {
-        evaluation();
+        setViewTo('#evaluation');
     });
        
     // lytter på tastatur med sexy syntax                        
@@ -136,24 +138,41 @@ function spmTilbake(){
     }
 }
 
-function information(){
+function setTopIndex(view){
     $('#evaluation').css('z-index',-1);
-
-    $('#evaluation').hide("drop", {direction: "up"}, "fast");
-    $('#about').hide("drop", {direction: "up"}, "fast");
-    $('#information').show("drop", {direction: "down"}, "slow");
+    $('#information').css('z-index',-1);
+    $('#about').css('z-index',-1);
+    $(view).css('z-index', 1);
 }
 
-function about(){
-    $('#evaluation').hide("drop", {direction: "down"}, "fast");
-    $('#information').hide("drop", {direction: "up"}, "fast");
-    $('#about').show("fast");
+function setButtonHighlight(highlightView){
+    for (view in views){
+        $(view).css('backgound-color',rgba(0,0,0,0));
+        $(view).css('text-shadow', '0 0 0.5vh #FFFFFF');
+        $(view).css('opacity', 0.5);
+    }
+
 }
 
-function evaluation(){
-    $('#about').hide("drop", {direction: "down"}, "fast");
-    $('#information').hide("drop", {direction: "down"}, "fast");
-    $('#evaluation').show("drop", {direction: "down"}, "slow");
+function setViewTo(view){
+    if (currentView != view){
+        setTopIndex(view);
+        /* setButtonHighlight(view); */
+        $('#evaluation').hide("drop", {direction: "up"}, "fast");
+        $('#about').hide("drop", {direction: "down"}, "fast");
+        if(view == '#evaluation'){
+            $('#information').hide("drop", {direction: "down"}, "fast");
+        } else{
+            $('#information').hide("drop", {direction: "up"}, "fast");
+        }
+        if (view == '#evaluation' || (currentView == '#about' && view == '#information')){
+            $(view).show("drop", {direction: "up"}, "slow");
+        } else{
+            $(view).show("drop", {direction: "down"}, "slow");
+        }
+        currentView = view;
+    }
+
 }
 
 function british(){
