@@ -90,7 +90,18 @@ body, html{
     height: 77vh;
     width: 80vw;
     left: 10vw;
-    top: 0;
+    top: 0; /** er dette nødvendig? **/
+    padding-top: 5vh;
+    padding-right: 25vh;
+    font-size: 3.2vh;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    background-color: rgb(253,253,253); 
+}
+
+#information p{
+    padding: 2vh;
+    color: black;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 #about{
@@ -100,6 +111,27 @@ body, html{
     width: 80vw;
     left: 10vw;
     top: 0;
+    padding-top: 5vh;
+    padding-right: 25vh;
+    font-size: 3.2vh;
+    border: 0.2vh solid rgba(0, 0, 0, 0.3);
+    background-color: rgb(252,252,252); 
+}
+
+#about p{
+    padding: 2vh;
+    color: black;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+#about a{
+    color: black;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+#about a:hover{
+    opacity: 0.5;
+    font-size: 3.25vh;
 }
 
 
@@ -317,6 +349,7 @@ textarea{
     border-width: 0.3vh;
     resize: none;
 }
+
 textarea:hover,
 textarea:active,
 textarea:focus {
@@ -337,10 +370,3 @@ textarea:focus {
     top: 0;
 }
 
-#information{
-    font-size: 10vw;
-}
-
-#about{
-    font-size: 10vw;
-}
