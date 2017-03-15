@@ -10,6 +10,7 @@ function setup_graphics() {
                 orientation: "vertical"
             });
         });
+        languageHandler.fillData(); // init language-data
         $("#slider_rangering" ).slider({value:50});
         $('#slider_tidsbruk').slider({value:50});
         $("#question2").hide();
@@ -38,11 +39,11 @@ $(document).ready(function() {
 
     $('#british').click(function (event) {
         norsk = false;
-        british();
+        setEngelsk();
     });
     $('#norway').click(function (event) {
         norsk = true;
-        norway();
+        setNorsk();
     });
     $('#informationButton').click(function (event) {
         setViewTo('#information');
@@ -186,42 +187,22 @@ function setViewTo(view){
     }
 }
 
-function british(){
+function setEngelsk(){
     $('#norway img').css({opacity: 0.3});
     $('#norway').css('border-color', '#CFD1CD');
     $('#british img').css({opacity: 1});
     $('#british').css('border-color', '#627898');
 
-    $('#sideteller').empty().append('<p> Question ' + sidetall + ' of ' + sideantall + ' </p>');
-    $('#question1 p').empty().append('<p>How much did you learn from this exercise?</p>');
-    $('#question2 p').empty().append('<p>Relatively, how much time did you use on this exercise?</p>');
-    $('#question3 p').empty().append('<p>How will you rate the time-usage compared to each other?</p>');
-    $('#question4 p').empty();
-    $('#question4 .sporsmal #topP').empty().append('<p>Thank you!</p><p>Your answers will help alot.</p>');
-    $('#question4 #send').empty().append('<p>Send!</p>');
-    $('#evaluationButton p').empty().append('<p>Evaluation</p>');
-    $('#informationButton p').empty().append('<p>Information</p>');
-    $('#aboutButton p').empty().append('<p>About</p>');
-    $('#question4 textarea').attr("placeholder", "If you have some thoughts about the exercise, please write them here!");
+    languageHandler.setEngelsk();
 }
 
-function norway() {
+function setNorsk() {
     $('#british img').css({opacity: 0.3});
     $('#british').css('border-color', '#CFD1CD');
     $('#norway img').css({opacity: 1});
     $('#norway').css('border-color', '#627898');
 
-    $('#sideteller').empty().append('<p> Spørsmål ' + sidetall + ' av ' + sideantall + ' </p>');
-    $('#question1 p').empty().append('<p>Hvor mye følte du at du lærte ved denne øvingen?</p>');
-    $('#question2 p').empty().append('<p>Hvor lang tid brukte du sånn omtrentelig?</p>');
-    $('#question3 p').empty().append('<p>Hvordan vil du veie tidsforbruken av de ulike ressursene opp mot hverandre?</p>');
-    $('#question4 p').empty();
-    $('#question4 .sporsmal #topP').empty().append('<p>Tusen takk!</p><p>Dine svar vil bli til stor hjelp.</p>');
-    $('#question4 #send').empty().append('<p>Lever!</p>');
-    $('#evaluationButton p').empty().append('<p>Evaluering</p>');
-    $('#informationButton p').empty().append('<p>Informasjon</p>');
-    $('#aboutButton p').empty().append('<p>Om oss</p>');
-    $('#question4 textarea').attr("placeholder", "Skriv gjerne en tilbakemelding her, om du har noen tanker rundt øvingen!");
+    languageHandler.setNorsk();
 }
 
 function getUserValues(){

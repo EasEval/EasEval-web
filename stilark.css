@@ -173,8 +173,8 @@ body, html{
 }
 
 .lite p, .mye p{
-    font-size: 1.5vw;
-    margin-top: 20vh;
+    font-size: 1.2vw;
+    margin-top: 19vh;
     color: #6F6A7B;
 }
 
@@ -183,11 +183,11 @@ body, html{
 }
 
 .lite{
-    margin-left: 10vw;
+    margin-left: 12vw;
 }
 
 .mye{
-    margin-left: 40vw;
+    margin-left: 36vw;
 }
 
 #question3 .mye{
@@ -316,8 +316,8 @@ body, html{
     border-radius: 1vh;
     margin-top: 3vh;
     cursor: pointer;
-    opacity: 0.8;
     line-height: 5vh;
+    opacity: 0.9;
     text-align: center;
     color: #CFD1CD;
     background-color: #664B6A;
@@ -326,7 +326,8 @@ body, html{
 }
 
 #send:hover{
-    opacity: 1;
+    opacity:1;
+    border: 0.2vh solid rgb(10, 256, 10);
 }
 
 #send p{
