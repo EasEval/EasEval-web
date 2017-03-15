@@ -18,13 +18,12 @@ function setup_graphics() {
         $("#information").hide();
         $("#about").hide();
         });
-};
+}
 
 var sidetall = 1; // hvilket spørsmål brukeren er på i evalueringen
 var sideantall = 4;
 var norsk = true;
 var currentView = '#evaluation';
-var views = ['#evaluation', '#information', '#about'];
 // foreløpig kun 2 språk, må endre funksjonalitet dersom mer 
 
 $(document).ready(function() {
@@ -54,7 +53,7 @@ $(document).ready(function() {
     $('#evaluationButton').click(function (event) {
         setViewTo('#evaluation');
     });
-       
+
     // lytter på tastatur med sexy syntax                        
     $(document).on("keydown", function(event) {
         switch(event.keyCode) {
@@ -64,7 +63,7 @@ $(document).ready(function() {
             case $.ui.keyCode.RIGHT:
                 spmFrem();
                 break;
-          };
+          }
     });
                                                      
    $('#send').click(function(event) { 
@@ -146,18 +145,31 @@ function setTopIndex(view){
 }
 
 function setButtonHighlight(highlightView){
-    for (view in views){
-        $(view).css('backgound-color',rgba(0,0,0,0));
-        $(view).css('text-shadow', '0 0 0.5vh #FFFFFF');
-        $(view).css('opacity', 0.5);
+    disableButton('#evaluationButton');
+    disableButton('#informationButton');
+    disableButton('#aboutButton');
+
+    $('#evaluationButton').mouseover(function(){enableButton(this)}).mouseout(function(){disableButton(this)});
+    $('#informationButton').mouseover(function(){enableButton(this)}).mouseout(function(){disableButton(this)});
+    $('#aboutButton').mouseover(function(){enableButton(this)}).mouseout(function(){disableButton(this)});
+
+    enableButton(highlightView);
+    $(highlightView).mouseover(function(){enableButton(this)}).mouseout(function(){enableButton(this)});
     }
 
+function disableButton(button) {
+    $(button).css({'text-shadow':'none','background':'none','opacity':'0.5'});
+}
+
+function enableButton(button){
+    $(button).css({'text-shadow': '0 0 0.5vh #FFFFFF','opacity': '1','background-color': 'rgba(255, 255, 255, 0.5)',
+        'background': 'radial-gradient(rgba(255,255,255,0.3), #664B6A, #664B6A)'});
 }
 
 function setViewTo(view){
     if (currentView != view){
         setTopIndex(view);
-        /* setButtonHighlight(view); */
+        setButtonHighlight(view + "Button");
         $('#evaluation').hide("drop", {direction: "up"}, "fast");
         $('#about').hide("drop", {direction: "down"}, "fast");
         if(view == '#evaluation'){
@@ -172,7 +184,6 @@ function setViewTo(view){
         }
         currentView = view;
     }
-
 }
 
 function british(){

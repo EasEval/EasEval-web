@@ -22,7 +22,11 @@ body, html{
 
 #top{
     height:15vh; /** 15 % relative to view height **/
+    width:100vw;
     background-color: #372F49;
+    position: relative;
+    z-index: 2;
+
 }
 
 #top img{
@@ -45,7 +49,7 @@ body, html{
     padding-top: 13vh;
     padding-left: 2.5vw;
 /*    Alltid ligge øverst, gi stor z-index*/
-    z-index: 9;
+    z-index: 2;
 }
 
 #tilbake{
