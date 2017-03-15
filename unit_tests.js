@@ -1,21 +1,21 @@
 QUnit.module('Module: Cookie handling');
 
-/*
-QUnit.test("Initally exists no cookie", function(assert){
+
+QUnit.test("Initally exists no cookie. Should fail on multiple attempts", function(assert){
     assert.equal(document.cookie, "" , "It should return the empty string. You might also need to restart browser for a clean test since cookies normally exists until closing of browser unless specificed otherwise");
     assert.equal(cookieHandler.readCookie('send'), "", "cookieHandler readCookie method returns correctly empty string");
 }); 
 
-QUnit.test("Cookie set and then read value", function(assert){
+QUnit.test("Cookie set and then read value, might not pass running locally on chrome", function(assert){
     cookieHandler.setCookie('send', 'test123');
     var value = cookieHandler.readCookie('send');
-    assert.equal(value, 'test123', "This test might not pass running locally on chrome browser.");
+    assert.equal(value, 'test123', "This test might not pass running locally on chrome browser due to security policies or something.");
     
     cookieHandler.setCookie('send', 'abc');
     var value2 = cookieHandler.readCookie('send')
     assert.equal(value2, 'abc', "Setting a new value, read");
     assert.equal(value2, 'abc', "reading same value twice");
-}); */
+}); 
 
 QUnit.test("Deletion of a cookie", function(assert){
     cookieHandler.delCookie('test123');
@@ -39,6 +39,11 @@ QUnit.test("Testing setup functionality", function(assert){
 
 QUnit.test("Navigate left and right", function(assert){
     jQuery.fx.off = true; // turn off animations because they contribute to delays. 
+    
+    setup_graphics();
+    for (var side = sideantall; side>1; side--){
+        spmTilbake();
+    };
     
     assert.equal(sidetall, 1, "Page should initially be 1");
     assert.equal($('#question1').is(':hidden'), false , "Question 1 should not be hidden on page 1");
@@ -83,9 +88,11 @@ QUnit.test("Navigate left and right", function(assert){
 });
 
 QUnit.test("Keyboard listeners", function(assert){
+    jQuery.fx.off = true;
     for (var side = sideantall; side>1; side--){
         spmTilbake();
     };
+    
     $(document).trigger($.Event("keydown", {keyCode: $.ui.keyCode.RIGHT})); 
     assert.equal(sidetall,2, "Right key triggers next page");
     $(document).trigger($.Event( "keydown", {keyCode: $.ui.keyCode.LEFT}));  
