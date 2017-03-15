@@ -6,91 +6,117 @@
     <title>EasEval</title>
     <link rel="stylesheet" href="jquery-ui.css">
     <link rel="stylesheet" href="stilark.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <script scr="bundle.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato|Source+Sans+Pro" rel="stylesheet">
+    <script src="bundle.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script type="text/javascript" src="script.js"></script>
+     <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript" src="cookiehandler.js"></script>
+    <script type="text/javascript" src="languageHandler.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
         setup_graphics()
     </script>
 </head>
 <body>
-    
+
 <div id="top">
     <img src="easeval.png">
 </div>
 
-<p id="tilbake"> < </p>
-    
-<p id="fram"> > </p>
     
     
-<div id="content"> 
+<div id="content">
+
+    <div id="evaluation">
+
+        <p id="tilbake"> &lt; </p>
+
+        <p id="fram"> &gt; </p>
     
-<div id="sideteller">
-    <p> Spørsmål 1 av 4 </p>
+        <div id="sideteller">
+            <p> Spørsmål 1 av 4 </p>
+        </div>
+    
+        <div id="question1">
+            <div class="sporsmal">
+                <p>Hvor mye følte du at du lærte ved denne øvingen?</p>
+            </div>
+            <div id="slider_rangering"></div>
+
+        </div>
+    
+        <div id="question2">
+            <div class="sporsmal">
+                <p>Hvor lang tid brukte du sånn omtrentelig?</p>
+            </div>
+            <div id="slider_tidsbruk"></div>
+
+        </div>
+
+        <div id="question3">
+    
+            <div class="sporsmal">
+                <p>Hvordan vil du veie tidsforbruken av de ulike ressursene opp mot hverandre?</p>
+            </div>
+            <span id="s1">1</span>
+            <span id="s2">2</span>
+            <span id="s3">3</span>
+            <span id="s4">4</span>
+            <span id="s5">4</span>
+        </div>
+
+        <div id="question4">
+            <div class="sporsmal">
+                <p id="topP">Tusen takk! </p>
+                <p>Dine svar vil bli til stor hjelp.</p>
+            </div>
+            <div id="send">
+                <p>Lever!</p>
+            </div>
+
+            <textarea placeholder="Skriv gjerne en tilbakemelding her, om du har noen tanker rundt øvingen!" id="tilbakemelding"></textarea>
+
+        </div>
+
+    </div>
+
+    <div id="information">
+        <p>EasEval er en applikasjon der du som student skal gi tilbakemelding på øvingene dine. Målet er å synliggjøre studentenes læringsprossess og at fagansvarlige skal få representativ feedback fra alle som gjennomgår øvingsopplegget. </p>
+        <p> Naviger deg gjennom de fire sidene og trykk send når du er ferdig. Tips: Du kan raskt navigere deg frem og tilbake med venstre og høyre piltast! </p>
+        <p> Du er helt anonym i tilbakemeldingen din. Denne nettsiden bruker cookies, men dette er kun for å hindre at du svarer på samme skjema flere ganger. </p>
+        <p> På spørsmål der det er flere slidere (spm. 3), vil resultatene bli kalkulert relativt til hverandre. Hvis du for eksempel gir full score til alle 5 slidere, vil hver av dem få en prosentvis tildeling på 20%. </p>
+        <p> Vi ønsker ikke at det å svare på skjemaet skal være en tidskrevende og smertefull rutine for deg. Dersom du har noen tilbakemeldinger på hvordan vi kan forbedre brukeropplevelsen, kontakt oss! </p>
+    </div>
+
+    <div id="about">
+        <p>EasEval er utviklet som del av et skoleprosjekt i faget Programvareutviling TDT4140 på NTNU. Tema for dette året er å lage en bot som bidrar til å løse problemer med universitetet. Vår bot genererer nyttig og visuelt appellerende statistikk basert på studenters tilbakemelding etter hver øving.</p> 
+        <p> Statistikken finner du i en app på iOS under navn " ". Den er i utgangspunktet ment for fagstaben. </p>
+        <p> Utviklerne går alle i 2. klasse datateknologi: August Lund Eilertsen, Eivind Aksnes Rebnord, Simen Ullern og Peter Salvesen.</p>
+        <p> All kildekode for EasEval ligger fritt ute på <a href="https://www.github.com/EasEval" target="_blank">Github</a>.</p>
+        <p> Kontakt oss hvis du lurer på noe! </p>
+    </div>
+
 </div>
-    
-    <div id="question1">
-    <div class="sporsmal">
-        <p>Hvor mye følte du at du lærte ved denne øvingen?</p>
-    </div>
-    <div id="slider_rangering"></div>
 
-    </div>
-    
-    <div id="question2">
-        <div class="sporsmal">
-            <p>Hvor lang tid brukte du sånn omtrentelig?</p>
-        </div>
-        <div id="slider_tidsbruk"></div>
 
-    </div>
-
-    <div id="question3">
-    
-        <div class="sporsmal">
-            <p>Hvordan vil du veie tidsforbruken av de ulike ressursene opp mot hverandre?</p>
-        </div>
-        <span id="s1">1</span>
-        <span id="s2">2</span>
-        <span id="s3">3</span>
-        <span id="s4">4</span>
-        <span id="s5">5</span>
-    </div>
-
-    <div id="question4">
-        <div class="sporsmal">
-            <p>Tusen takk! </p>
-            <p>Dine svar vil bli til stor hjelp.</p>
-        </div>
-        <div id="send">
-            <p>Lever!</p>
-        </div>
-
-        <textarea placeholder="Skriv gjerne en tilbakemelding her, om du har noen tanker rundt øvingen!" id="tilbakemelding"></textarea>
-
-    </div>
-
-</div>
 
 
 <div id="bottom">
     <div id="bottom_bars">
-        <div class="bottom_button" id="evaluation">
-            <b> Evaluation </b>
+        <div class="bottom_button" id="evaluationButton">
+            <p> Evaluering </p>
         </div>
-        <div class="bottom_button" id="about">
-            <p>About</p>
+        <div class="bottom_button" id="informationButton">
+            <p> Informasjon</p>
+        </div>
+        <div class="bottom_button" id="aboutButton">
+            <p>Om oss</p>
         </div>
         <div class="bottom_flag" id="norway"><img src="norge.png"></div>
         <div class="bottom_flag" id="british"><img src="british.png"></div>
     </div>
 
 </div>
-
 
 </body>
 </html>

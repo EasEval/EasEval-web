@@ -13,8 +13,8 @@
 .ui-slider .ui-slider-handle {
     position: absolute;
     z-index: 2;
-    width: 1.2em;
-    height: 1.2em;
+    width: 1.3em;
+    height: 1.3em;
     cursor: default;
     -ms-touch-action: none;
     touch-action: none;
@@ -54,7 +54,7 @@
 
 .ui-slider-vertical {
     width: .8em;
-    height: 100px;
+    height: 25vh;
 }
 .ui-slider-vertical .ui-slider-handle {
     left: -.3em;
@@ -76,28 +76,28 @@
 ----------------------------------*/
 .ui-widget {
     font-family: Arial,Helvetica,sans-serif;
-    font-size: 1em;
+    font-size: 3vh;
 }
 .ui-widget .ui-widget {
-    font-size: 1em;
+    font-size: 3vh;
 }
 .ui-widget input,
 .ui-widget select,
 .ui-widget textarea,
 .ui-widget button {
     font-family: Arial,Helvetica,sans-serif;
-    font-size: 1em;
+    font-size: 3vh;
 }
 .ui-widget.ui-widget-content {
-    border: 1px solid #000000;
+    border: 0.2vh solid #000000;
 }
 .ui-widget-content {
-    border: 1px solid #000000;
+    border: 0.2vh solid #000000;
     background: #000000;
     color: #000000;
 }
 .ui-widget-header {
-    border: 1px solid #000000;
+    border: 0.2vh solid #000000;
     /* Under slider, farge */
     background: #627898;
     color: #000000;
@@ -118,7 +118,7 @@
     works properly when clicked or hovered */
 html .ui-button.ui-state-disabled:hover,
 html .ui-button.ui-state-disabled:active {
-    border: 1px solid #000000;
+    border: 0.2vh solid #000000;
     /* knapp, farge */
     background: #6F6A7B;
     font-weight: normal;
@@ -133,7 +133,7 @@ html .ui-button.ui-state-disabled:active {
 .ui-widget-header .ui-state-focus,
 .ui-button:hover,
 .ui-button:focus {
-    border: 1px solid #000000;
+    border: 0.2vh solid #000000;
     /* knapp, farge ved hover */
     background: #634967;
     font-weight: normal;
@@ -146,7 +146,7 @@ html .ui-button.ui-state-disabled:active {
 a.ui-button:active,
 .ui-button:active,
 .ui-button.ui-state-active:hover {
-    border: 1px solid #000000;
+    border: 0.2vh solid #000000;
     /* knapp, farge ved trykk */
     background: #372F49;
     font-weight: normal;
@@ -158,23 +158,23 @@ a.ui-button:active,
 .ui-corner-top,
 .ui-corner-left,
 .ui-corner-tl {
-    border-top-left-radius: 3px;
+    border-top-left-radius: 1vh;
 }
 .ui-corner-all,
 .ui-corner-top,
 .ui-corner-right,
 .ui-corner-tr {
-    border-top-right-radius: 3px;
+    border-top-right-radius: 1vh;
 }
 .ui-corner-all,
 .ui-corner-bottom,
 .ui-corner-left,
 .ui-corner-bl {
-    border-bottom-left-radius: 3px;
+    border-bottom-left-radius: 1vh;
 }
 .ui-corner-all,
 .ui-corner-bottom,
 .ui-corner-right,
 .ui-corner-br {
-    border-bottom-right-radius: 3px;
+    border-bottom-right-radius: 1vh;
 }
