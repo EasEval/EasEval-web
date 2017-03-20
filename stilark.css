@@ -115,7 +115,7 @@ body, html{
     padding-right: 25vh;
     font-size: 3.2vh;
     border: 0.2vh solid rgba(0, 0, 0, 0.3);
-    background-color: rgb(252,252,252); 
+    background-color: rgb(252,252,252);
 }
 
 #about p{
@@ -131,7 +131,6 @@ body, html{
 
 #about a:hover{
     opacity: 0.5;
-    font-size: 3.25vh;
 }
 
 
