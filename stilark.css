@@ -157,17 +157,17 @@ body, html{
 
 .icons{
     z-index: 2;
-    height: 6vh;
-    width: 35vw;
+    height: 10vh;
+    width: 40vw;
     position: absolute;
     left:23.25vw;
     top:67vh;
 }
 
 .icons img{
-    height: 3vw;
-    width: 3vw;
-    margin-left: 3.75vw;
+    height: 3.5vw;
+    width: 3.5vw;
+    margin-left: 3.3vw;
     cursor: pointer;
 }
 
