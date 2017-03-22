@@ -17,6 +17,11 @@ function setup_graphics() {
         $("#question2").hide();
         $("#question3").hide();
         $("#question4").hide();
+        $("#label1 p").hide();
+        $("#label2 p").hide();
+        $("#label3 p").hide();
+        $("#label4 p").hide();
+        $("#label5 p").hide();
         $("#information").hide();
         $("#about").hide();
         });
@@ -53,6 +58,11 @@ $(document).ready(function() {
     $("#evaluationButton").click(function (event) {
         setViewTo("#evaluation");
     });
+    $("#icon1").mouseover(function(){$("#label1 p").show()}).mouseout(function(){$("#label1 p").hide()});
+    $("#icon2").mouseover(function(){$("#label2 p").show()}).mouseout(function(){$("#label2 p").hide()});
+    $("#icon3").mouseover(function(){$("#label3 p").show()}).mouseout(function(){$("#label3 p").hide()});
+    $("#icon4").mouseover(function(){$("#label4 p").show()}).mouseout(function(){$("#label4 p").hide()});
+    $("#icon5").mouseover(function(){$("#label5 p").show()}).mouseout(function(){$("#label5 p").hide()});
     // listener on keyboard, left and right key                    
     $(document).on("keydown", function(event) {
         switch(event.keyCode) {

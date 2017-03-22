@@ -46,8 +46,8 @@ var languageHandler = {
         this.norDict["#question1 .mye"] = "<p> Veldig mye </p>";
         this.norDict["#question2 .lite"] = "<p> Veldig liten </p>";
         this.norDict["#question2 .mye"] = "<p> Veldig stor </p>";
-        this.norDict["#ml1"] = "<p>Mye brukt <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> Lite brukt </p>";
-        this.norDict["#ml2"] = "<p>Mye brukt <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> Lite brukt </p>";
+        this.norDict["#ml1"] = "<p>Mye brukt</p> <p> Lite brukt</p>";
+        this.norDict["#ml2"] = "<p>Mye brukt</p> <p> Lite brukt</p>";
         
         
         this.engDict["#question1 .sporsmal"] = "<p>How much did you learn from this exercise?</p>";
@@ -62,8 +62,8 @@ var languageHandler = {
         this.engDict["#question1 .mye"] = "<p> Very much </p>";
         this.engDict["#question2 .lite"] = "<p> A lot less </p>";
         this.engDict["#question2 .mye"] = "<p> A lot more </p>";
-        this.engDict["#ml1"] = "<p>Used a lot <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> Not used </p>";
-        this.engDict["#ml2"] = "<p>Used a lot <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> Not used </p>";
+        this.engDict["#ml1"] = "<p>Used a lot</p><p>Not used</p>";
+        this.engDict["#ml2"] = "<p>Used a lot</p><p>Not used</p>";
     }
  
 }

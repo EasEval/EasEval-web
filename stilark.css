@@ -146,6 +146,45 @@ body, html{
     text-align: center;
 }
 
+.labels{
+    z-index: 2;
+    height: 6vh;
+    width: 35vw;
+    position: absolute;
+    left:25vw;
+    top:63vh;
+}
+
+.icons{
+    z-index: 2;
+    height: 6vh;
+    width: 35vw;
+    position: absolute;
+    left:23.25vw;
+    top:67vh;
+}
+
+.icons img{
+    height: 3vw;
+    width: 3vw;
+    margin-left: 3.75vw;
+    cursor: pointer;
+}
+
+#label1, #label2, #label3, #label4, #label5{
+    height: 100%;
+    width: 20%;
+    display: inline-block;
+    position: relative;
+    float: left;
+    text-align: center;
+    font-size: 3vh;
+}
+
+.labels p{
+    color: #627898;
+}
+
 #sideteller {
     width: 20vw;
     margin: auto;
@@ -196,6 +235,10 @@ body, html{
 #question3 .mye p, #question3 .lite p{
     font-size: 1vw;
     margin-top: 5vh;
+}
+
+#ml1 p, #ml2 p{
+    margin-bottom: 25vh;
 }
 
 #slider_rangering, #slider_tidsbruk{
