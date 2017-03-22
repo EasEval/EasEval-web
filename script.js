@@ -69,10 +69,14 @@ $(document).ready(function() {
     $(document).on("keydown", function(event) {
         switch(event.keyCode) {
             case $.ui.keyCode.LEFT:
-                prevPage();
+                if(!sentEval){
+                    prevPage();
+                }
                 break;
             case $.ui.keyCode.RIGHT:
-                nextPage();
+                if(!sentEval){
+                    nextPage();
+                }
                 break;
           }
     });
@@ -80,6 +84,9 @@ $(document).ready(function() {
    $("#send").click(function(event) { 
         if (cookieHandler.readCookie("send")!== "false"){
             send();
+        } else{
+            $("#topP").empty().append("<p>Du har allerede levert denne evalueringen.</p>");
+            $("#topP p").css("color", "red");
         }
     });
 });
@@ -89,14 +96,16 @@ function send(){
     cookieHandler.setCookie("send", false, 10);
     sentEval = true;
     // currently restricted from sending every 10 sec
-    console.log("Du sendte.")
+    console.log("Du sendte.");
     //window.submitRecord(getUserValues());
     $("#send").hide();
     $("#textinput").hide();
+    $("#fram").hide();
+    $("#tilbake").hide();
+    $("#sideteller").hide();
     $("#proffesor").show();
     $("#topP").css("padding-top", "6vh");
     languageHandler.setFinalText();
-    
 }
 
 function nextPage(){

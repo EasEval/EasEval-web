@@ -45,7 +45,7 @@ var languageHandler = {
          if (norwegianLanguage) {
              $("#topP").empty().append("<p>Skjemaet er klart til å sendes.</p>");
          } else {
-             $("#topP").empty().append("<p>You can now submit your evaluation.</p>");
+             $("#topP").empty().append("<p>You may now submit your evaluation.</p>");
          }
       }  
     },
@@ -63,8 +63,13 @@ var languageHandler = {
         this.norDict["#question1 .mye"] = "<p> Veldig mye </p>";
         this.norDict["#question2 .lite"] = "<p> Veldig liten </p>";
         this.norDict["#question2 .mye"] = "<p> Veldig stor </p>";
-        this.norDict["#ml1"] = "<p>Mye brukt <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> Lite brukt </p>";
-        this.norDict["#ml2"] = "<p>Mye brukt <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> Lite brukt </p>";
+        this.norDict["#ml1"] = "<p>Mye brukt</p> <p>Lite brukt</p> ";
+        this.norDict["#ml2"] = "<p>Mye brukt</p> <p>Lite brukt</p> ";
+        this.norDict["#label1 p"] = "<p>forelesning</p>";
+        this.norDict["#label2 p"] = "<p>internett</p>";
+        this.norDict["#label3 p"] = "<p>kok/kopiering</p>";
+        this.norDict["#label4 p"] = "<p>pensumbøker</p>";
+        this.norDict["#label5 p"] = "<p>annet</p>";
         this.norDict["#information"] = "<p>EasEval er en applikasjon der du som student skal gi tilbakemelding på øvingene dine. Målet er å synliggjøre studentenes læringsprossess og at fagansvarlige skal få representativ feedback fra alle som gjennomgår øvingsopplegget. Din ærlige tilbakemelding er viktig. </p>"+
         "<p> Naviger deg gjennom de fire sidene og trykk send når du er ferdig. Tips: Du kan raskt navigere deg frem og tilbake med venstre og høyre piltast! </p>"+
         "<p> Du er helt anonym i alle evalueringene dine. Denne nettsiden bruker cookies, men dette er kun for å hindre at du svarer på samme skjema flere ganger. </p>"+
@@ -74,7 +79,7 @@ var languageHandler = {
         "<p> Statistikken finner du i en app på iOS under navn 'NAVN'. Den er i utgangspunktet tiltenkt for fagstaben. </p>"+
         "<p> Utviklerne går alle i 2. klasse datateknologi: August Lund Eilertsen, Eivind Aksnes Rebnord, Simen Ullern og Peter Salvesen.</p>"+
         "<p> All kildekode for EasEval ligger fritt ute på <a href='https://www.github.com/EasEval' target='_blank'>Github</a>.</p>"+
-        "<p> Kontakt oss på<i> petersal (at) stud.ntnu.no </i>hvis du lurer på noe! </p>"
+        "<p> Kontakt oss på<i> petersal (at) stud.ntnu.no </i>hvis du lurer på noe! </p>";
         
         
         this.engDict["#question1 .sporsmal"] = "<p>How much did you learn from this exercise?</p>";
@@ -88,8 +93,13 @@ var languageHandler = {
         this.engDict["#question1 .mye"] = "<p> Very much </p>";
         this.engDict["#question2 .lite"] = "<p> A lot less </p>";
         this.engDict["#question2 .mye"] = "<p> A lot more </p>";
-        this.engDict["#ml1"] = "<p>Used a lot <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> Not used </p>";
-        this.engDict["#ml2"] = "<p>Used a lot <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> Not used </p>";
+        this.engDict["#ml1"] = "<p>Used a lot</p> <p>Not used </p>";
+        this.engDict["#ml2"] = "<p>Used a lot</p> <p>Not used </p>";
+        this.engDict["#label1 p"] = "<p>lecture</p>";
+        this.engDict["#label2 p"] = "<p>internet</p>";
+        this.engDict["#label3 p"] = "<p>copying</p>";
+        this.engDict["#label4 p"] = "<p>textbook</p>";
+        this.engDict["#label5 p"] = "<p>other</p>";
         this.engDict["#information"] = "<p>EasEval is an application where you as a student can evaluate your given exercises. The goal is to increase the transparency of how students learn and solve their problems, as well as giving the teaching staff useful and relevant feedback. Your honest opinion is important. </p>"+
         "<p> Navigate your way through the four pages and press send when your are done. Tip: You can easily navigate back and forth by using the left and right arrow key! </p>"+
         "<p> You are fully anonymous in all your evaluations. This website uses cookies, but this is only to prevent you from submitting more than one form for a particular exercise. </p>"+
@@ -99,7 +109,8 @@ var languageHandler = {
         "<p> The statistics is available in an app on iOS under the name NAME. It is intended mainly for the teaching staff. </p>"+
         "<p> The developers are all second year computer science students: August Lund Eilertsen, Eivind Aksnes Rebnord, Simen Ullern og Peter Salvesen.</p>"+
         "<p> All source code for EasEval is openly available at <a href='https://www.github.com/EasEval' target='_blank'>Github</a>.</p>"+
-        "<p> Contact us at <i> petersal (at) stud.ntnu.no </i>if you have any questions! </p>"
+        "<p> Contact us at <i> petersal (at) stud.ntnu.no </i>if you have any questions! </p>";
+
     }
  
-}
+};
