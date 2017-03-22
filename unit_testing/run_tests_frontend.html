@@ -1,0 +1,166 @@
+<!--run this file in a browser to see results from unit tests made in the unit_tests.js-file -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>QUnit testing for EasEval front end</title>
+  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.1.1.css">
+    <link rel="stylesheet" href="../jquery-ui.css">
+    <link rel="stylesheet" href="../stilark.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--    <iframe src="index.html"></iframe>-->
+    </head>
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="https://code.jquery.com/qunit/qunit-2.1.1.js"></script>
+<script src="blanket.min.js"></script>
+<script src="../script.js" data-cover></script>
+<script src="../cookieHandler.js" data-cover></script>
+<script src="../languageHandler.js" data-cover></script>
+<script src="tests_frontend.js"></script>
+    
+    <div style="visibility: hidden; height: 0%; width: 0%;">
+        
+<!-- Everything below is just copied from index.html
+the element is invisible (but still takes up space and is testable)-->
+        
+<div id="top">
+    <img src="libs/imgs/easeval.png">
+</div>
+
+    
+    
+<div id="content">
+
+    <div id="evaluation">
+
+        <p id="tilbake"> < </p>
+
+        <p id="fram"> > </p>
+    
+        <div id="sideteller">
+            <p> Spørsmål 1 av 4 </p>
+        </div>
+    
+        <div id="question1">
+            <div class="sporsmal">
+                <p>Hvor mye følte du at du lærte ved denne øvingen?</p>
+            </div>
+            <div class="lite"> <p>Svært lite</p> </div>
+            <div class="mye"> <p>Svært mye</p> </div>
+            <div id="slider_rangering"></div>
+
+        </div>
+    
+        <div id="question2">
+            <div class="sporsmal">
+                <p>Hvordan var arbeidsmengden sammenlignet med andre øvinger?</p>
+            </div>
+            <div class="lite"> <p>Veldig liten</p> </div>
+            <div class="mye"> <p>Veldig stor</p> </div>
+            <div id="slider_tidsbruk"></div>
+
+        </div>
+
+        <div id="question3">
+    
+            <div class="sporsmal">
+                <p>Hvordan vil du veie tidsforbruken av de ulike ressursene opp mot hverandre?</p>
+            </div>
+
+            <div class="lite" id="ml1"> <p>Mye brukt</p> <p> Lite brukt</p> </div>
+
+            <span id="s1">1</span>
+            <span id="s2">2</span>
+            <span id="s3">3</span>
+            <span id="s4">4</span>
+            <span id="s5">5</span>
+
+            <div class="mye" id="ml2"> <p>Mye brukt</p> <p> Lite brukt</p> </div>
+
+            <div class="labels">
+                <div id="label1">
+                    <p>forelesning</p>
+                </div>
+                <div id="label2">
+                    <p>internet</p>
+                </div>
+                <div id="label3">
+                    <p>kok/kopiering</p>
+                </div>
+                <div id="label4">
+                    <p>pensum</p>
+                </div>
+                <div id="label5">
+                    <p>annet</p>
+                </div>
+            </div>
+            <div class="icons">
+                <img src="libs/imgs/forelesning.png" id="icon1">
+                <img src="libs/imgs/internet.png" id="icon2">
+                <img src="libs/imgs/kok.png" id="icon3">
+                <img src="libs/imgs/pensum.png" id="icon4">
+                <img src="libs/imgs/annet.png" id="icon5">
+            </div>
+        </div>
+
+        <div id="question4">
+            <div class="sporsmal">
+                <p id="topP">Skjemaet er klart til å sendes.</p>
+            </div>
+            <div id="send">
+                <p>Send</p>
+            </div>
+            
+            <div id="textinput">
+            <textarea maxlength="400" placeholder="Skriv gjerne en tilbakemelding her, om du har noen ekstra tanker rundt øvingen!" id="tilbakemelding"></textarea>
+                </div>
+            <div id="proffesor"><img src="libs/imgs/easeval_proffesor.png"></div>
+        </div>
+
+    </div>
+
+    <div id="information">
+        <p>EasEval er en applikasjon der du som student skal gi tilbakemelding på øvingene dine. Målet er å synliggjøre studentenes læringsprossess og at fagansvarlige skal få representativ feedback fra alle som gjennomgår øvingsopplegget. Din ærlige tilbakemelding er viktig. </p>
+        <p> Naviger deg gjennom de fire sidene og trykk send når du er ferdig. Tips: Du kan raskt navigere deg frem og tilbake med venstre og høyre piltast! </p>
+        <p> Du er helt anonym i alle evalueringene dine. Denne nettsiden bruker cookies, men dette er kun for å hindre at du svarer på samme skjema flere ganger. </p>
+        <p> På spørsmål der det er flere slidere (spm. 3), vil resultatene bli kalkulert relativt til hverandre. Hvis du for eksempel gir full score til alle 5 slidere, vil hver av dem få en prosentvis tildeling på 20%. </p>
+        <p> Vi ønsker ikke at det å svare på skjemaet skal være en tidkrevende og smertefull rutine for deg. Dersom du har noen tilbakemeldinger på hvordan vi kan forbedre brukeropplevelsen, kontakt oss på <i> petersal (at) stud.ntnu.no </i>! </p>
+    </div>
+
+    <div id="about">
+        <p>EasEval er utviklet som del av et skoleprosjekt i faget Programvareutviling TDT4140 på NTNU. Tema for dette året er å lage en bot som bidrar til å løse problemer med utdanningen på universitetet. Vår bot genererer nyttig og visuelt appellerende statistikk basert på studenters tilbakemelding etter hver øving.</p> 
+        <p> Statistikken finner du i en app på iOS under navn "[insert name]". Den er i utgangspunktet tiltenkt for fagstaben. </p>
+        <p> Utviklerne går alle i 2. klasse datateknologi: August Lund Eilertsen, Eivind Aksnes Rebnord, Simen Ullern og Peter Salvesen.</p>
+        <p> All kildekode for EasEval ligger fritt ute på <a href="https://www.github.com/EasEval" target="_blank">Github</a>.</p>
+        <p> Kontakt oss på<i> petersal (at) stud.ntnu.no </i>hvis du lurer på noe! </p>
+    </div>
+
+</div>
+
+
+
+
+<div id="bottom">
+    <div id="bottom_bars">
+        <div class="bottom_button" id="evaluationButton">
+            <p> Evaluering </p>
+        </div>
+        <div class="bottom_button" id="informationButton">
+            <p> Informasjon</p>
+        </div>
+        <div class="bottom_button" id="aboutButton">
+            <p>Om oss</p>
+        </div>
+        <div class="bottom_flag" id="norway"><img src="libs/imgs/norge.png"></div>
+        <div class="bottom_flag" id="british"><img src="libs/imgs/british.png"></div>
+    </div>
+
+</div>
+    </div>
+</body>
+</html>

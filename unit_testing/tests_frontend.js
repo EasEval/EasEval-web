@@ -119,15 +119,15 @@ QUnit.test("Show site in different languages", function (assert){
     
     $('#fram').trigger('click');
     
-    assert.equal($.trim($("#question2").text()), "How much time did you spend on this exercise compared to usual?", "Question 2 in english");
+    assert.equal($.trim($("#question2 .sporsmal").text()), "How much time did you spend on this exercise compared to usual?", "Question 2 in english");
     
     $('#british').trigger('click');
     
-    assert.equal($.trim($("#question2").text()), "How much time did you spend on this exercise compared to usual?", "Question 2 still in english");
+    assert.equal($.trim($("#question2 .sporsmal").text()), "How much time did you spend on this exercise compared to usual?", "Question 2 still in english");
     
     $('#norway').trigger('click');
     
-    assert.equal($.trim($("#question2").text()), "Hvordan var arbeidsmengden sammenlignet med andre øvinger?", "Question 2 in norwegian");
+    assert.equal($.trim($("#question2 .sporsmal").text()), "Hvordan var arbeidsmengden sammenlignet med andre øvinger?", "Question 2 in norwegian");
     
     $('#british').trigger('click');
     $('#fram').trigger('click');
@@ -137,6 +137,21 @@ QUnit.test("Show site in different languages", function (assert){
     $('#norway').trigger('click');
     
     assert.equal($.trim($('#send').text()), "Send", "Send label in norwegian");
+});
+
+QUnit.test("Send mechanics", function (assert){
+    $('#send').trigger('click');
+    assert.equal(sentEval, true, "Boolean set properply")
+    assert.equal($('#proffesor').is(':visible'), true, "Proffesor dukker opp");
+});
+
+QUnit.test("Change tabs", function (assert){
+   $('#informationButton').trigger('click');
+    assert.equal($('#evaluationButton').css('opacity') , 0.5, "Disable other tab.");
+    assert.equal($('#aboutButton').css('opacity') , 0.5, "Disable other tab#2.");
+  assert.equal($('#informationButton').css('opacity') , 1, "Current tab is enabled with CSS styling");
+     assert.equal($("#question" + currentPage).is(':visible'), false, "Old tab content is hidden");
+    
 });
 
 
