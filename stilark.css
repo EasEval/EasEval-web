@@ -75,6 +75,15 @@ body, html{
 /*    border: 2px solid rgb(0, 256, 0);*/
 }
 
+#proffesor img{
+    display: block;
+    height: 40vh;
+    width: 40vh;
+    position: absolute;
+    bottom: 0;
+    right: 15vw;
+}
+
 #evaluation{
     position: absolute;
     z-index:1;
@@ -96,10 +105,16 @@ body, html{
     font-size: 3.2vh;
     border: 2px solid rgba(0, 0, 0, 0.3);
     background-color: rgb(253,253,253); 
+    overflow: auto;
 }
 
 #information p{
     padding: 2vh;
+    color: black;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+#information i{
     color: black;
     font-family: 'Source Sans Pro', sans-serif;
 }
@@ -116,6 +131,7 @@ body, html{
     font-size: 3.2vh;
     border: 0.2vh solid rgba(0, 0, 0, 0.3);
     background-color: rgb(252,252,252);
+    overflow: auto;
 }
 
 #about p{
@@ -125,6 +141,11 @@ body, html{
 }
 
 #about a{
+    color: black;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+#about i{
     color: black;
     font-family: 'Source Sans Pro', sans-serif;
 }

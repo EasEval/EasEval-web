@@ -17,6 +17,7 @@ function setup_graphics() {
         $("#question2").hide();
         $("#question3").hide();
         $("#question4").hide();
+        $("#proffesor").hide();
         $("#label1 p").hide();
         $("#label2 p").hide();
         $("#label3 p").hide();
@@ -31,6 +32,7 @@ var totalPages = 4;
 var currentPage = 1; 
 var norwegianLanguage = true;
 var currentView = "#evaluation";
+var sentEval = false;
 // Currently 2 languages, can be expanded with some changes
 
 $(document).ready(function() {
@@ -77,14 +79,25 @@ $(document).ready(function() {
                                                      
    $("#send").click(function(event) { 
         if (cookieHandler.readCookie("send")!== "false"){
-            cookieHandler.delCookie("send");
-            cookieHandler.setCookie("send", false, 10);
-            // currently restricted from sending every 10 sec
-            console.log("Du sendte.")
+            send();
         }
-        window.submitRecord(getUserValues());
     });
 });
+
+function send(){
+    cookieHandler.delCookie("send");
+    cookieHandler.setCookie("send", false, 10);
+    sentEval = true;
+    // currently restricted from sending every 10 sec
+    console.log("Du sendte.")
+    //window.submitRecord(getUserValues());
+    $("#send").hide();
+    $("#textinput").hide();
+    $("#proffesor").show();
+    $("#topP").css("padding-top", "6vh");
+    languageHandler.setFinalText();
+    
+}
 
 function nextPage(){
     // this function increments page if possible
