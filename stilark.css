@@ -94,12 +94,18 @@ body, html{
     padding-top: 5vh;
     padding-right: 25vh;
     font-size: 3.2vh;
-    border: 2px solid rgba(0, 0, 0, 0.3);
-    background-color: rgb(253,253,253); 
+    border: 0.2vh solid rgba(0, 0, 0, 0.3);
+    background-color: rgb(253,253,253);
+    overflow: auto;
 }
 
 #information p{
     padding: 2vh;
+    color: black;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+#information i{
     color: black;
     font-family: 'Source Sans Pro', sans-serif;
 }
@@ -115,7 +121,8 @@ body, html{
     padding-right: 25vh;
     font-size: 3.2vh;
     border: 0.2vh solid rgba(0, 0, 0, 0.3);
-    background-color: rgb(252,252,252); 
+    background-color: rgb(252,252,252);
+    overflow: auto;
 }
 
 #about p{
@@ -129,9 +136,13 @@ body, html{
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+#about i{
+    color: black;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
 #about a:hover{
     opacity: 0.5;
-    font-size: 3.25vh;
 }
 
 
@@ -143,7 +154,7 @@ body, html{
 
 .sporsmal p{
     color: #627898;
-    font-size: 6vh;
+    font-size: 3vw;
     text-align: center;
 }
 
@@ -158,7 +169,7 @@ body, html{
 #sideteller p{
     color: #664B6A;
     text-align: center;
-    font-size: 3vh;
+    font-size: 1.5vw;
 }
 
 #question1, #question2, #question3, #question4{
@@ -166,25 +177,57 @@ body, html{
 /*    border: 2px solid rgb(0, 0, 256);*/
 }
 
+.lite, .mye{
+    height: 30vh;
+    width: 10vw;
+    float: left;
+}
+
+.lite p, .mye p{
+    font-size: 1.2vw;
+    margin-top: 19vh;
+    color: #6F6A7B;
+}
+
+.lite p{
+    text-align: right;
+}
+
+.lite{
+    margin-left: 12vw;
+}
+
+.mye{
+    margin-left: 36vw;
+}
+
+#question3 .mye{
+    margin-left: 5vw;
+}
+
+#question3 .mye p, #question3 .lite p{
+    font-size: 1vw;
+    margin-top: 5vh;
+}
+
 #slider_rangering, #slider_tidsbruk{
     background-color: #CFD1CD;
     width: 30vw;
-    margin:auto;
+    margin: auto;
     margin-top: 20vh;
 /*    border: 2px solid rgba(0, 256, 0, 1)*/
 }
 
 
-#question3 > span {
+#s1, #s2, #s3, #s4, #s5{
     height:25vh;
     float:left;
-    position: relative;
 /* Relativ til its default posisjon.. 
     Vanskelig, finner ingen annen løsning 
     dårlig med zoom */
-    left: 26vw;
+    position: relative;
     bottom: 18vh;
-    margin: 2em;
+    margin-left: 6vw;
     margin-top: 25vh;
     background-color: #CFD1CD;
 }
@@ -216,7 +259,7 @@ body, html{
     line-height: 5vh;
     text-align: center;
     color: #CFD1CD;
-    font-size: 3vh;
+    font-size: 1.5vw;
     font-family: 'Lato', sans-serif;
 }
 
@@ -284,7 +327,6 @@ body, html{
     border-radius: 1vh;
     margin-top: 3vh;
     cursor: pointer;
-    opacity: 0.8;
     line-height: 5vh;
     text-align: center;
     color: #CFD1CD;
@@ -294,13 +336,14 @@ body, html{
 }
 
 #send:hover{
-    opacity: 1;
+    text-shadow: 0 0 0.5vh #FFFFFF;
+    border: 0.2vh solid rgb(10, 256, 10);
 }
 
 #send p{
     color: #CFD1CD;
     margin-top: 1vh;
-    font-size: 5vh;
+    font-size: 2vw;
     font-family: 'Lato', sans-serif;
 }
 
@@ -337,3 +380,4 @@ textarea:focus {
     bottom: 0;
     top: 0;
 }
+

@@ -13,8 +13,8 @@
 .ui-slider .ui-slider-handle {
     position: absolute;
     z-index: 2;
-    width: 1.3em;
-    height: 1.3em;
+    width: 1.7vw;
+    height: 1.7vw;
     cursor: default;
     -ms-touch-action: none;
     touch-action: none;
@@ -35,10 +35,10 @@
 }
 
 .ui-slider-horizontal {
-    height: .8em;
+    height: 1vw;
 }
 .ui-slider-horizontal .ui-slider-handle {
-    top: -.3em;
+    top: -.6vh;
     margin-left: -.6em;
 }
 .ui-slider-horizontal .ui-slider-range {
@@ -53,13 +53,13 @@
 }
 
 .ui-slider-vertical {
-    width: .8em;
+    width: 1vw;
     height: 25vh;
 }
 .ui-slider-vertical .ui-slider-handle {
-    left: -.3em;
+    left: -0.45vw;
     margin-left: 0;
-    margin-bottom: -.6em;
+    margin-bottom: -.9vh;
 }
 .ui-slider-vertical .ui-slider-range {
     left: 0;

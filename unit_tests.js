@@ -1,27 +1,26 @@
 QUnit.module('Module: Cookie handling');
 
-/*
-QUnit.test("Initally exists no cookie", function(assert){
-    assert.equal(document.cookie, "" , "It should return the empty string. You might also need to restart browser for a clean test since cookies normally exists until closing of browser unless specificed otherwise");
-    assert.equal(cookieHandler.readCookie('send'), "", "cookieHandler readCookie method returns correctly empty string");
+QUnit.test("Initially exists no cookie. Should fail on multiple attempts", function(assert){
+    assert.equal(document.cookie, "" , "It should return the empty string. You might also need to restart browser for a clean test since cookies normally exists until closing of browser unless specificed otherwise"); assert.equal(cookieHandler.readCookie('send'), "", "cookieHandler readCookie method returns correctly empty string");
 }); 
 
-QUnit.test("Cookie set and then read value", function(assert){
+QUnit.test("Cookie set and then read value, (might not pass running locally in chrome)", function(assert){
+    cookieHandler.delCookie('Some other cookie');
     cookieHandler.setCookie('send', 'test123');
     var value = cookieHandler.readCookie('send');
-    assert.equal(value, 'test123', "This test might not pass running locally on chrome browser.");
+    assert.equal(value, 'test123', "This test might not pass running locally on chrome browser due to security policies or something.");
     
     cookieHandler.setCookie('send', 'abc');
     var value2 = cookieHandler.readCookie('send')
     assert.equal(value2, 'abc', "Setting a new value, read");
     assert.equal(value2, 'abc', "reading same value twice");
-}); */
+}); 
 
 QUnit.test("Deletion of a cookie", function(assert){
     cookieHandler.delCookie('test123');
     value = cookieHandler.readCookie('test123');
     assert.equal(value, null, "Should return null to get a cookie that has been deleted");
-    cookieHandler.setCookie('Some other cookie');
+    cookieHandler.setCookie('Some other cookie', 'cookie');
     assert.equal(value, null, "Cookies should live independetly of each other.");
 });
 
@@ -40,56 +39,63 @@ QUnit.test("Testing setup functionality", function(assert){
 QUnit.test("Navigate left and right", function(assert){
     jQuery.fx.off = true; // turn off animations because they contribute to delays. 
     
-    assert.equal(sidetall, 1, "Page should initially be 1");
+    setup_graphics();
+    for (var page = totalPages; page>1; page--){
+        prevPage();
+    };
+    
+    assert.equal(currentPage, 1, "Page should initially be 1");
     assert.equal($('#question1').is(':hidden'), false , "Question 1 should not be hidden on page 1");
     assert.equal($('#question1').is(':visible'), true, "Question 1 should be visible on page 1");
     assert.equal($('#question2').is(':visible'), false, "Question 2 should be hidden on page 1");
     assert.equal($('#question3').is(':visible'), false, "Question 3 should be hidden on page 1");
     assert.equal($('#question4').is(':visible'), false, "Question 4 should be hidden on page 1");
     
-    spmFrem();
+    nextPage();
     
-    assert.equal(sidetall, 2);
+    assert.equal(currentPage, 2);
     assert.equal($('#question2').is(':hidden'), false, "question 2 is visible on page 2");
     assert.equal($('#question3').is(':visible'), false, "We continue testing like this");
     
-    spmTilbake();
+    prevPage();
     
-    assert.ok(sidetall == 1);
+    assert.ok(currentPage == 1);
     assert.equal($('#question1').is(':visible'), true);
     assert.equal($('#question2').is(':visible'), false);
     
-    spmTilbake();
+    prevPage();
     
-    assert.ok(sidetall == 1);
+    assert.ok(currentPage == 1);
     assert.equal($('#question1').is(':visible'), true);
     
-    spmFrem();
-    spmFrem();
+    nextPage();
+    nextPage();
     
-    assert.ok(sidetall == 3);
+    assert.ok(currentPage == 3);
     assert.equal($('#question3').is(':visible'), true);
     assert.equal($('#question4').is(':visible'), false);
     
-    spmFrem();
+    nextPage();
     
-    assert.ok(sidetall == 4);
+    assert.ok(currentPage == 4);
     assert.equal($('#question4').is(':visible'), true);
     
-    spmFrem();
+    nextPage();
     
-    assert.ok(sidetall == 4);
+    assert.ok(currentPage == 4);
     assert.equal($('#question4').is(':visible'), true);
 });
 
 QUnit.test("Keyboard listeners", function(assert){
-    for (var side = sideantall; side>1; side--){
-        spmTilbake();
+    jQuery.fx.off = true;
+    for (var page = totalPages; page>1; page--){
+        prevPage();
     };
-    $(document).trigger($.Event( "keydown", {keyCode: $.ui.keyCode.RIGHT})); 
-    assert.equal(sidetall,2, "Right key triggers next page");
+    
+    $(document).trigger($.Event("keydown", {keyCode: $.ui.keyCode.RIGHT})); 
+    assert.equal(currentPage,2, "Right key triggers next page");
     $(document).trigger($.Event( "keydown", {keyCode: $.ui.keyCode.LEFT}));  
-    assert.equal(sidetall,1, "Left key triggers prev page");
+    assert.equal(currentPage,1, "Left key triggers prev page");
 });
 
 QUnit.test("Sliders accept correct values", function (assert){
@@ -103,3 +109,34 @@ QUnit.test("Sliders accept correct values", function (assert){
     }
     assert.equal(testResult, true, "Values 0-100 should all be fine.");
 });
+
+QUnit.test("Show site in different languages", function (assert){
+    assert.equal($.trim($('#sideteller').text()), "Spørsmål 1 av 4", "Init value");
+    
+    $('#british').trigger('click');
+    
+    assert.equal($.trim($('#sideteller').text()), "Question 1 of 4", "Question number in english");
+    
+    $('#fram').trigger('click');
+    
+    assert.equal($.trim($("#question2").text()), "How much time did you spend on this exercise compared to usual?", "Question 2 in english");
+    
+    $('#british').trigger('click');
+    
+    assert.equal($.trim($("#question2").text()), "How much time did you spend on this exercise compared to usual?", "Question 2 still in english");
+    
+    $('#norway').trigger('click');
+    
+    assert.equal($.trim($("#question2").text()), "Hvordan var arbeidsmengden sammenlignet med andre øvinger?", "Question 2 in norwegian");
+    
+    $('#british').trigger('click');
+    $('#fram').trigger('click');
+    $('#fram').trigger('click');
+    assert.equal($.trim($('#send').text()),"Send", "Send label in english");
+    
+    $('#norway').trigger('click');
+    
+    assert.equal($.trim($('#send').text()), "Send", "Send label in norwegian");
+});
+
+
