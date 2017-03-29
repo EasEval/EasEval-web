@@ -117,7 +117,7 @@ var languageHandler = {
         "<p> We do not wish that filling out this form becomes a painful routine for you. If you have feedback on how we can improve, do not hesitate to contact us at <i> petersal (at) stud.ntnu.no </i>! </p>"
         this.engDict["#about"]="<p>EasEval has been developed as a part of a school project in Software Engineering at NTNU, Trondheim. This years theme is to make a bot that seeks to enchance the learning experience at universities. Our bot generates useful and appealing statistics based on the students feedback after each exercise.</p>"+
         "<p> The statistics is available in an app on iOS under the name NAME. It is intended mainly for the teaching staff. </p>"+
-        "<p> The developers are all second year computer science students: August Lund Eilertsen, Eivind Aksnes Rebnord, Simen Ullern og Peter Salvesen.</p>"+
+        "<p> The developers are all second year computer science students: August Lund Eilertsen, Eivind Aksnes Rebnord, Simen Ullern and Peter Salvesen.</p>"+
         "<p> All source code for EasEval is openly available at <a href='https://www.github.com/EasEval' target='_blank'>Github</a>.</p>"+
         "<p> Contact us at <i> petersal (at) stud.ntnu.no </i>if you have any questions! </p>";
 
