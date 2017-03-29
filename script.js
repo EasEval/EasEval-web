@@ -101,15 +101,22 @@ function send(){
     sentEval = true;
     // currently restricted from sending every 10 sec
     console.log("Du sendte.");
-    //window.submitRecord(getUserValues());
-    $("#send").hide();
-    $("#textinput").hide();
-    $("#fram").hide();
-    $("#tilbake").hide();
-    $("#sideteller").hide();
-    $("#proffesor").show();
-    $("#topP").css("padding-top", "6vh");
-    languageHandler.setFinalText();
+    window.submitRecord(getUserValues()).then({
+        success: function (callback) {
+            $("#send").hide();
+            $("#textinput").hide();
+            $("#fram").hide();
+            $("#tilbake").hide();
+            $("#sideteller").hide();
+            $("#proffesor").show();
+            $("#topP").css("padding-top", "6vh");
+            languageHandler.setFinalText();
+        },
+        error: function (callback) {
+            //Do something with error message
+        }
+    });
+
 }
 
 function nextPage(){

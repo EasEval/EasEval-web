@@ -15,7 +15,7 @@ window.submitRecord = function (precord) {
     var fagnavn = record[0].substring(0, len - 2);
     var ovingsnavn = "Øving " + record[0].substring(len - 2, len);
     */
-    
+
     var query = new Parse.Query(fag);
     query.equalTo("ID", "TMA4100");
 
@@ -28,7 +28,7 @@ window.submitRecord = function (precord) {
         var evaluation = new exercise();
         evaluation.set("SUBJECTID", "TMA4100");
         evaluation.set("SUBJECT", subjectPointer);  //Sender videre Subjects-objektet som pointer
-        evaluation.set("NAME", "Øving 5");
+        evaluation.set("NAME", "Øving 6");
         evaluation.set("rating", record[1]);
         evaluation.set("time", record[2]);
         evaluation.set("lectureAmount", record[3][0]);
