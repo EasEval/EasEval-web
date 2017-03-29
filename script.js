@@ -213,7 +213,7 @@ function setViewTo(view){
 }
 
 function setEnglish(){
-    currentLanguage = "english";
+    currentLanguage = "british";
     languageHandler.setEnglish();
     changeLanguageCSS("british");
 }
