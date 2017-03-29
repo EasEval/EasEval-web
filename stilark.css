@@ -104,7 +104,6 @@ body, html{
     padding-top: 5vh;
     padding-right: 25vh;
     font-size: 3.2vh;
-    background-color: rgb(253,253,253); 
     overflow: auto;
 }
 
@@ -129,7 +128,6 @@ body, html{
     padding-top: 5vh;
     padding-right: 25vh;
     font-size: 3.2vh;
-    background-color: rgb(252,252,252);
     overflow: auto;
 }
 
