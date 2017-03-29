@@ -30,7 +30,7 @@ function setup_graphics() {
 
 var totalPages = 4;
 var currentPage = 1; 
-var norwegianLanguage = true;
+var currentLanguage = "norwegian";
 var currentView = "#evaluation";
 var sentEval = false;
 // Currently 2 languages, can be expanded with some changes
@@ -50,6 +50,9 @@ $(document).ready(function() {
     });
     $("#norway").click(function (event) {
         setNorwegian();
+    });
+    $("#finland").click(function (event) {
+        setFinnish();
     });
     $("#informationButton").click(function (event) {
         setViewTo("#information");
@@ -210,27 +213,50 @@ function setViewTo(view){
 }
 
 function setEnglish(){
-    norwegianLanguage = false;
+    currentLanguage = "english";
     languageHandler.setEnglish();
     changeLanguageCSS("british");
 }
 
 function setNorwegian() {
-    norwegianLanguage = true;
+    currentLanguage = "norwegian";
     languageHandler.setNorwegian();
     changeLanguageCSS("norway");
 }
 
+function setFinnish() {
+    currentLanguage = "finnish";
+    changeLanguageCSS("finland");
+    languageHandler.setFinnish();
+}
+
 function changeLanguageCSS(language){
+    $("#finland img").css({opacity: 0.3});
+    $("#finland").css("border-color", "#CFD1CD");
+    $("#norway img").css({opacity: 0.3});
+    $("#norway").css("border-color", "#CFD1CD");
+    $("#british img").css({opacity: 0.3});
+    $("#british").css("border-color", "#CFD1CD");
     $("#"+language + " img").css({opacity: 1});
     $("#"+language).css("border-color", "#627898");
+    /*
     if (language == "british"){
+        $("#finland img").css({opacity: 0.3});
+        $("#finland").css("border-color", "#CFD1CD");
         $("#norway img").css({opacity: 0.3});
         $("#norway").css("border-color", "#CFD1CD");
-    } else {
+    } else if (language == "norway"){
+        $("#finland img").css({opacity: 0.3});
+        $("#finland").css("border-color", "#CFD1CD");
         $("#british img").css({opacity: 0.3});
         $("#british").css("border-color", "#CFD1CD");
-    }
+    } else {
+        $("#norway img").css({opacity: 0.3});
+        $("#norway").css("border-color", "#CFD1CD");
+        $("#british img").css({opacity: 0.3});
+        $("#british").css("border-color", "#CFD1CD");
+
+    }*/
 }
 
 function getUserValues(){

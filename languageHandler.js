@@ -3,6 +3,10 @@ var languageHandler = {
     norDict: {}, //jquery-selector as key and text as data
     engDict: {}, 
      /*kind of dictionary like, some people call them associative arrays, but really they are just objects with hashing */
+
+    setFinnish : function(){
+
+    },
     
     setNorwegian : function(){
         $("#question4 p").empty();
@@ -27,25 +31,31 @@ var languageHandler = {
     },
     
     changeQuestionNumber: function(){
-      if (norwegianLanguage){
+      if (currentLanguage == "norwegian"){
           $("#sideteller").empty().append("<p> Spørsmål " + currentPage + " av " + totalPages + " </p>");
-      } else {
+      } else if (currentLanguage == "british") {
           $("#sideteller").empty().append("<p> Question " + currentPage + " of " + totalPages + " </p>");
+      } else{
+
       }
     },
     
     setFinalText: function(){
       if (sentEval){
-          if (norwegianLanguage){
+          if (currentLanguage == "norwegian"){
               $("#topP").empty().append("<p>Tusen takk!</p><p>Dine svar vil bli til stor hjelp.</p>");
-          } else {
+          } else if (currentLanguage == "british") {
               $("#topP").empty().append("<p>Thank you!</p><p>Your answers will help a lot.</p>");
+          } else {
+
           }
       } else {
-         if (norwegianLanguage) {
+         if (currentLanguage == "norwegian") {
              $("#topP").empty().append("<p>Skjemaet er klart til å sendes.</p>");
-         } else {
+         } else if (currentLanguage == "british"){
              $("#topP").empty().append("<p>You may now submit your evaluation.</p>");
+         } else {
+
          }
       }  
     },
