@@ -27,7 +27,7 @@ body, html{
     background-color: #372F49;
     position: relative;
     z-index: 2;
-
+    box-shadow: 0 0 1vh 0.5vh #372F49;
 }
 
 #top img{
@@ -187,6 +187,11 @@ body, html{
     width: 3.5vw;
     margin-left: 3.3vw;
     cursor: pointer;
+    box-shadow: 0.1vh 0.1vh 1vh 0 #372F49;
+}
+
+.icons img:hover{
+    box-shadow: 0.4vh 0.4vh 1vh 0 #372F49;
 }
 
 #label1, #label2, #label3, #label4, #label5{
@@ -290,6 +295,7 @@ body, html{
     position: absolute;
     left: 0;
     bottom: 0;
+    box-shadow: 0 0 1vh 0.5vh #664B6A;
 }
 
 #bottom_bars{
@@ -382,8 +388,13 @@ body, html{
     text-align: center;
     color: #CFD1CD;
     background-color: #664B6A;
+    box-shadow: 0.2vh 0.2vh 1vh 0 #372F49;
     position: fixed;
     left: 40vw;
+}
+
+#send:hover{
+    box-shadow: 0.4vh 0.4vh 1vh 0 #372F49;
 }
 
 #send:hover > p{

@@ -25,6 +25,7 @@ function setup_graphics() {
         $("#label5 p").hide();
         $("#information").hide();
         $("#about").hide();
+        $("#tilbake").hide();
         });
 }
 
@@ -72,12 +73,12 @@ $(document).ready(function() {
     $(document).on("keydown", function(event) {
         switch(event.keyCode) {
             case $.ui.keyCode.LEFT:
-                if(!sentEval){
+                if(!sentEval && currentPage > 1){
                     prevPage();
                 }
                 break;
             case $.ui.keyCode.RIGHT:
-                if(!sentEval){
+                if(!sentEval && currentPage < totalPages){
                     nextPage();
                 }
                 break;
@@ -113,14 +114,12 @@ function send(){
 
 function nextPage(){
     // this function increments page if possible
-    if (currentPage == totalPages) {
-        $("#send").effect("bounce", {times:2}, 200);
-        return;
+    if (currentPage == (totalPages-1)) {
+        $("#fram").hide("fast");
     }
-    else if (currentPage<totalPages) {
-        currentPage++;
-        languageHandler.changeQuestionNumber();
-    }
+    $("#tilbake").show("fast");
+    currentPage++;
+    languageHandler.changeQuestionNumber();
     switch(currentPage){
         case 2:
             $("#question1").hide("fast");
@@ -138,14 +137,13 @@ function nextPage(){
 }
 
 function prevPage(){
-    if (currentPage == 1) {
-        $("#sideteller").effect("bounce", {times:2}, 200);
-        return;
+    if (currentPage == 2) {
+        $("#tilbake").hide("fast");
     }
-    else if (currentPage > 1) {
-        currentPage--;
-        languageHandler.changeQuestionNumber();
-    }
+    $("#fram").show("fast");
+    currentPage--;
+    languageHandler.changeQuestionNumber();
+
     switch(currentPage){
         case 3:
             $("#question4").hide("fast");
@@ -239,24 +237,6 @@ function changeLanguageCSS(language){
     $("#british").css("border-color", "#CFD1CD");
     $("#"+language + " img").css({opacity: 1});
     $("#"+language).css("border-color", "#627898");
-    /*
-    if (language == "british"){
-        $("#finland img").css({opacity: 0.3});
-        $("#finland").css("border-color", "#CFD1CD");
-        $("#norway img").css({opacity: 0.3});
-        $("#norway").css("border-color", "#CFD1CD");
-    } else if (language == "norway"){
-        $("#finland img").css({opacity: 0.3});
-        $("#finland").css("border-color", "#CFD1CD");
-        $("#british img").css({opacity: 0.3});
-        $("#british").css("border-color", "#CFD1CD");
-    } else {
-        $("#norway img").css({opacity: 0.3});
-        $("#norway").css("border-color", "#CFD1CD");
-        $("#british img").css({opacity: 0.3});
-        $("#british").css("border-color", "#CFD1CD");
-
-    }*/
 }
 
 function getUserValues(){
