@@ -34,7 +34,6 @@ var currentPage = 1;
 var currentLanguage = "norwegian";
 var currentView = "#evaluation";
 var sentEval = false;
-// Currently 2 languages, can be expanded with some changes
 
 $(document).ready(function() {
     // the following subfunctions can be triggered whenever DOM is ready to be manipulated
@@ -64,20 +63,18 @@ $(document).ready(function() {
     $("#evaluationButton").click(function (event) {
         setViewTo("#evaluation");
     });
-    $("#icon1").mouseover(function(){$("#label1 p").show()}).mouseout(function(){$("#label1 p").hide()});
-    $("#icon2").mouseover(function(){$("#label2 p").show()}).mouseout(function(){$("#label2 p").hide()});
-    $("#icon3").mouseover(function(){$("#label3 p").show()}).mouseout(function(){$("#label3 p").hide()});
-    $("#icon4").mouseover(function(){$("#label4 p").show()}).mouseout(function(){$("#label4 p").hide()});
-    $("#icon5").mouseover(function(){$("#label5 p").show()}).mouseout(function(){$("#label5 p").hide()});
-    // listener on keyboard, left and right key                    
+ 
+    // listener on keyboard, left and right key          
     $(document).on("keydown", function(event) {
         switch(event.keyCode) {
             case $.ui.keyCode.LEFT:
+                // bounce hvis page 1?
                 if(!sentEval && currentPage > 1){
                     prevPage();
                 }
                 break;
             case $.ui.keyCode.RIGHT:
+                // send bounce?
                 if(!sentEval && currentPage < totalPages){
                     nextPage();
                 }
@@ -89,10 +86,16 @@ $(document).ready(function() {
         if (cookieHandler.readCookie("send")!== "false"){
             send();
         } else{
-            $("#topP").empty().append("<p>Du har allerede levert denne evalueringen.</p>");
-            $("#topP p").css("color", "red");
+            languageHandler.setAlreadySent()
         }
     });
+    
+    // icons for question 3 have eventHandlers for mouseovers
+    $("#icon1").mouseover(function(){$("#label1 p").show()}).mouseout(function(){$("#label1 p").hide()});
+    $("#icon2").mouseover(function(){$("#label2 p").show()}).mouseout(function(){$("#label2 p").hide()});
+    $("#icon3").mouseover(function(){$("#label3 p").show()}).mouseout(function(){$("#label3 p").hide()});
+    $("#icon4").mouseover(function(){$("#label4 p").show()}).mouseout(function(){$("#label4 p").hide()});
+    $("#icon5").mouseover(function(){$("#label5 p").show()}).mouseout(function(){$("#label5 p").hide()});
 });
 
 function send(){
@@ -113,7 +116,7 @@ function send(){
             languageHandler.setFinalText();
         },
         error: function (callback) {
-            //Do something with error message
+            languageHandler.setSendError();
         }
     });
 
@@ -122,9 +125,9 @@ function send(){
 function nextPage(){
     // this function increments page if possible
     if (currentPage == (totalPages-1)) {
-        $("#fram").hide("fast");
+        $("#fram").hide();
     }
-    $("#tilbake").show("fast");
+    $("#tilbake").show();
     currentPage++;
     languageHandler.changeQuestionNumber();
     switch(currentPage){
@@ -145,9 +148,9 @@ function nextPage(){
 
 function prevPage(){
     if (currentPage == 2) {
-        $("#tilbake").hide("fast");
+        $("#tilbake").hide();
     }
-    $("#fram").show("fast");
+    $("#fram").show();
     currentPage--;
     languageHandler.changeQuestionNumber();
 

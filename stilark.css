@@ -109,12 +109,12 @@ body, html{
 
 #information p{
     padding: 2vh;
-    color: #6F6A7B;
+    color: #627898;
     font-family: 'Lato', sans-serif;
 }
 
 #information i{
-    color: #6F6A7B;
+    color: #627898;
     font-family: 'Lato', sans-serif;
 }
 
@@ -143,7 +143,7 @@ body, html{
 }
 
 #about i{
-    color: #6F6A7B;
+    color: #627898;
     font-family: 'Lato', sans-serif;
 }
 
@@ -184,7 +184,7 @@ body, html{
 
 .icons img{
     height: 3.5vw;
-    width: 3.5vw;
+    width: 3.7vw;
     margin-left: 3.3vw;
     cursor: pointer;
     box-shadow: 0.1vh 0.1vh 1vh 0 #372F49;
