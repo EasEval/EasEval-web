@@ -41,7 +41,7 @@ QUnit.test("Navigate left and right", function(assert){
     
     setup_graphics();
     for (var page = totalPages; page>1; page--){
-        prevPage();
+        $(document).trigger($.Event( "keydown", {keyCode: $.ui.keyCode.LEFT})); 
     };
     
     assert.equal(currentPage, 1, "Page should initially be 1");
@@ -51,36 +51,36 @@ QUnit.test("Navigate left and right", function(assert){
     assert.equal($("#question3").is(":visible"), false, "Question 3 should be hidden on page 1");
     assert.equal($("#question4").is(":visible"), false, "Question 4 should be hidden on page 1");
     
-    nextPage();
+     $(document).trigger($.Event( "keydown", {keyCode: $.ui.keyCode.RIGHT}));
     
     assert.equal(currentPage, 2);
     assert.equal($("#question2").is(":hidden"), false, "question 2 is visible on page 2");
     assert.equal($("#question3").is(":visible"), false, "We continue testing like this");
     
-    prevPage();
+    $(document).trigger($.Event( "keydown", {keyCode: $.ui.keyCode.LEFT}));
     
     assert.ok(currentPage == 1);
     assert.equal($("#question1").is(":visible"), true);
     assert.equal($("#question2").is(":visible"), false);
     
-    prevPage();
+    $(document).trigger($.Event( "keydown", {keyCode: $.ui.keyCode.LEFT}));
     
     assert.ok(currentPage == 1);
     assert.equal($("#question1").is(":visible"), true);
     
-    nextPage();
-    nextPage();
+    $(document).trigger($.Event( "keydown", {keyCode: $.ui.keyCode.RIGHT})); 
+    $(document).trigger($.Event( "keydown", {keyCode: $.ui.keyCode.RIGHT}));
     
     assert.ok(currentPage == 3);
     assert.equal($("#question3").is(":visible"), true);
     assert.equal($("#question4").is(":visible"), false);
     
-    nextPage();
+    $(document).trigger($.Event( "keydown", {keyCode: $.ui.keyCode.RIGHT}));
     
     assert.ok(currentPage == 4);
     assert.equal($("#question4").is(":visible"), true);
     
-    nextPage();
+    $(document).trigger($.Event( "keydown", {keyCode: $.ui.keyCode.RIGHT}));
     
     assert.ok(currentPage == 4);
     assert.equal($("#question4").is(":visible"), true);

@@ -104,21 +104,14 @@ function send(){
     sentEval = true;
     // currently restricted from sending every 10 sec
     console.log("Du sendte.");
-    window.submitRecord(getUserValues()).then({
-        success: function (callback) {
-            $("#send").hide();
-            $("#textinput").hide();
-            $("#fram").hide();
-            $("#tilbake").hide();
-            $("#sideteller").hide();
-            $("#proffesor").show();
-            $("#topP").css("padding-top", "6vh");
-            languageHandler.setFinalText();
-        },
-        error: function (callback) {
-            languageHandler.setSendError();
-        }
-    });
+    $("#send").hide();
+    $("#textinput").hide();
+    $("#fram").hide();
+    $("#tilbake").hide();
+    $("#sideteller").hide();
+    $("#proffesor").show();
+    $("#topP").css("padding-top", "6vh");
+    languageHandler.setFinalText();
 
 }
 
@@ -130,6 +123,7 @@ function nextPage(){
     $("#tilbake").show();
     currentPage++;
     languageHandler.changeQuestionNumber();
+    console.log(currentPage);
     switch(currentPage){
         case 2:
             $("#question1").hide("fast");
@@ -153,6 +147,7 @@ function prevPage(){
     $("#fram").show();
     currentPage--;
     languageHandler.changeQuestionNumber();
+    console.log(currentPage);
 
     switch(currentPage){
         case 3:
