@@ -1,6 +1,8 @@
+/* this is the main javascript file assosiacted with the EasEval web app. Its functions contain logic for all the dynamic stuff that needs to happen. It delegates work to 1) parseQuery, which handles the backend work. 2) cookieHandler that takes cares of the cookie(s) as well as 3) languageHandler that contains all the language-data and logic related to changing language */
+
 function setup_graphics() {
-    $( function() {
-        // setup initial graphics with sliders and visibility
+    $(function() {
+        // setup initial graphics with sliders and visibiliy
         $("#question3 > span").each(function() {
             var value = 50;
             $(this).empty().slider({
@@ -12,20 +14,21 @@ function setup_graphics() {
             });
         });
         languageHandler.fillData(); // load language-data
-        $("#slider_rangering").slider({value:50});
-        $("#slider_tidsbruk").slider({value:50});
+        // our single page app is much about manipulating visibility of different elements in a clever way
+        $("#slider_rate").slider({value:50});
+        $("#slider_time").slider({value:50});
         $("#question2").hide();
         $("#question3").hide();
         $("#question4").hide();
-        $("#proffesor").hide();
-        $("#label1 p").hide();
-        $("#label2 p").hide();
-        $("#label3 p").hide();
-        $("#label4 p").hide();
-        $("#label5 p").hide();
+        $("#professor").hide();
+        $("#lectureLabel p").hide();
+        $("#internetLabel p").hide();
+        $("#copyLabel p").hide();
+        $("#textbookLabel p").hide();
+        $("#otherLabel p").hide();
         $("#information").hide();
         $("#about").hide();
-        $("#tilbake").hide();
+        $("#backButton").hide();
         });
 }
 
@@ -36,12 +39,12 @@ var currentView = "#evaluation";
 var sentEval = false;
 
 $(document).ready(function() {
-    // the following subfunctions can be triggered whenever DOM is ready to be manipulated
-    $("#fram").click(function(event) {
+    // the following subfunctions can be triggered whenever DOM is ready to be manipulated by user actions
+    $("#nextButton").click(function(event) {
         nextPage();
     });
                               
-    $("#tilbake").click(function(event) {
+    $("#backButton").click(function(event) {
         prevPage();
     });
 
@@ -68,13 +71,11 @@ $(document).ready(function() {
     $(document).on("keydown", function(event) {
         switch(event.keyCode) {
             case $.ui.keyCode.LEFT:
-                // bounce hvis page 1?
                 if(!sentEval && currentPage > 1){
                     prevPage();
                 }
                 break;
             case $.ui.keyCode.RIGHT:
-                // send bounce?
                 if(!sentEval && currentPage < totalPages){
                     nextPage();
                 }
@@ -82,7 +83,7 @@ $(document).ready(function() {
           }
     });
                                                      
-   $("#send").click(function(event) { 
+   $("#sendButton").click(function(event) { 
         if (cookieHandler.readCookie("send")!== "false"){
             send();
         } else{
@@ -91,11 +92,11 @@ $(document).ready(function() {
     });
     
     // icons for question 3 have eventHandlers for mouseovers
-    $("#icon1").mouseover(function(){$("#label1 p").show()}).mouseout(function(){$("#label1 p").hide()});
-    $("#icon2").mouseover(function(){$("#label2 p").show()}).mouseout(function(){$("#label2 p").hide()});
-    $("#icon3").mouseover(function(){$("#label3 p").show()}).mouseout(function(){$("#label3 p").hide()});
-    $("#icon4").mouseover(function(){$("#label4 p").show()}).mouseout(function(){$("#label4 p").hide()});
-    $("#icon5").mouseover(function(){$("#label5 p").show()}).mouseout(function(){$("#label5 p").hide()});
+    $("#icon1").mouseover(function(){$("#lectureLabel p").show()}).mouseout(function(){$("#lectureLabel p").hide()});
+    $("#icon2").mouseover(function(){$("#internetLabel p").show()}).mouseout(function(){$("#internetLabel p").hide()});
+    $("#icon3").mouseover(function(){$("#copyLabel p").show()}).mouseout(function(){$("#copyLabel p").hide()});
+    $("#icon4").mouseover(function(){$("#textbookLabel p").show()}).mouseout(function(){$("#textbookLabel p").hide()});
+    $("#icon5").mouseover(function(){$("#otherLabel p").show()}).mouseout(function(){$("#otherLabel p").hide()});
 });
 
 function send(){
@@ -107,11 +108,11 @@ function send(){
     window.submitRecord(getUserValues());
     $("#send").hide();
     $("#textinput").hide();
-    $("#fram").hide();
-    $("#tilbake").hide();
-    $("#sideteller").hide();
-    $("#proffesor").show();
-    $("#topP").css("padding-top", "6vh");
+    $("#nextButton").hide();
+    $("#backButton").hide();
+    $("#sidePage").hide();
+    $("#professor").show();
+    $("#finalMsg").css("padding-top", "6vh");
     languageHandler.setFinalText();
 
 }
@@ -119,12 +120,11 @@ function send(){
 function nextPage(){
     // this function increments page if possible
     if (currentPage == (totalPages-1)) {
-        $("#fram").hide();
+        $("#nextButton").hide();
     }
-    $("#tilbake").show();
+    $("#backButton").show();
     currentPage++;
     languageHandler.changeQuestionNumber();
-    console.log(currentPage);
     switch(currentPage){
         case 2:
             $("#question1").hide("fast");
@@ -143,13 +143,11 @@ function nextPage(){
 
 function prevPage(){
     if (currentPage == 2) {
-        $("#tilbake").hide();
+        $("#backButton").hide();
     }
-    $("#fram").show();
+    $("#nextButton").show();
     currentPage--;
     languageHandler.changeQuestionNumber();
-    console.log(currentPage);
-
     switch(currentPage){
         case 3:
             $("#question4").hide("fast");
@@ -175,6 +173,7 @@ function setTopIndex(view){
 }
 
 function setButtonHighlight(highlightView){
+    // show the user what tab is active
     disableButton("#evaluationButton");
     disableButton("#informationButton");
     disableButton("#aboutButton");
@@ -197,6 +196,7 @@ function enableButton(button){
 }
 
 function setViewTo(view){
+    // change view with some animation
     if (currentView != view){
         setTopIndex(view);
         setButtonHighlight(view + "Button");
@@ -248,13 +248,13 @@ function changeLanguageCSS(language){
 function getUserValues(){
     // q is abbreviation for question and s for slider
     var subjectCode = parent.window.location.href.substring(37,46);
-    var q1 = $("#slider_rangering").slider("option", "value");
-    var q2 = $("#slider_tidsbruk").slider("option", "value");
-    var q3s1 = $("#s1").slider("option", "value");
-    var q3s2 = $("#s2").slider("option", "value");
-    var q3s3 = $("#s3").slider("option", "value");
-    var q3s4 = $("#s4").slider("option", "value");
-    var q3s5 = $("#s5").slider("option", "value");
-    var text = document.getElementById("tilbakemelding").value;
+    var q1 = $("#slider_rate").slider("option", "value");
+    var q2 = $("#slider_time").slider("option", "value");
+    var q3s1 = $("#slider1").slider("option", "value");
+    var q3s2 = $("#slider2").slider("option", "value");
+    var q3s3 = $("#slider3").slider("option", "value");
+    var q3s4 = $("#slider4").slider("option", "value");
+    var q3s5 = $("#slider5").slider("option", "value");
+    var text = document.getElementById("feedback").value;
     return [subjectCode, q1, q2, [q3s1,q3s2,q3s3,q3s4,q3s5],text];
 }

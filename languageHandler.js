@@ -40,76 +40,76 @@ var languageHandler = {
     
     changeQuestionNumber: function(){
       if (currentLanguage == "norwegian"){
-          $("#sideteller").empty().append("<p> Spørsmål " + currentPage + " av " + totalPages + " </p>");
+          $("#sidePage").empty().append("<p> Spørsmål " + currentPage + " av " + totalPages + " </p>");
       } else if (currentLanguage == "british") {
-          $("#sideteller").empty().append("<p> Question " + currentPage + " of " + totalPages + " </p>");
+          $("#sidePage").empty().append("<p> Question " + currentPage + " of " + totalPages + " </p>");
       } else{
-          $("#sideteller").empty().append("<p> Kysymys " + currentPage + " sta " + totalPages + " </p>");
+          $("#sidePage").empty().append("<p> Kysymys " + currentPage + " sta " + totalPages + " </p>");
       }
     },
     
     setSendError: function() {
         if (currentLanguage == "norwegian"){
-            $("#topP").empty().append("<p>Noe gikk galt med innsendingen av skjemaet. Sjekk internetforbinelsen din. Kontakt oss hvis problemet likevel skulle vedvare. </p>");
+            $("#finalMsg").empty().append("<p>Noe gikk galt med innsendingen av skjemaet. Sjekk internetforbinelsen din. Kontakt oss hvis problemet likevel skulle vedvare. </p>");
         } else if (currentLanguage == "british") {
-            $("#topP").empty().append("<p>Something went wrong with the process of sending. Check your internet connection and contanct us if the problem persists. </p>");
+            $("#finalMsg").empty().append("<p>Something went wrong with the process of sending. Check your internet connection and contanct us if the problem persists. </p>");
         } else{
-             $("#topP").empty().append("<p>Jokin meni vikaan lähetyksen. Tarkista Internet-yhteys. Ota yhteyttä, jos ongelma ei ratkea. </p>");
+             $("#finalMsg").empty().append("<p>Jokin meni vikaan lähetyksen. Tarkista Internet-yhteys. Ota yhteyttä, jos ongelma ei ratkea. </p>");
         } 
-        $("#topP p").css("color", "red");
+        $("#finalMsg p").css("color", "red");
     },
     
     setAlreadySent: function(){
         if (currentLanguage == "norwegian"){
-            $("#topP").empty().append("<p>Du har allerede levert en evaluering for denne øvingen. </p>");
+            $("#finalMsg").empty().append("<p>Du har allerede levert en evaluering for denne øvingen. </p>");
         } else if (currentLanguage == "british") {
-            $("#topP").empty().append("<p>You have already delivered an evaluation for this exercise. </p>");
+            $("#finalMsg").empty().append("<p>You have already delivered an evaluation for this exercise. </p>");
         } else{
-             $("#topP").empty().append("<p> Olet jo antanut tätä. </p>");
+             $("#finalMsg").empty().append("<p> Olet jo antanut tätä. </p>");
         } 
-        $("#topP p").css("color", "red");
+        $("#finalMsg p").css("color", "red");
     },
     
     setFinalText: function(){
         if (sentEval){
           if (currentLanguage == "norwegian"){
-              $("#topP").empty().append("<p>Tusen takk!</p><p>Dine svar vil bli til stor hjelp.</p>");
+              $("#finalMsg").empty().append("<p>Tusen takk!</p><p>Dine svar vil bli til stor hjelp.</p>");
           } else if (currentLanguage == "british") {
-              $("#topP").empty().append("<p>Thank you!</p><p>Your answers will help a lot.</p>");
+              $("#finalMsg").empty().append("<p>Thank you!</p><p>Your answers will help a lot.</p>");
           } else {
-              $("#topP").empty().append("<p>Kiitos!</p><p>Vastauksesi auttavat paljon.</p>");
+              $("#finalMsg").empty().append("<p>Kiitos!</p><p>Vastauksesi auttavat paljon.</p>");
           }
       } else {
          if (currentLanguage == "norwegian") {
-             $("#topP").empty().append("<p>Skjemaet er klart til å sendes.</p>");
+             $("#finalMsg").empty().append("<p>Skjemaet er klart til å sendes.</p>");
          } else if (currentLanguage == "british"){
-             $("#topP").empty().append("<p>You may now submit your evaluation.</p>");
+             $("#finalMsg").empty().append("<p>You may now submit your evaluation.</p>");
          } else {
-            $("#topP").empty().append("<p>Voit nyt lähettää arviointisi.</p>");
+            $("#finalMsg").empty().append("<p>Voit nyt lähettää arviointisi.</p>");
          }
       }  
     },
         
     fillData: function(){
         // this function fills up the dicts with language-data
-        this.norDict["#question1 .sporsmal"] = "<p>Hvor mye følte du at du lærte ved denne øvingen?</p>";
-        this.norDict["#question2 .sporsmal"] = "<p>Hvordan var arbeidsmengden sammenlignet med andre øvinger?</p>";
-        this.norDict["#question3 .sporsmal"] = "<p>Hvordan vil du veie tidsforbruken av de ulike ressursene opp mot hverandre?</p>";
-        this.norDict["#question4 #send"] = "<p>Send</p>";
+        this.norDict["#question1 .question"] = "<p>Hvor mye følte du at du lærte ved denne øvingen?</p>";
+        this.norDict["#question2 .question"] = "<p>Hvordan var arbeidsmengden sammenlignet med andre øvinger?</p>";
+        this.norDict["#question3 .question"] = "<p>Hvordan vil du veie tidsforbruken av de ulike ressursene opp mot hverandre?</p>";
+        this.norDict["#question4 #sendButton"] = "<p>Send</p>";
         this.norDict["#evaluationButton p"] = "<p>Evaluering</p>";
         this.norDict["#informationButton p"] = "<p>Informasjon</p>";
         this.norDict["#aboutButton p"] = "<p>Om oss</p>";
-        this.norDict["#question1 .lite"] = "<p> Veldig lite </p>";
-        this.norDict["#question1 .mye"] = "<p> Veldig mye </p>";
-        this.norDict["#question2 .lite"] = "<p> Veldig liten </p>";
-        this.norDict["#question2 .mye"] = "<p> Veldig stor </p>";
-        this.norDict["#ml1"] = "<p>Mye brukt</p> <p>Lite brukt</p> ";
-        this.norDict["#ml2"] = "<p>Mye brukt</p> <p>Lite brukt</p> ";
-        this.norDict["#label1 p"] = "<p>forelesning</p>";
-        this.norDict["#label2 p"] = "<p>internett</p>";
-        this.norDict["#label3 p"] = "<p>kok/kopiering</p>";
-        this.norDict["#label4 p"] = "<p>pensumbøker</p>";
-        this.norDict["#label5 p"] = "<p>annet</p>";
+        this.norDict["#question1 .lilSpent"] = "<p> Veldig lite </p>";
+        this.norDict["#question1 .muchSpent"] = "<p> Veldig mye </p>";
+        this.norDict["#question2 .lilSpent"] = "<p> Veldig liten </p>";
+        this.norDict["#question2 .muchSpent"] = "<p> Veldig stor </p>";
+        this.norDict["#leftDescription"] = "<p>Mye brukt</p> <p>Lite brukt</p> ";
+        this.norDict["#rightDescription"] = "<p>Mye brukt</p> <p>Lite brukt</p> ";
+        this.norDict["#lectureLabel p"] = "<p>forelesning</p>";
+        this.norDict["#internetLabel p"] = "<p>internett</p>";
+        this.norDict["#copyLabel p"] = "<p>kok/kopiering</p>";
+        this.norDict["#textbookLabel p"] = "<p>pensumbøker</p>";
+        this.norDict["#otherLabel p"] = "<p>annet</p>";
         this.norDict["#information"] = "<p>EasEval er en applikasjon der du som student skal gi tilbakemelding på øvingene dine. Målet er å synliggjøre studentenes læringsprossess og at fagansvarlige skal få representativ feedback fra alle som gjennomgår øvingsopplegget. Din ærlige tilbakemelding er viktig. </p>"+
         "<p> Naviger deg gjennom de fire sidene og trykk send når du er ferdig. Tips: Du kan raskt navigere deg frem og tilbake med venstre og høyre piltast! </p>"+
         "<p> Du er helt anonym i alle evalueringene dine. Denne nettsiden bruker cookies, men dette er kun for å hindre at du svarer på samme skjema flere ganger. </p>"+
@@ -122,24 +122,24 @@ var languageHandler = {
         "<p> Kontakt oss på<i> petersal (at) stud.ntnu.no </i>hvis du lurer på noe! </p>";
         
         
-        this.engDict["#question1 .sporsmal"] = "<p>How much did you learn from this exercise?</p>";
-        this.engDict["#question2 .sporsmal"] = "<p>How much time did you spend on this exercise compared to usual?</p>";
-        this.engDict["#question3 .sporsmal"] = "<p>How will you rate the time-usage of these resources compared to each other?</p>";
-        this.engDict["#question4 #send"] = "<p>Send</p>";
+        this.engDict["#question1 .question"] = "<p>How much did you learn from this exercise?</p>";
+        this.engDict["#question2 .question"] = "<p>How much time did you spend on this exercise compared to usual?</p>";
+        this.engDict["#question3 .question"] = "<p>How will you rate the time-usage of these resources compared to each other?</p>";
+        this.engDict["#question4 #sendButton"] = "<p>Send</p>";
         this.engDict["#evaluationButton p"] = "<p>Evaluation</p>";
         this.engDict["#informationButton p"] = "<p>Information</p>";
         this.engDict["#aboutButton p"] = "<p>About</p>";
-        this.engDict["#question1 .lite"] = "<p> Very little </p>";
-        this.engDict["#question1 .mye"] = "<p> Very much </p>";
-        this.engDict["#question2 .lite"] = "<p> A lot less </p>";
-        this.engDict["#question2 .mye"] = "<p> A lot more </p>";
-        this.engDict["#ml1"] = "<p>Used a lot</p> <p>Not used </p>";
-        this.engDict["#ml2"] = "<p>Used a lot</p> <p>Not used </p>";
-        this.engDict["#label1 p"] = "<p>lecture</p>";
-        this.engDict["#label2 p"] = "<p>internet</p>";
-        this.engDict["#label3 p"] = "<p>copying</p>";
-        this.engDict["#label4 p"] = "<p>textbook</p>";
-        this.engDict["#label5 p"] = "<p>other</p>";
+        this.engDict["#question1 .lilSpent"] = "<p> Very little </p>";
+        this.engDict["#question1 .muchSpent"] = "<p> Very much </p>";
+        this.engDict["#question2 .lilSpent"] = "<p> A lot less </p>";
+        this.engDict["#question2 .muchSpent"] = "<p> A lot more </p>";
+        this.engDict["#leftDescription"] = "<p>Used a lot</p> <p>Not used </p>";
+        this.engDict["#rightDescription"] = "<p>Used a lot</p> <p>Not used </p>";
+        this.engDict["#lectureLabel p"] = "<p>lecture</p>";
+        this.engDict["#internetLabel p"] = "<p>internet</p>";
+        this.engDict["#copyLabel p"] = "<p>copying</p>";
+        this.engDict["#textbookLabel p"] = "<p>textbook</p>";
+        this.engDict["#otherLabel p"] = "<p>other</p>";
         this.engDict["#information"] = "<p>EasEval is an application where you as a student can evaluate your given exercises. The goal is to increase the transparency of how students learn and solve their problems, as well as giving the teaching staff useful and relevant feedback. Your honest opinion is important. </p>"+
         "<p> Navigate your way through the four pages and press send when your are done. Tip: You can easily navigate back and forth by using the left and right arrow key! </p>"+
         "<p> You are fully anonymous in all your evaluations. This website uses cookies, but this is only to prevent you from submitting more than one form for a particular exercise. </p>"+
@@ -151,24 +151,24 @@ var languageHandler = {
         "<p> All source code for EasEval is openly available at <a href='https://www.github.com/EasEval' target='_blank'>Github</a>.</p>"+
         "<p> Contact us at <i> petersal (at) stud.ntnu.no </i>if you have any questions! </p>";
         
-        this.finDict["#question1 .sporsmal"] = "<p>Kuinka paljon opit tästä harjoituksesta?</p>";
-        this.finDict["#question2 .sporsmal"] = "<p>Kuinka paljon aikaa käytit tähän harjoitukseen tavalliseen verrattuna?</p>";
-        this.finDict["#question3 .sporsmal"] = "<p>Kuinka arvioisit näiden resurssien ajankäytön verrattuna toisiinsa?</p>";
-        this.finDict["#question4 #send"] = "<p>Lähetä</p>";
+        this.finDict["#question1 .question"] = "<p>Kuinka paljon opit tästä harjoituksesta?</p>";
+        this.finDict["#question2 .question"] = "<p>Kuinka paljon aikaa käytit tähän harjoitukseen tavalliseen verrattuna?</p>";
+        this.finDict["#question3 .question"] = "<p>Kuinka arvioisit näiden resurssien ajankäytön verrattuna toisiinsa?</p>";
+        this.finDict["#question4 #sendButton"] = "<p>Lähetä</p>";
         this.finDict["#evaluationButton p"] = "<p>Arviointi</p>";
         this.finDict["#informationButton p"] = "<p>Tieto</p>";
         this.finDict["#aboutButton p"] = "<p>Noin</p>";
-        this.finDict["#question1 .lite"] = "<p> Erittäin vähän </p>";
-        this.finDict["#question1 .mye"] = "<p> Erittäin paljon </p>";
-        this.finDict["#question2 .lite"] = "<p> Paljon vähemmän </p>";
-        this.finDict["#question2 .mye"] = "<p> Paljon enemmän </p>";
-        this.finDict["#ml1"] = "<p>Käytetty paljon</p> <p>Ei käytetty </p>";
-        this.finDict["#ml2"] = "<p>Käytetty paljon</p> <p>Ei käytetty </p>";
-        this.finDict["#label1 p"] = "<p>luento</p>";
-        this.finDict["#label2 p"] = "<p>internet</p>";
-        this.finDict["#label3 p"] = "<p>kopiointi</p>";
-        this.finDict["#label4 p"] = "<p>tekstikirja</p>";
-        this.finDict["#label5 p"] = "<p>muu</p>";
+        this.finDict["#question1 .lilSpent"] = "<p> Erittäin vähän </p>";
+        this.finDict["#question1 .muchSpent"] = "<p> Erittäin paljon </p>";
+        this.finDict["#question2 .lilSpent"] = "<p> Paljon vähemmän </p>";
+        this.finDict["#question2 .muchSpent"] = "<p> Paljon enemmän </p>";
+        this.finDict["#leftDescription"] = "<p>Käytetty paljon</p> <p>Ei käytetty </p>";
+        this.finDict["#rightDescription"] = "<p>Käytetty paljon</p> <p>Ei käytetty </p>";
+        this.finDict["#lectureLabel p"] = "<p>luento</p>";
+        this.finDict["#internetLabel p"] = "<p>internet</p>";
+        this.finDict["#copyLabel p"] = "<p>kopiointi</p>";
+        this.finDict["#textbookLabel p"] = "<p>tekstikirja</p>";
+        this.finDict["#otherLabel p"] = "<p>muu</p>";
         this.finDict["#information"] = "<p> EasEval on sovellus, jossa voit opiskelijana arvioida omia harjoituksiasi. Tavoitteena on lisätä opiskelijoiden oppimisen ja ongelmanratkaisun läpinäkyvyyttä sekä antaa opetushenkilökunnalle hyödyllistä ja asiaankuuluvaa palautetta. Rehellinen mielipiteesi on tärkeä. . </p>"+
         "<p> Käy läpi 4 sivua ja paina lähetä, kun olet valmis. Vinkki: Voit helposti selata eteen- ja taaksepäin käyttämällä vasenta ja oikeaa nuolinäppäintä!</p>"+
         "<p> Kaikki arviointisi ovat täysin anonyymeja. Tämä nettisivu käyttää evästeitä, mutta vain siksi, että se estää sinua lähettämästä useamman kuin yhden lomakkeen harjoitusta kohden. </p>"+
