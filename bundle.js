@@ -36,7 +36,7 @@ window.submitRecord = function (data) {
         evaluation.set("googleAmount", record[3][2]);
         evaluation.set("solutionsAmount", record[3][3]);
         evaluation.set("comment", record[4]);
-        evaluation.set("otherAmount", 23);
+        evaluation.set("otherAmount", record[3][4]);
         return evaluation.save();
     }).then(function (result) {
         return result;

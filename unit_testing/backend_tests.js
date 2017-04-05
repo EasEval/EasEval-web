@@ -37,7 +37,7 @@ QUnit.test( "addRecordTest", function( assert ) {
                 console.log("Test 1");
             }
         }).then(function () {
-            var testRecord = ["TMA410009", 10, 10, [10, 10, 10, 10], "Testrecord"];
+            var testRecord = ["TMA410009", 10, 10, [10, 10, 10, 10, 10], "Pekka, my man"];
             console.log("Test 2");
             return submitRecord(testRecord);
         }).then(function (callback) {
