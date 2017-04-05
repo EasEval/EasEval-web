@@ -80,7 +80,7 @@ $(document).ready(function() {
     });
                                                      
    $("#sendButton").click(function(event) { 
-        if (cookieHandler.readCookie("send")!== "false"){
+        if (cookieHandler.readCookie("send")!= "false"){
             send();
         } else{
             languageHandler.setAlreadySent()
