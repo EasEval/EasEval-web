@@ -20,14 +20,14 @@ window.submitRecord = function (data) {
 
     return query.find({
         success: function (pointers) {
-            //console.log("Fant objekt-pointer: " + pointers[0]);
+            //console.log("Found object pointer: " + pointers[0]);
         }
     }).then(function (pointers) {
         var subjectPointer = pointers[0];
         var evaluation = new exercise();
         evaluation.set("SUBJECTID", "TMA4100");
         evaluation.set("SUBJECT", subjectPointer);  //Sending the Subjects object as a pointer
-        evaluation.set("NAME", "Øving 6");
+        evaluation.set("NAME", "Exercise 9");
         evaluation.set("rating", record[1]);
         evaluation.set("time", record[2]);
         evaluation.set("lectureAmount", record[3][0]);
@@ -35,7 +35,7 @@ window.submitRecord = function (data) {
         evaluation.set("googleAmount", record[3][2]);
         evaluation.set("solutionsAmount", record[3][3]);
         evaluation.set("comment", record[4]);
-
+        evaluation.set("otherAmount", 23);
         return evaluation.save();
     }).then(function (result) {
         return result;

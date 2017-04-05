@@ -2,7 +2,7 @@ var Parse = require('parse/node').Parse;
 Parse.initialize("asddfkjhg4ey123478wss234q2388dhakjhdgrudb"); Parse.serverURL = 'https://easeval.herokuApp.com/parse';
 
 QUnit.test( "deleteRecordTest", function( assert ) {
-    var exerciseName = "Øving YO";
+    var exerciseName = "Exercise 9";
     var subjectID = "TMA4100";
     var done = assert.async();
     var exercises = Parse.Object.extend("Exercises");
@@ -15,7 +15,7 @@ QUnit.test( "deleteRecordTest", function( assert ) {
 
         }).then(function (users) {
             console.log("Found users: " + users);
-            assert.ok(users == "", "Removed exercises 'Øving YO'");
+            assert.ok(users == "", "Removed exercises 'Exercise 9'");
             done();
         },
         function (error) {
@@ -33,22 +33,26 @@ QUnit.test( "addRecordTest", function( assert ) {
     setTimeout(function(){
         firstQuery.count({
             success: function (callback) {
-                //console.log("Count av alle exercises: " + callback);
+                //console.log("Count of all exercises: " + callback);
+                console.log("Test 1");
             }
         }).then(function () {
-            var testRecord = ["TMA4100YO", 10, 10, [10, 10, 10, 10], "hello"];
+            var testRecord = ["TMA410009", 10, 10, [10, 10, 10, 10], "Testrecord"];
+            console.log("Test 2");
             return submitRecord(testRecord);
         }).then(function (callback) {
             var query = new Parse.Query(exercises);
-            query.equalTo("NAME", "Øving YO");
+            query.equalTo("NAME", "Exercise 9");
+            console.log("Test 3");
             return query.find({
                 success: function (exercise) {
-                    assert.ok("Øving YO" == exercise[0].get("NAME"), "Øving YO added!");
+                    assert.ok("Exercise 9" == exercise[0].get("NAME"), "Exercise 9 added!");
+                    console.log("Test 4");
                     done();
                 },
                 error: function (error) {
                     console.log("Got error: " + error);
-                    done()
+                    done();
                 }
             });
         });
