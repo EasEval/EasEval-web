@@ -104,6 +104,7 @@ function send(){
     sentEval = true;
     // currently restricted from sending every 10 sec
     console.log("Du sendte.");
+    window.submitRecord(getUserValues());
     $("#send").hide();
     $("#textinput").hide();
     $("#fram").hide();
