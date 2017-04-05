@@ -7,14 +7,7 @@ window.submitRecord = function (data) {
     var exercise = Parse.Object.extend("Exercises");
     var fag = Parse.Object.extend("Subjects");
     var record = formatData(data);
-
-    /*
-    Processing of url when running from folk.ntnu
-    var len = record[0].length;
-    var fagnavn = record[0].substring(0, len - 2);
-    var ovingsnavn = "Øving " + record[0].substring(len - 2, len);
-    */
-
+    
     var query = new Parse.Query(fag);
     query.equalTo("ID", "TMA4100");
 
@@ -23,11 +16,17 @@ window.submitRecord = function (data) {
             //console.log("Found object pointer: " + pointers[0]);
         }
     }).then(function (pointers) {
+
+        //Processing of url when running from folk.ntnu
+        var len = record[0].length;
+        var subjectName = record[0].substring(0, len - 2);
+        var exerciseName = "Exercise " + record[0].substring(len - 2, len);
+
         var subjectPointer = pointers[0];
         var evaluation = new exercise();
-        evaluation.set("SUBJECTID", "TMA4100");
+        evaluation.set("SUBJECTID", subjectName);
         evaluation.set("SUBJECT", subjectPointer);  //Sending the Subjects object as a pointer
-        evaluation.set("NAME", "Exercise 9");
+        evaluation.set("NAME", exerciseName);
         evaluation.set("rating", record[1]);
         evaluation.set("time", record[2]);
         evaluation.set("lectureAmount", record[3][0]);
@@ -40,7 +39,7 @@ window.submitRecord = function (data) {
     }).then(function (result) {
         return result;
     }, function (error) {
-        response.error()
+        return error;
     });
 };
 
