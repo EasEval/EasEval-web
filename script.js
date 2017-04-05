@@ -247,7 +247,7 @@ function changeLanguageCSS(language){
 
 function getUserValues(){
     // q is abbreviation for question and s for slider
-    var subjectCode = parent.window.location.href.substring(33,42);
+    var subjectCode = parent.window.location.href.substring(40,49);
     var q1 = $("#slider_rate").slider("option", "value");
     var q2 = $("#slider_time").slider("option", "value");
     var q3s1 = $("#slider1").slider("option", "value");
