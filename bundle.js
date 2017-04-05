@@ -38,7 +38,7 @@ window.submitRecord = function (data) {
         evaluation.set("otherAmount", record[3][4]);
         return evaluation.save();
     }).then(function (result) {
-        return Promise.resolve(false);
+        return Promise.resolve(true);
     }, function (error) {
         return Promise.reject(false);
     });
