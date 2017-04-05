@@ -111,13 +111,20 @@ QUnit.test("Sliders accept correct values", function (assert){
 });
 
 QUnit.test("Show site in different languages", function (assert){
+    while (currentPage > 1){
+        $("#backButton").trigger("click");
+    } 
+    $("#norway").trigger("click");
+    languageHandler.fillData();
+    
     assert.equal($.trim($("#sidePage").text()), "Spørsmål 1 av 4", "Init value");
     
     $("#british").trigger("click");
     
     assert.equal($.trim($("#sidePage").text()), "Question 1 of 4", "Question number in english");
     
-    $("#fram").trigger("click");
+    $("#nextButton").trigger("click");
+    $("#british").trigger("click");
     
     assert.equal($.trim($("#question2 .question").text()), "How much time did you spend on this exercise compared to usual?", "Question 2 in english");
     
@@ -141,10 +148,10 @@ QUnit.test("Show site in different languages", function (assert){
     $("#finland").trigger("click");
     assert.equal($.trim($("#sendButton").text()), "Lähetä", "Send label in finnish");
     
-    $("#norway").trigger("click");
 });
 
 QUnit.test("Send mechanics", function (assert){
+    setup_graphics();
     $("#sendButton").trigger("click");
     assert.equal(sentEval, true, "Boolean set properply")
     assert.equal($("#professor").is(":visible"), true, "Professor dukker opp");
@@ -154,8 +161,8 @@ QUnit.test("Change tabs", function (assert){
    $("#informationButton").trigger("click");
     assert.equal($("#evaluationButton").css("opacity") , 0.5, "Disable other tab.");
     assert.equal($("#aboutButton").css("opacity") , 0.5, "Disable other tab#2.");
-  assert.equal($("#informationButton").css("opacity") , 1, "Current tab is enabled with CSS styling");
-     assert.equal($("#question" + currentPage).is(":visible"), false, "Old tab content is hidden");
+    assert.equal($("#informationButton").css("opacity") , 1, "Current tab is enabled with CSS styling");
+    assert.equal($("#evlaluation").is(":visible"),false, "old content is hidden");
     
 });
 
