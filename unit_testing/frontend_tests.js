@@ -40,8 +40,8 @@ QUnit.test("Navigate left and right", function(assert){
     jQuery.fx.off = true; // turn off animations because they contribute to delays. 
     
     setup_graphics();
-    for (var page = totalPages; page>1; page--){
-        $(document).trigger($.Event( "keydown", {keyCode: $.ui.keyCode.LEFT})); 
+    while (currentPage > 1){
+        $("#backButton").trigger("click");
     };
     
     assert.equal(currentPage, 1, "Page should initially be 1");
@@ -51,13 +51,13 @@ QUnit.test("Navigate left and right", function(assert){
     assert.equal($("#question3").is(":visible"), false, "Question 3 should be hidden on page 1");
     assert.equal($("#question4").is(":visible"), false, "Question 4 should be hidden on page 1");
     
-     $(document).trigger($.Event( "keydown", {keyCode: $.ui.keyCode.RIGHT}));
+    $("#nextButton").trigger("click");
     
     assert.equal(currentPage, 2);
-    assert.equal($("#question2").is(":hidden"), false, "question 2 is visible on page 2");
+    assert.equal($("#question2").is(":visible"), true, "question 2 is visible on page 2");
     assert.equal($("#question3").is(":visible"), false, "We continue testing like this");
     
-    $(document).trigger($.Event( "keydown", {keyCode: $.ui.keyCode.LEFT}));
+    $("#backButton").trigger("click");
     
     assert.ok(currentPage == 1);
     assert.equal($("#question1").is(":visible"), true);
@@ -68,14 +68,14 @@ QUnit.test("Navigate left and right", function(assert){
     assert.ok(currentPage == 1);
     assert.equal($("#question1").is(":visible"), true);
     
-    $(document).trigger($.Event( "keydown", {keyCode: $.ui.keyCode.RIGHT})); 
-    $(document).trigger($.Event( "keydown", {keyCode: $.ui.keyCode.RIGHT}));
+    $("#nextButton").trigger("click");
+    $("#nextButton").trigger("click");
     
     assert.ok(currentPage == 3);
     assert.equal($("#question3").is(":visible"), true);
     assert.equal($("#question4").is(":visible"), false);
     
-    $(document).trigger($.Event( "keydown", {keyCode: $.ui.keyCode.RIGHT}));
+    $("#nextButton").trigger("click");
     
     assert.ok(currentPage == 4);
     assert.equal($("#question4").is(":visible"), true);
@@ -88,8 +88,8 @@ QUnit.test("Navigate left and right", function(assert){
 
 QUnit.test("Keyboard listeners", function(assert){
     jQuery.fx.off = true;
-    for (var page = totalPages; page>1; page--){
-        prevPage();
+     while (currentPage > 1){
+        $("#backButton").trigger("click");
     };
     
     $(document).trigger($.Event("keydown", {keyCode: $.ui.keyCode.RIGHT})); 
@@ -101,8 +101,8 @@ QUnit.test("Keyboard listeners", function(assert){
 QUnit.test("Sliders accept correct values", function (assert){
     var testResult = true;
     for (var val = 0; val<101; val++){
-        $("#slider_rangering" ).slider({value:val});
-        if ($("#slider_rangering").slider("option", "value") != val){
+        $("#slider_rate" ).slider({value:val});
+        if ($("#slider_rate").slider("option", "value") != val){
             testResult = false;
             break;
         } 
@@ -111,38 +111,43 @@ QUnit.test("Sliders accept correct values", function (assert){
 });
 
 QUnit.test("Show site in different languages", function (assert){
-    assert.equal($.trim($("#sideteller").text()), "Spørsmål 1 av 4", "Init value");
+    assert.equal($.trim($("#sidePage").text()), "Spørsmål 1 av 4", "Init value");
     
     $("#british").trigger("click");
     
-    assert.equal($.trim($("#sideteller").text()), "Question 1 of 4", "Question number in english");
+    assert.equal($.trim($("#sidePage").text()), "Question 1 of 4", "Question number in english");
     
     $("#fram").trigger("click");
     
-    assert.equal($.trim($("#question2 .sporsmal").text()), "How much time did you spend on this exercise compared to usual?", "Question 2 in english");
+    assert.equal($.trim($("#question2 .question").text()), "How much time did you spend on this exercise compared to usual?", "Question 2 in english");
     
     $("#british").trigger("click");
     
-    assert.equal($.trim($("#question2 .sporsmal").text()), "How much time did you spend on this exercise compared to usual?", "Question 2 still in english");
+    assert.equal($.trim($("#question2 .question").text()), "How much time did you spend on this exercise compared to usual?", "Question 2 still in english");
     
     $("#norway").trigger("click");
     
-    assert.equal($.trim($("#question2 .sporsmal").text()), "Hvordan var arbeidsmengden sammenlignet med andre øvinger?", "Question 2 in norwegian");
+    assert.equal($.trim($("#question2 .question").text()), "Hvordan var arbeidsmengden sammenlignet med andre øvinger?", "Question 2 in norwegian");
     
     $("#british").trigger("click");
-    $("#fram").trigger("click");
-    $("#fram").trigger("click");
-    assert.equal($.trim($("#send").text()),"Send", "Send label should not be changed");
+    $("#nextButton").trigger("click");
+    $("#nextButton").trigger("click");
+    assert.equal($.trim($("#sendButton").text()),"Send", "Send label should not be changed");
     
     $("#norway").trigger("click");
     
-    assert.equal($.trim($("#send").text()), "Send", "Send label in norwegian");
+    assert.equal($.trim($("#sendButton").text()), "Send", "Send label in norwegian");
+    
+    $("#finland").trigger("click");
+    assert.equal($.trim($("#sendButton").text()), "Lähetä", "Send label in finnish");
+    
+    $("#norway").trigger("click");
 });
 
 QUnit.test("Send mechanics", function (assert){
-    $("#send").trigger("click");
+    $("#sendButton").trigger("click");
     assert.equal(sentEval, true, "Boolean set properply")
-    assert.equal($("#proffesor").is(":visible"), true, "Proffesor dukker opp");
+    assert.equal($("#professor").is(":visible"), true, "Professor dukker opp");
 });
 
 QUnit.test("Change tabs", function (assert){
