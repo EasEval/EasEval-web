@@ -27,7 +27,7 @@ QUnit.test("Deletion of a cookie", function(assert){
 QUnit.module("Module: JQuery interraction");
 
 QUnit.test("Testing setup functionality", function(assert){
-    setup_graphics();
+    setupGraphics();
     userValues = getUserValues();
     assert.equal(userValues[1], 50, "Initially the happy-slider should have a value of 50.")
     assert.equal(userValues[2], 50, "Initially the time-slider should have a value of 50.")
@@ -39,7 +39,7 @@ QUnit.test("Testing setup functionality", function(assert){
 QUnit.test("Navigate left and right", function(assert){
     jQuery.fx.off = true; // turn off animations because they contribute to delays. 
     
-    setup_graphics();
+    setupGraphics();
     while (currentPage > 1){
         $("#backButton").trigger("click");
     };
@@ -101,8 +101,8 @@ QUnit.test("Keyboard listeners", function(assert){
 QUnit.test("Sliders accept correct values", function (assert){
     var testResult = true;
     for (var val = 0; val<101; val++){
-        $("#slider_rate" ).slider({value:val});
-        if ($("#slider_rate").slider("option", "value") != val){
+        $("#sliderRate" ).slider({value:val});
+        if ($("#sliderRate").slider("option", "value") != val){
             testResult = false;
             break;
         } 
@@ -117,11 +117,11 @@ QUnit.test("Show site in different languages", function (assert){
     $("#norway").trigger("click");
     languageHandler.fillData();
     
-    assert.equal($.trim($("#sidePage").text()), "Spørsmål 1 av 4", "Init value");
+    assert.equal($.trim($("#pageNumber").text()), "Spørsmål 1 av 4", "Init value");
     
     $("#british").trigger("click");
     
-    assert.equal($.trim($("#sidePage").text()), "Question 1 of 4", "Question number in english");
+    assert.equal($.trim($("#pageNumber").text()), "Question 1 of 4", "Question number in english");
     
     $("#nextButton").trigger("click");
     $("#british").trigger("click");
@@ -150,12 +150,6 @@ QUnit.test("Show site in different languages", function (assert){
     
 });
 
-QUnit.test("Send mechanics", function (assert){
-    setup_graphics();
-    $("#sendButton").trigger("click");
-    assert.equal(sentEval, true, "Boolean set properply")
-    assert.equal($("#professor").is(":visible"), true, "Professor dukker opp");
-});
 
 QUnit.test("Change tabs", function (assert){
    $("#informationButton").trigger("click");

@@ -1,5 +1,4 @@
 var languageHandler = {
-    
     norDict: {}, //jquery-selector as key and text as data
     engDict: {},
     finDict: {},
@@ -10,7 +9,7 @@ var languageHandler = {
         for (var key in this.finDict){
             var text = this.finDict[key];
             $(key).empty().append(text);
-        }
+        };
         this.changeQuestionNumber();
         this.setFinalText();
         $("#question4 textarea").attr("placeholder", "Jos sinulla on ajatuksia harjoituksesta, ole hyvä ja kirjoita ne tähän!");
@@ -21,7 +20,7 @@ var languageHandler = {
         for (var key in this.norDict){
             var text = this.norDict[key];
             $(key).empty().append(text);
-        }
+        };
         this.changeQuestionNumber();
         this.setFinalText();
         $("#question4 textarea").attr("placeholder", "Skriv gjerne en tilbakemelding her, om du har noen tanker rundt øvingen!");
@@ -32,7 +31,7 @@ var languageHandler = {
         for (var key in this.engDict){
             var text = this.engDict[key];
             $(key).empty().append(text);
-        }
+        };
         this.changeQuestionNumber();
         this.setFinalText();
         $("#question4 textarea").attr("placeholder", "If you have some thoughts about the exercise, please write them here!");
@@ -40,12 +39,12 @@ var languageHandler = {
     
     changeQuestionNumber: function(){
       if (currentLanguage == "norwegian"){
-          $("#sidePage").empty().append("<p> Spørsmål " + currentPage + " av " + totalPages + " </p>");
+          $("#pageNumber").empty().append("<p> Spørsmål " + currentPage + " av " + totalPages + " </p>");
       } else if (currentLanguage == "british") {
-          $("#sidePage").empty().append("<p> Question " + currentPage + " of " + totalPages + " </p>");
+          $("#pageNumber").empty().append("<p> Question " + currentPage + " of " + totalPages + " </p>");
       } else{
-          $("#sidePage").empty().append("<p> Kysymys " + currentPage + " sta " + totalPages + " </p>");
-      }
+          $("#pageNumber").empty().append("<p> Kysymys " + currentPage + " sta " + totalPages + " </p>");
+      };
     },
     
     setSendError: function() {
@@ -55,7 +54,7 @@ var languageHandler = {
             $("#finalMsg").empty().append("<p>Something went wrong with the process of sending. Check your internet connection and contanct us if the problem persists. </p>");
         } else{
              $("#finalMsg").empty().append("<p>Jokin meni vikaan lähetyksen. Tarkista Internet-yhteys. Ota yhteyttä, jos ongelma ei ratkea. </p>");
-        } 
+        }; 
         $("#finalMsg p").css("color", "red");
     },
     
@@ -66,7 +65,7 @@ var languageHandler = {
             $("#finalMsg").empty().append("<p>You have already delivered an evaluation for this exercise. </p>");
         } else{
              $("#finalMsg").empty().append("<p> Olet jo antanut tätä. </p>");
-        } 
+        };
         $("#finalMsg p").css("color", "red");
     },
     
@@ -78,7 +77,7 @@ var languageHandler = {
               $("#finalMsg").empty().append("<p>Thank you!</p><p>Your answers will help a lot.</p>");
           } else {
               $("#finalMsg").empty().append("<p>Kiitos!</p><p>Vastauksesi auttavat paljon.</p>");
-          }
+          };
       } else {
          if (currentLanguage == "norwegian") {
              $("#finalMsg").empty().append("<p>Skjemaet er klart til å sendes.</p>");
@@ -86,8 +85,8 @@ var languageHandler = {
              $("#finalMsg").empty().append("<p>You may now submit your evaluation.</p>");
          } else {
             $("#finalMsg").empty().append("<p>Voit nyt lähettää arviointisi.</p>");
-         }
-      }  
+         };
+      };  
     },
         
     fillData: function(){
@@ -179,8 +178,6 @@ var languageHandler = {
         "<p> Kaikki kehittäjät ovat toisen vuoden tietojenkäsittelytiede opiskelijoita: August Lund Eilertsen, Eivind Aksnes Rebnord, Simen Ullern ja Peter Salvesen.</p>"+
         "<p> AKaikki EasEvalin lähdekoodit ovat avoimesti saatavilla <a href='https://www.github.com/EasEval' target='_blank'>Github</a>.</p>"+
         "<p> Jos sinulla on kysyttävää, ota meihin yhteyttä osoitteessa <i> petersal (at) stud.ntnu.no </i>! </p>";
-        
-
     }
  
 };
