@@ -128,5 +128,11 @@ $RECYCLE.BIN/
 .idea/**/sqlDataSources.xml
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
+.idea/EasEval-web.iml
+.idea\jsLibraryMappings.xml
+.idea\modules.xml
+.idea\vcs.xml
 
+
+*.xml
 

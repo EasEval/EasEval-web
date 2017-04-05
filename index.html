@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EasEval</title>
+    <link rel="stylesheet" href="jquery-ui.css"> <!--Modified sliders from jquery-ui library-->
+    <link rel="stylesheet" href="stilark.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <script src="bundle.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="cookieHandler.js"></script>
+    <script type="text/javascript" src="languageHandler.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        setupGraphics( )
+    </script>
+</head>
+<body>
+
+    <div id="top">
+        <img src="libs/imgs/easeval.png">
+    </div>
+
+    
+    <div id="content">
+        <div id="evaluation">
+
+            <p id="backButton"> < </p>
+            <p id="nextButton"> > </p>
+            <div id="pageNumber">
+                <p> Spørsmål 1 av 4 </p>
+            </div>
+
+            <div id="question1">
+                <div class="question"> <p>Hvor mye følte du at du lærte ved denne øvingen?</p> </div>
+                <div class="lilSpent"> <p>Svært lite</p> </div>
+                <div class="muchSpent"> <p>Svært mye</p> </div>
+                <div id="sliderRate"></div>
+            </div>
+
+            <div id="question2">
+                <div class="question"> <p>Hvordan var arbeidsmengden sammenlignet med andre øvinger?</p> </div>
+                <div class="lilSpent"> <p>Veldig liten</p> </div>
+                <div class="muchSpent"> <p>Veldig stor</p> </div>
+                <div id="sliderTime"></div>
+            </div>
+
+            <div id="question3">
+                <div class="question">
+                    <p>Hvordan vil du veie tidsforbruken av de ulike ressursene opp mot hverandre?</p>
+                </div>
+                <div class="lilSpent" id="leftDescription"> <p>Mye brukt</p> <p>Lite brukt</p> </div>
+                <span id="slider1">1</span>
+                <span id="slider2">2</span>
+                <span id="slider3">3</span>
+                <span id="slider4">4</span>
+                <span id="slider5">5</span>
+                <div class="muchSpent" id="rightDescription"> <p>Mye brukt</p> <p>Lite brukt</p> </div>
+
+                <div class="labels">
+                    <div id="lectureLabel"> <p>forelesning</p> </div>
+                    <div id="internetLabel"> <p>internet</p> </div>
+                    <div id="copyLabel"> <p>kok/kopiering</p> </div>
+                    <div id="textbookLabel"> <p>pensumbøker</p> </div>
+                    <div id="otherLabel"> <p>annet</p> </div>
+                </div>
+                
+                <div class="icons">
+                    <img src="libs/imgs/forelesning.png" id="lectureIcon">
+                    <img src="libs/imgs/internet.png" id="internetIcon">
+                    <img src="libs/imgs/kok.png" id="copyIcon">
+                    <img src="libs/imgs/pensum.png" id="textbookIcon">
+                    <img src="libs/imgs/annet.png" id="otherIcon">
+                </div>
+            </div>
+
+            <div id="question4">
+                <div class="question"> <p id="finalMsg">Skjemaet er klart til å sendes.</p> </div>
+                <div id="sendButton"> <p>Send</p> </div>
+                <div id="textinput">
+                    <textarea maxlength="400" placeholder="Skriv gjerne en tilbakemelding her, om du har noen ekstra tanker rundt øvingen!" id="feedback"></textarea>
+                </div>
+                <div id="professor"> <img src="libs/imgs/easevalProfessor.png"> </div>
+            </div>
+
+        </div>
+
+        <div id="information">
+            <p>EasEval er en applikasjon der du som student skal gi tilbakemelding på øvingene dine. Målet er å synliggjøre studentenes læringsprossess og at fagansvarlige skal få representativ feedback fra alle som gjennomgår øvingsopplegget. Din ærlige tilbakemelding er viktig. </p>
+            <p> Naviger deg gjennom de fire sidene og trykk send når du er ferdig. Tips: Du kan raskt navigere deg frem og tilbake med venstre og høyre piltast! </p>
+            <p> Du er helt anonym i alle evalueringene dine. Denne nettsiden bruker cookies, men dette er kun for å hindre at du svarer på samme skjema flere ganger. </p>
+            <p> På spørsmål der det er flere slidere (spm. 3), vil resultatene bli kalkulert relativt til hverandre. Hvis du for eksempel gir full score til alle 5 slidere, vil hver av dem få en prosentvis tildeling på 20%. </p>
+            <p> Vi ønsker ikke at det å svare på skjemaet skal være en tidkrevende og smertefull rutine for deg. Dersom du har noen tilbakemeldinger på hvordan vi kan forbedre brukeropplevelsen, kontakt oss på <i> petersal (at) stud.ntnu.no </i>! </p>
+        </div>
+
+        <div id="about">
+            <p>EasEval er utviklet som del av et skoleprosjekt i faget Programvareutviling TDT4140 på NTNU. Tema for dette året er å lage en bot som bidrar til å løse problemer med utdanningen på universitetet. Vår bot genererer nyttig og visuelt appellerende statistikk basert på studenters tilbakemelding etter hver øving.</p> 
+            <p> Statistikken finner du i en app på iOS under navn "[insert name]". Den er i utgangspunktet tiltenkt for fagstaben. </p>
+            <p> Utviklerne går alle i 2. klasse datateknologi: August Lund Eilertsen, Eivind Aksnes Rebnord, Simen Ullern og Peter Salvesen.</p>
+            <p> All kildekode for EasEval ligger fritt ute på <a href="https://www.github.com/EasEval" target="_blank">Github</a>.</p>
+            <p> Kontakt oss på<i> petersal (at) stud.ntnu.no </i>hvis du lurer på noe! </p>
+        </div>
+    </div>
+
+
+    <div id="bottom">
+        <div id="bottomBars">
+            <div class="bottomButton" id="evaluationButton"> <p> Evaluering </p> </div>
+            <div class="bottomButton" id="informationButton"> <p> Informasjon</p> </div>
+            <div class="bottomButton" id="aboutButton"> <p>Om oss</p> </div>
+            <div class="bottomFlag" id="norway"><img src="libs/imgs/norge.png"></div>
+            <div class="bottomFlag" id="british"><img src="libs/imgs/british.png"></div>
+            <div class="bottomFlag" id="finland"><img src="libs/imgs/finland.png"></div>
+        </div>
+    </div>
+
+</body>
+</html>
