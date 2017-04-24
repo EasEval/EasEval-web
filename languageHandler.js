@@ -115,7 +115,7 @@ var languageHandler = {
         "<p> På spørsmål der det er flere slidere (spm. 3), vil resultatene bli kalkulert relativt til hverandre. Hvis du for eksempel gir full score til alle 5 slidere, vil hver av dem få en prosentvis tildeling på 20%. </p>"+
         "<p> Vi ønsker ikke at det å svare på skjemaet skal være en tidkrevende og smertefull rutine for deg. Dersom du har noen tilbakemeldinger på hvordan vi kan forbedre brukeropplevelsen, kontakt oss på <i> petersal (at) stud.ntnu.no </i>! </p>"
         this.norDict["#about"]="<p>EasEval er utviklet som del av et skoleprosjekt i faget Programvareutviling på NTNU. Tema for dette året er å lage en bot som bidrar til å løse problemer med utdanningen på universitetet. Vår bot genererer nyttig og visuelt appellerende statistikk basert på studenters tilbakemelding etter hver øving.</p>"+
-        "<p> Statistikken finner du i en app på iOS under navn 'NAVN'. Den er i utgangspunktet tiltenkt for fagstaben. </p>"+
+        "<p> Statistikken finner du i en app på iOS under navnet EasEval. Den er i utgangspunktet tiltenkt for fagstaben. </p>"+
         "<p> Utviklerne går alle i 2. klasse datateknologi: August Lund Eilertsen, Eivind Aksnes Rebnord, Simen Ullern og Peter Salvesen.</p>"+
         "<p> All kildekode for EasEval ligger fritt ute på <a href='https://www.github.com/EasEval' target='_blank'>Github</a>.</p>"+
         "<p> Kontakt oss på<i> petersal (at) stud.ntnu.no </i>hvis du lurer på noe! </p>";
@@ -145,7 +145,7 @@ var languageHandler = {
         "<p> On questions where there are multiple sliders (question 3), the result will be calculated relatively to the other sliders. If you for example give full score to all 5 sliders, each of them will get a percentage-based amount of 20%. </p>"+
         "<p> We do not wish that filling out this form becomes a painful routine for you. If you have feedback on how we can improve, do not hesitate to contact us at <i> petersal (at) stud.ntnu.no </i>! </p>"
         this.engDict["#about"]="<p>EasEval has been developed as a part of a school project in Software Engineering at NTNU, Trondheim. This years theme is to make a bot that seeks to enchance the learning experience at universities. Our bot generates useful and appealing statistics based on the students feedback after each exercise.</p>"+
-        "<p> The statistics is available in an app on iOS under the name NAME. It is intended mainly for the teaching staff. </p>"+
+        "<p> The statistics is available in an app on iOS under the name EasEval. It is intended mainly for the teaching staff. </p>"+
         "<p> The developers are all second year computer science students: August Lund Eilertsen, Eivind Aksnes Rebnord, Simen Ullern and Peter Salvesen.</p>"+
         "<p> All source code for EasEval is openly available at <a href='https://www.github.com/EasEval' target='_blank'>Github</a>.</p>"+
         "<p> Contact us at <i> petersal (at) stud.ntnu.no </i>if you have any questions! </p>";
@@ -174,7 +174,7 @@ var languageHandler = {
         "<p> Kysymyksissä, joissa on useita liukusäätimiä (kysymys 3), tulos lasketaan suhteessa muihin liukusäätimiin. Jos esimerkiksi annat kaikille viidelle liukusäätimelle täydet pisteet, jokainen niistä saa prosentteihin perustuvan määrän 20%. </p>"+
         "<p> Emme tahdo, että tämän lomakkeen täyttämisestä tulee sinulle tuskallinen rutiini. Jos haluat antaa palautetta siitä, mitä voisimme tehdä paremmin, älä epäröi ottaa yhteyttä meihin osoitteessa <i> petersal (at) stud.ntnu.no </i>! </p>"
         this.finDict["#about"]="<p>EasEval on kehitetty osana ohjelmistokehityksen opiskeluprojektia Norjan teknis- luonnontieteellisessä yliopistossa, NTNU:ssa, Trondheimissa. Tämän vuoden teemana on tehdä botti, jonka tarkoituksena on parantaa oppimiskokemusta yliopistoissa. Meidän bottimme luo hyödyllisiä ja vetoavia tilastoja, jotka perustuvat oppilaiden jokaisen harjoituksen jälkeen antamaan palautteeseen. </p>"+
-        "<p> Tilastot ovat saatavilla ”INSERT NAME”-nimisessä sovelluksessa iOS-käyttöjärjestelmällä. Se on tarkoitettu pääasiassa opetushenkilökunnalle. </p>"+
+        "<p> Tilastot ovat saatavilla EasEval-nimisessä sovelluksessa iOS-käyttöjärjestelmällä. Se on tarkoitettu pääasiassa opetushenkilökunnalle. </p>"+
         "<p> Kaikki kehittäjät ovat toisen vuoden tietojenkäsittelytiede opiskelijoita: August Lund Eilertsen, Eivind Aksnes Rebnord, Simen Ullern ja Peter Salvesen.</p>"+
         "<p> AKaikki EasEvalin lähdekoodit ovat avoimesti saatavilla <a href='https://www.github.com/EasEval' target='_blank'>Github</a>.</p>"+
         "<p> Jos sinulla on kysyttävää, ota meihin yhteyttä osoitteessa <i> petersal (at) stud.ntnu.no </i>! </p>";

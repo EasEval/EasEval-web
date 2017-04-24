@@ -158,6 +158,15 @@ QUnit.test("Change tabs", function (assert){
     assert.equal($("#informationButton").css("opacity") , 1, "Current tab is enabled with CSS styling");
     assert.equal($("#evlaluation").is(":visible"),false, "old content is hidden");
     
+    $("#aboutButton").trigger("click");
+    assert.equal($("#evlaluation").is(":visible"),false, "old content is still hidden");
+    assert.equal($("#evaluationButton").css("opacity") , 0.5, "Disable other tab.");
+    
+     assert.equal($("#aboutButton").css("opacity") , 1, "correct tab got active."); 
+    
+    $("#evaluationButton").trigger("click");
+    assert.equal($("#evaluationButton").css("opacity") , 1, "Correct tab active.");
 });
+
 
 
