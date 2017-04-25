@@ -20,7 +20,7 @@ function submitRecord (data) {
         //Processing of url when running from folk.ntnu
         var len = record[0].length;
         var subjectName = record[0].substring(0, len - 2);
-        var exerciseName = "Exercise " + record[0].substring(len - 2, len);
+        var exerciseName = "E" + record[0].substring(len - 2, len);
 
         var subjectPointer = pointers[0];
         var evaluation = new exercise();
