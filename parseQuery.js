@@ -2,7 +2,7 @@
 var Parse = require('parse/node').Parse;
 Parse.initialize("asddfkjhg4ey123478wss234q2388dhakjhdgrudb"); Parse.serverURL = 'https://easeval.herokuApp.com/parse';
 
-function submitRecord (data) {
+window.submitRecord = function (data) {
     //Instantiating tables where the data is to be put and queried for
     var exercise = Parse.Object.extend("Exercises");
     var fag = Parse.Object.extend("Subjects");
